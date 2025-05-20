@@ -80,7 +80,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <div className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-white py-24 sm:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -165,7 +165,7 @@ export default function WhoWeAre() {
       />
       
       {/* Impact Stats */}
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-gradient-to-b from-white to-gray-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Our Impact</h2>
@@ -212,27 +212,48 @@ export default function WhoWeAre() {
       <LogoCarousel />
 
       {/* Features Grid */}
-      <div className="mx-auto mt-16 mb-24 max-w-7xl px-6 sm:mt-20 lg:px-8">
-        <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          {features.map((feature) => (
-            <motion.div
-              key={feature.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col bg-white p-8 shadow-lg ring-1 ring-gray-200 rounded-2xl"
-            >
-              <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                <feature.icon className="h-5 w-5 flex-none text-primary-600" aria-hidden="true" />
-                {feature.name}
-              </dt>
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                <p className="flex-auto">{feature.description}</p>
-              </dd>
-            </motion.div>
-          ))}
-        </dl>
+      <div className="py-24 bg-gradient-to-b from-white to-gray-900">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Our Core Pillars
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Building a stronger Chatham-Kent through innovation, collaboration, and community focus.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl bg-transparent p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 backdrop-blur-sm"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary-200/20 to-primary-400/20 opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"></div>
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white shadow-sm ring-1 ring-white/20">
+                      <feature.icon className="h-6 w-6" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{feature.name}</h3>
+                  </div>
+                  <p className="text-gray-200 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  <div className="mt-6 flex items-center text-sm font-medium text-white/80 group-hover:text-white transition-colors">
+                    <span>Learn more</span>
+                    <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Success Stories Carousel */}
@@ -240,12 +261,12 @@ export default function WhoWeAre() {
 
       {/* CTA Section */}
       <EngagementCTA 
-        title="Ready to Start Your Business Journey?"
-        subtitle="Join the community of successful entrepreneurs we've helped in Chatham-Kent."
+        title="Join Our Community"
+        subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
         primaryButtonText="Get Started"
-        secondaryButtonText="Learn More"
-        onPrimaryClick={() => navigate('/about/contact')}
-        onSecondaryClick={() => navigate('/resources')}
+        secondaryButtonText="Contact Us"
+        onPrimaryClick={() => navigate('/start-business')}
+        onSecondaryClick={() => navigate('/about/contact')}
       />
     </div>
   );

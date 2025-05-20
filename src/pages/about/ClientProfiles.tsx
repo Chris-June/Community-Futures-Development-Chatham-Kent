@@ -16,7 +16,7 @@ const MetaInfo = ({ icon: Icon, text }: { icon: LucideIcon; text: string }) => (
 export default function ClientProfiles() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white">
       <ParallaxHero
         title="Success Stories"
         description="Meet some of the local entrepreneurs who have partnered with us to achieve their business goals. These success stories showcase the diverse range of businesses we've helped grow in Chatham-Kent."
@@ -25,7 +25,7 @@ export default function ClientProfiles() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none">
           {clientProfiles.map((profile) => (
             <article key={profile.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
-              <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+              <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0 lg:ml-8">
                 <img
                   src={profile.image}
                   alt={profile.businessName}
