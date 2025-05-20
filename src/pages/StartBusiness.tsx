@@ -43,13 +43,14 @@ export default function StartBusiness() {
       </ParallaxHero>
 
       {/* Quick Tips Section */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+      <div className="bg-gradient-to-b from-white to-gray-900 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-primary-600">Quick Tips</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Things to Know Before Starting
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-gray-700">
             Essential insights to help you start your business journey on the right foot.
           </p>
         </div>
@@ -64,27 +65,28 @@ export default function StartBusiness() {
                 transition={{ duration: 0.5 }}
                 className="flex flex-col"
               >
-                <dt className="text-base font-semibold leading-7 text-gray-900">
+                <dt className="text-base font-semibold leading-7 text-gray-100">
                   <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
                     {getIcon(tip.icon)}
                   </div>
                   {tip.title}
                 </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
                   <p className="flex-auto">{tip.description}</p>
                 </dd>
               </motion.div>
             ))}
           </dl>
         </div>
+        </div>
       </div>
 
       {/* Steps Section */}
-      <div className="bg-gray-900 py-24 sm:py-32">
+      <div className="bg-gradient-to-b from-gray-900 to-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-primary-400">The Process</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
               How We Help You Succeed
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -112,15 +114,15 @@ export default function StartBusiness() {
                   </div>
                   <div className="max-w-xl">
                     <div className="mt-8 flex items-center gap-x-4 text-xs">
-                      <span className="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-1 text-xs font-medium text-primary-700">
+                      <span className="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-1 text-xs font-medium text-primary-600">
                         Step {step.id}
                       </span>
                     </div>
                     <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-800 group-hover:text-gray-800">
                         {step.title}
                       </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">{step.description}</p>
+                      <p className="mt-5 text-sm leading-6 text-gray-800">{step.description}</p>
                     </div>
                   </div>
                 </motion.article>
@@ -131,14 +133,16 @@ export default function StartBusiness() {
       </div>
 
       {/* CTA Section */}
-      <EngagementCTA 
+      <div className="bg-gradient-to-b from-white to-gray-900">
+        <EngagementCTA 
         title="Ready to Start Your Business?"
         subtitle="Book a free consultation with our business advisors and take the first step towards entrepreneurship."
         primaryButtonText="Get Started"
         secondaryButtonText="Learn More"
         onPrimaryClick={() => navigate('/about/contact')}
-        onSecondaryClick={() => navigate('/resources')}
-      />
+          onSecondaryClick={() => navigate('/resources')}
+        />
+      </div>
     </div>
   );
 }
