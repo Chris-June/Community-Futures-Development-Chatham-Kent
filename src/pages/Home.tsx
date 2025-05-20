@@ -52,17 +52,17 @@ export default function Home() {
       </ParallaxHero>
       
       {/* Impact Stats */}
-      <div className="w-full bg-white py-12">
-        <div className="w-full">
-          <div className="text-center px-4">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <div className="w-full py-12 bg-gradient-to-b from-gray-900 to-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Impact at a Glance
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-300">
               Making a real difference in our community through business support and development.
             </p>
           </div>
-          <dl className="mt-8 grid grid-cols-1 gap-0.5 sm:grid-cols-3 w-full">
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -70,15 +70,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="flex flex-col bg-gray-400/5 p-8 w-full"
+                className="relative rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5"
               >
-                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                <dt className="text-sm font-semibold leading-6 text-gray-700">
                   <div className="mb-4 flex justify-center">
-                    <stat.icon className="h-6 w-6 text-primary-600" />
+                    <span className="inline-flex rounded-xl bg-white/50 p-3 text-blue-800 ring-4 ring-white/50">
+                      <stat.icon className="h-6 w-6" />
+                    </span>
                   </div>
                   {stat.label}
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 mt-2">
                   <AnimatedCounter
                     end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
                     suffix={stat.value.includes('+') ? '+' : ''}
@@ -88,7 +90,7 @@ export default function Home() {
                 <dd className="mt-2 text-sm text-gray-600">{stat.description}</dd>
               </motion.div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
 

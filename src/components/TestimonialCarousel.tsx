@@ -5,23 +5,23 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Miller",
-    business: "Sarah's Bakery",
-    quote: "CFDC helped me turn my passion for baking into a thriving downtown business. Their guidance was invaluable.",
+    name: "Name",
+    business: "Padget Accounting",
+    quote: "CFDC helped me turn my passion for accounting into a thriving business. Their guidance was invaluable.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 2,
-    name: "James Wilson",
-    business: "TechGrow Solutions",
-    quote: "The support from CFDC was instrumental in bringing our agricultural technology to market.",
+    name: "Name",
+    business: "Smith Cycles",
+    quote: "Community Futures Development Corporation helped me turn my passion for bicycles into a thriving business. Their guidance was invaluable.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 3,
-    name: "Maria Rodriguez",
-    business: "Green Earth Landscaping",
-    quote: "CFDC believed in our vision for sustainable landscaping and helped us scale our operations.",
+    name: "Name",
+    business: "Quo Vadis Pizza",
+    quote: "Community Futures Development Corporation helped me turn my passion for pizza into a thriving business. Their guidance was invaluable.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
   }
 ];
@@ -57,7 +57,7 @@ export default function TestimonialCarousel() {
   };
 
   return (
-    <div className="bg-gray-900 py-24 sm:py-32">
+    <div className="bg-gradient-to-b from-gray-900 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-primary-400">Testimonials</h2>
@@ -95,10 +95,10 @@ export default function TestimonialCarousel() {
                   "{testimonials[currentIndex].quote}"
                 </p>
                 <div className="mt-10">
-                  <div className="text-base font-semibold text-white">
+                  <div className="text-lg font-semibold text-white">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-sm leading-6 text-gray-300">
+                  <div className="text-lg leading-8 text-gray-500">
                     {testimonials[currentIndex].business}
                   </div>
                 </div>

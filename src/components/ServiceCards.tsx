@@ -37,7 +37,7 @@ export default function ServiceCards() {
   };
 
   return (
-    <div className="bg-gray-50 py-12 sm:py-16">
+    <div className="bg-gradient-to-b from-white to-gray-900 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -51,10 +51,10 @@ export default function ServiceCards() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative group rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-200"
+              className="relative group rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5"
             >
               <div>
-                <span className="inline-flex rounded-lg bg-blue-50 p-3 text-blue-700 ring-4 ring-white">
+                <span className="inline-flex rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 p-3 text-blue-800 ring-4 ring-white/50">
                   {getIcon(service.icon)}
                 </span>
               </div>
