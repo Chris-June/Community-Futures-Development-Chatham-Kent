@@ -187,19 +187,19 @@ export default function WhoWeAre() {
                   transition={{ duration: 0.5 }}
                   className="flex flex-col items-center text-center"
                 >
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    <stat.icon className="h-8 w-8 flex-none text-primary-600" aria-hidden="true" />
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
+                    <stat.icon className="h-8 w-8 flex-none text-white" aria-hidden="true" />
                     {stat.label}
                   </dt>
                   <dd className="mt-4">
-                    <p className="text-5xl font-semibold tracking-tight text-primary-600">
+                    <p className="text-5xl font-semibold tracking-tight text-white">
                       <AnimatedCounter
                         end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
                         suffix={stat.value.includes('+') ? '+' : ''}
                         prefix={stat.value.includes('$') ? '$' : ''}
                       />
                     </p>
-                    <p className="mt-2 text-base leading-7 text-gray-600">{stat.description}</p>
+                    <p className="mt-4 text-base leading-7 text-white">{stat.description}</p>
                   </dd>
                 </motion.div>
               ))}
