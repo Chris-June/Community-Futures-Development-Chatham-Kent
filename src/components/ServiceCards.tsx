@@ -51,26 +51,26 @@ export default function ServiceCards() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative group rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5"
+              className="relative group rounded-xl border-2 border-white/30 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 bg-white/5 backdrop-blur-sm"
             >
               <div>
-                <span className="inline-flex rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 p-3 text-blue-800 ring-4 ring-white/50">
+                <span className="inline-flex rounded-xl bg-white/10 p-3 text-white ring-4 ring-white/20">
                   {getIcon(service.icon)}
                 </span>
               </div>
               <div className="mt-8">
-                <h3 className="text-lg font-medium text-gray-900">
+                <h3 className="text-lg font-medium text-white">
                   <a href={service.link} className="focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />
                     {service.title}
                   </a>
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-200">
                   {service.description}
                 </p>
               </div>
               <span
-                className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+                className="pointer-events-none absolute top-6 right-6 text-white/50 group-hover:text-white/70"
                 aria-hidden="true"
               >
                 <svg

@@ -70,24 +70,24 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5"
+                className="relative rounded-xl border-2 border-white/30 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 bg-transparent"
               >
-                <dt className="text-sm font-semibold leading-6 text-gray-700">
+                <dt className="text-sm font-semibold leading-6 text-white">
                   <div className="mb-4 flex justify-center">
-                    <span className="inline-flex rounded-xl bg-white/50 p-3 text-blue-800 ring-4 ring-white/50">
+                    <span className="inline-flex rounded-xl bg-white/20 p-3 text-white ring-4 ring-white/20">
                       <stat.icon className="h-6 w-6" />
                     </span>
                   </div>
                   {stat.label}
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 mt-2">
+                <dd className="order-first text-3xl font-semibold tracking-tight text-white mt-2">
                   <AnimatedCounter
                     end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
                     suffix={stat.value.includes('+') ? '+' : ''}
                     prefix={stat.value.includes('$') ? '$' : ''}
                   />
                 </dd>
-                <dd className="mt-2 text-sm text-gray-600">{stat.description}</dd>
+                <dd className="mt-2 text-sm text-gray-500">{stat.description}</dd>
               </motion.div>
             ))}
           </div>

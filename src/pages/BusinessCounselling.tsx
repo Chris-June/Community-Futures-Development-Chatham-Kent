@@ -64,10 +64,10 @@ export default function BusinessCounselling() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col bg-white/10 backdrop-blur-sm p-8 shadow-lg ring-1 ring-white/20 rounded-2xl hover:bg-white/20 transition-colors duration-200"
+                className="flex flex-col bg-transparent p-8 shadow-lg ring-1 ring-white/20 rounded-2xl hover:ring-white/40 transition-all duration-200"
               >
-                <dt className="text-base font-semibold leading-7 text-white">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500">
+                <dt className="text-xl font-semibold leading-8 text-white">
+                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20">
                     {getIcon(service.icon)}
                   </div>
                   {service.title}
@@ -79,7 +79,7 @@ export default function BusinessCounselling() {
                       {service.benefits.map((benefit, index) => (
                         <li key={index} className="flex gap-x-3">
                           <CheckCircle2 className="h-6 w-5 flex-none text-primary-400" aria-hidden="true" />
-                          <span className="text-sm leading-6 text-gray-100">{benefit}</span>
+                          <span className="text-sm leading-6 text-gray-200">{benefit}</span>
                         </li>
                       ))}
                     </ul>
