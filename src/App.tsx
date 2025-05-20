@@ -1,5 +1,5 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import MainLayout from './components/layouts/MainLayout';
 import Home from './pages/Home';
 import StartBusiness from './pages/StartBusiness';
@@ -11,10 +11,15 @@ import Board from './pages/about/Board';
 import ClientProfiles from './pages/about/ClientProfiles';
 import Partners from './pages/about/Partners';
 import Contact from './pages/about/Contact';
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import TermsOfUse from './pages/legal/TermsOfUse';
+import Accessibility from './pages/legal/Accessibility';
+import Disclaimer from './pages/legal/Disclaimer';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -27,6 +32,11 @@ function App() {
           <Route path="/about/client-profiles" element={<ClientProfiles />} />
           <Route path="/about/partners" element={<Partners />} />
           <Route path="/about/contact" element={<Contact />} />
+          {/* Legal Pages */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
       </MainLayout>
     </Router>

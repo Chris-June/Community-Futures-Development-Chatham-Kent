@@ -1,9 +1,10 @@
-import React from 'react';
 import { useState } from 'react';
 import { Linkedin, Mail, Twitter } from 'lucide-react';
 import { boardMembers } from '../../data/boardMembers';
 import BoardMemberModal from '../../components/modals/BoardMemberModal';
 import ParallaxHero from '../../components/ParallaxHero';
+import { useNavigate } from 'react-router-dom';
+import EngagementCTA from '../../components/EngagementCTA';
 import { BoardMember } from '../../types';
 
 const SocialIcon = ({ type }: { type: string }) => {
@@ -21,8 +22,10 @@ const SocialIcon = ({ type }: { type: string }) => {
 
 export default function Board() {
   const [selectedMember, setSelectedMember] = useState<BoardMember | null>(null);
+  const navigate = useNavigate();
 
   return (
+    
     <div className="bg-white py-24 sm:py-32">
       <ParallaxHero
         title="Board of Directors"
@@ -76,6 +79,15 @@ export default function Board() {
             onClose={() => setSelectedMember(null)}
           />
         )}
+        
+        <EngagementCTA 
+          title="Interested in Joining Our Board?"
+          subtitle="We're always looking for passionate community leaders to join our board of directors."
+          primaryButtonText="Learn More"
+          secondaryButtonText="Contact Us"
+          onPrimaryClick={() => navigate('/about/board#join')}
+          onSecondaryClick={() => navigate('/about/contact')}
+        />
       </div>
   );
 }

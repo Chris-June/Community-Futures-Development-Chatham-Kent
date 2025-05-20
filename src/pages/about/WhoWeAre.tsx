@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket, Globe, Heart } from 'lucide-react';
+import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket } from 'lucide-react';
 import ParallaxHero from '../../components/ParallaxHero';
 import { successStories } from '../../data/successStories';
 import AnimatedCounter from '../../components/AnimatedCounter';
 import LogoCarousel from '../../components/LogoCarousel';
+import EngagementCTA from '../../components/EngagementCTA';
 
 const features = [
   {
@@ -55,14 +57,11 @@ const Carousel = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlaying) {
-      interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === successStories.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 5000);
-    }
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === successStories.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
@@ -155,6 +154,7 @@ const Carousel = () => {
 };
 
 export default function WhoWeAre() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -239,32 +239,14 @@ export default function WhoWeAre() {
       <Carousel />
 
       {/* CTA Section */}
-      <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-        <div className="relative isolate overflow-hidden bg-primary-700 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-          <div className="absolute inset-0 -z-10" aria-hidden="true">
-            <div
-              className="absolute inset-0 bg-gradient-to-tr from-[#ff80b5] via-[#9089fc] to-[#80b5ff] opacity-30 blur-3xl"
-            />
-          </div>
-          <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Ready to Start Your Business Journey?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-            Join the community of successful entrepreneurs we've helped in Chatham-Kent.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="/about/contact"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Get Started
-            </a>
-            <a href="/resources" className="text-sm font-semibold leading-6 text-white">
-              Learn More <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <EngagementCTA 
+        title="Ready to Start Your Business Journey?"
+        subtitle="Join the community of successful entrepreneurs we've helped in Chatham-Kent."
+        primaryButtonText="Get Started"
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => navigate('/about/contact')}
+        onSecondaryClick={() => navigate('/resources')}
+      />
     </div>
   );
 }

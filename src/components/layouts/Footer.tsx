@@ -31,7 +31,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <div className="text-2xl font-display font-bold text-white">CFDC</div>
+            <div className="flex flex-col space-y-4">
+            <img 
+              className="h-12 w-auto" 
+              src="/assets/images/CFDC-logo.png" 
+              alt="Community Futures Chatham-Kent"
+            />
+          </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin className="h-5 w-5" />
@@ -79,9 +85,25 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-400">
-            &copy; {new Date().getFullYear()} Community Futures Development Corporation of Chatham-Kent. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center space-y-4">
+            <img 
+              className="h-12 w-auto" 
+              src="/assets/images/GovCanada.png" 
+              alt="Government of Canada"
+            />
+            <p className="text-xs leading-5 text-gray-400 text-center">
+              &copy; {new Date().getFullYear()} Community Futures Development Corporation of Chatham-Kent. All rights reserved.
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-500">
+              <Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
+              <span>•</span>
+              <Link to="/terms-of-use" className="hover:text-gray-300">Terms of Use</Link>
+              <span>•</span>
+              <Link to="/accessibility" className="hover:text-gray-300">Accessibility</Link>
+              <span>•</span>
+              <Link to="/disclaimer" className="hover:text-gray-300">Disclaimer</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,8 +1,9 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ServiceCards from '../components/ServiceCards';
 import ParallaxHero from '../components/ParallaxHero';
 import TestimonialCarousel from '../components/TestimonialCarousel';
-import NewsletterSignup from '../components/NewsletterSignup';
+// import NewsletterSignup from '../components/NewsletterSignup'; to be implemented in future
+import EngagementCTA from '../components/EngagementCTA';
 import { motion } from 'framer-motion';
 import { Building2, Users, LineChart } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -29,8 +30,9 @@ const stats = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <motion.div className="w-full">
       <ParallaxHero
         title="Empowering Business Growth in Chatham-Kent"
         description="Supporting local entrepreneurs with business loans, expert counselling, and resources to help your business thrive in our community."
@@ -50,45 +52,43 @@ export default function Home() {
       </ParallaxHero>
       
       {/* Impact Stats */}
-      <div className="relative bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:max-w-none">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Impact at a Glance
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-gray-600">
-                Making a real difference in our community through business support and development.
-              </p>
-            </div>
-            <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="flex flex-col bg-gray-400/5 p-8"
-                >
-                  <dt className="text-sm font-semibold leading-6 text-gray-600">
-                    <div className="mb-4 flex justify-center">
-                      <stat.icon className="h-6 w-6 text-primary-600" />
-                    </div>
-                    {stat.label}
-                  </dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                    <AnimatedCounter
-                      end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
-                      suffix={stat.value.includes('+') ? '+' : ''}
-                      prefix={stat.value.includes('$') ? '$' : ''}
-                    />
-                  </dd>
-                  <dd className="mt-2 text-sm text-gray-600">{stat.description}</dd>
-                </motion.div>
-              ))}
-            </dl>
+      <div className="w-full bg-white py-12">
+        <div className="w-full">
+          <div className="text-center px-4">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Impact at a Glance
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Making a real difference in our community through business support and development.
+            </p>
           </div>
+          <dl className="mt-8 grid grid-cols-1 gap-0.5 sm:grid-cols-3 w-full">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="flex flex-col bg-gray-400/5 p-8 w-full"
+              >
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  <div className="mb-4 flex justify-center">
+                    <stat.icon className="h-6 w-6 text-primary-600" />
+                  </div>
+                  {stat.label}
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <AnimatedCounter
+                    end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
+                    suffix={stat.value.includes('+') ? '+' : ''}
+                    prefix={stat.value.includes('$') ? '$' : ''}
+                  />
+                </dd>
+                <dd className="mt-2 text-sm text-gray-600">{stat.description}</dd>
+              </motion.div>
+            ))}
+          </dl>
         </div>
       </div>
 
@@ -96,17 +96,38 @@ export default function Home() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
+        transition={{ duration: 0.5 }}>
         <ServiceCards />
       </motion.div>
 
-      <TestimonialCarousel />
-      
-      <NewsletterSignup
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}>
+        <TestimonialCarousel />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}>
+        <EngagementCTA 
+          title="Business Support for Chatham-Kent"
+          subtitle="The next Chatham-Kent success story starts with your idea."
+          primaryButtonText="Get Started"
+          secondaryButtonText="Learn More"
+          onPrimaryClick={() => navigate('/start-business')}
+          onSecondaryClick={() => navigate('/about/contact')}
+        />
+      </motion.div>
+
+      {/* Newsletter Signup for future implementation*/}
+      {/* <NewsletterSignup 
         title="Stay Connected"
         description="Sign up for updates on business resources, funding opportunities, and events."
-      />
-    </div>
+      /> */}
+    </motion.div>
   );
 }

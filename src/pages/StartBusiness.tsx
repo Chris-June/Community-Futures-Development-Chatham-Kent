@@ -1,14 +1,15 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, FileText, Wallet, Scale, ArrowRight } from 'lucide-react';
+import { Search, FileText, Wallet, Scale } from 'lucide-react';
 import ParallaxHero from '../components/ParallaxHero';
 import { quickTips, startupSteps } from '../data/businessTips';
+import { useNavigate } from 'react-router-dom';
+import EngagementCTA from '../components/EngagementCTA';
 
 const getIcon = (iconName: string) => {
   switch (iconName) {
     case 'Search':
       return <Search className="h-6 w-6" />;
-    case 'FileText':
+    case 'FileText':  
       return <FileText className="h-6 w-6" />;
     case 'Wallet':
       return <Wallet className="h-6 w-6" />;
@@ -20,6 +21,7 @@ const getIcon = (iconName: string) => {
 };
 
 export default function StartBusiness() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
       <ParallaxHero
@@ -129,35 +131,14 @@ export default function StartBusiness() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-primary-700 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-            <div className="absolute inset-0 -z-10" aria-hidden="true">
-              <div
-                className="absolute inset-0 bg-gradient-to-tr from-[#9089fc] via-[#ff80b5] to-[#89fc90] opacity-30 blur-3xl"
-              />
-            </div>
-            <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to Start Your Business?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Book a free consultation with our business advisors and take the first step towards entrepreneurship.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/about/contact"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
-              </a>
-              <a href="/resources" className="text-sm font-semibold leading-6 text-white">
-                Learn More <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <EngagementCTA 
+        title="Ready to Start Your Business?"
+        subtitle="Book a free consultation with our business advisors and take the first step towards entrepreneurship."
+        primaryButtonText="Get Started"
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => navigate('/about/contact')}
+        onSecondaryClick={() => navigate('/resources')}
+      />
     </div>
   );
 }

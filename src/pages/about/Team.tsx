@@ -1,9 +1,10 @@
-import React from 'react';
-import { Mail, Users2, Briefcase, Heart, Globe } from 'lucide-react';
+import { Users2, Briefcase, Heart, Globe, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import ParallaxHero from '../../components/ParallaxHero';
 import AnimatedCounter from '../../components/AnimatedCounter';
+import EngagementCTA from '../../components/EngagementCTA';
 import { staffMembers } from '../../data/staffMembers';
-import { motion } from 'framer-motion';
 
 const StatsSection = () => (
   <div className="mx-auto mt-8 max-w-7xl px-6 sm:mt-16 lg:px-8">
@@ -47,6 +48,7 @@ const StatsSection = () => (
 );
 
 export default function Team() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white py-24 sm:py-32">
       <ParallaxHero
@@ -129,6 +131,15 @@ export default function Team() {
           ))}
         </div>
       </div>
+      
+      <EngagementCTA 
+        title="Ready to Meet Our Team?"
+        subtitle="Schedule a consultation with one of our business advisors and discover how we can help your business thrive."
+        primaryButtonText="Book a Consultation"
+        secondaryButtonText="Contact Us"
+        onPrimaryClick={() => navigate('/about/contact?type=consultation')}
+        onSecondaryClick={() => navigate('/about/contact')}
+      />
     </div>
   );
 }

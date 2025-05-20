@@ -1,10 +1,10 @@
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import { NavItem } from '../../types';
 import { useNavStore } from '../../store/navStore';
-import { Home, Rocket, BookOpen, Users, FileText, Building2 } from 'lucide-react';
+import { Home, Rocket, BookOpen, Users, FileText } from 'lucide-react';
 
 const navigation: NavItem[] = [
   { name: 'Home', href: '/',
@@ -62,10 +62,40 @@ const DropdownMenu = ({ items, isOpen }: { items: NavItem[]; isOpen: boolean }) 
   </AnimatePresence>
 );
 
+// Animation variants for the navbar
+const navVariants: Variants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.1
+    }
+  }
+};
+
+// Animation for nav items
+const itemVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3 }
+  },
+  hover: {
+    scale: 1.05,
+    transition: { duration: 0.2 }
+  }
+};
+
 export default function Navbar() {
   const { isOpen, setIsOpen, activeItem, setActiveItem } = useNavStore();
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const location = useLocation();
+  const controls = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,16 +106,24 @@ export default function Navbar() {
       }
     };
 
+    // Start the animation when component mounts
+    controls.start('visible');
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [controls]);
 
+  // Update active item when location changes
   useEffect(() => {
     setActiveItem(location.pathname);
   }, [location.pathname, setActiveItem]);
 
   return (
-    <header className="bg-white z-50 transition-all duration-300">
+    <motion.header
+      initial="hidden"
+      animate={controls}
+      variants={navVariants}
+      className="bg-white z-50 transition-all duration-300"
+    >
       <div className="sr-only">
         <Link to="#main-content" className="absolute left-0 p-2 bg-primary-600 text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2">
           Skip to main content
@@ -93,9 +131,13 @@ export default function Navbar() {
       </div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5 flex items-center">
             <span className="sr-only">Community Futures Chatham-Kent</span>
-            <div className="text-2xl font-display font-bold text-primary-600">CFDC</div>
+            <img 
+              className="h-12 w-auto" 
+              src="/assets/images/CFDC-logo.png" 
+              alt="Community Futures Chatham-Kent"
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -110,9 +152,17 @@ export default function Navbar() {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <div key={item.name} className="relative">
+        <div className="hidden lg:flex lg:gap-x-6">
+          {navigation.map((item, index) => (
+            <motion.div 
+              key={item.name} 
+              className="relative"
+              variants={itemVariants}
+              custom={index}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+            >
               {item.children ? (
                 <button
                   className="flex items-center gap-1 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
@@ -160,24 +210,10 @@ export default function Navbar() {
                   <DropdownMenu items={item.children} isOpen={dropdownOpen === item.name} />
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            to="/services/loans"
-            className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-          >
-            <motion.div
-              className="flex items-center gap-2"
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Building2 className="h-5 w-5" />
-              Get Started
-            </motion.div>
-          </Link>
-        </div>
+
       </nav>
       <AnimatePresence>
         {isOpen && (
@@ -263,27 +299,12 @@ export default function Navbar() {
                     </div>
                   ))}
                 </div>
-                <div className="py-6">
-                  <Link
-                    to="/services/loans"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <motion.div
-                      className="flex items-center gap-2"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <Building2 className="h-5 w-5" />
-                      Get Started
-                    </motion.div>
-                  </Link>
-                </div>
+  
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

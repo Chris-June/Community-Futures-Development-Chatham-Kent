@@ -1,14 +1,19 @@
-import React from 'react';
 import { useState } from 'react';
-import { Building2, Calendar, ChevronLeft, ChevronRight, Globe, Mail, MapPin, Phone } from 'lucide-react';
+import { Building2, ChevronLeft, ChevronRight, Globe, Mail, MapPin, Phone } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { communityPartners } from '../../data/communityPartners';
 import PartnerModal from '../../components/modals/PartnerModal';
 import ParallaxHero from '../../components/ParallaxHero';
-import { CommunityPartner } from '../../types';
+import type { CommunityPartner } from '../../types';
 
 const PARTNERS_PER_PAGE = 4;
 
-const ContactInfo = ({ icon: Icon, text }: { icon: any; text: string }) => (
+interface ContactInfoProps {
+  icon: LucideIcon;
+  text: string;
+}
+
+const ContactInfo = ({ icon: Icon, text }: ContactInfoProps) => (
   <div className="flex items-center gap-x-2 text-sm text-gray-500">
     <Icon className="h-5 w-5 flex-none text-gray-400" />
     <span>{text}</span>

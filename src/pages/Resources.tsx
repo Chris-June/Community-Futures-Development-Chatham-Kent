@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { FileText, Download, Link as LinkIcon, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FileText, Download, Link as LinkIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import ParallaxHero from '../components/ParallaxHero';
+import EngagementCTA from '../components/EngagementCTA';
 
 const resources = [
   {
@@ -31,37 +33,37 @@ const videos = [
     id: '1',
     title: 'How to Write a Business Plan',
     description: 'Step-by-step guide to creating a winning business plan',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     id: '2',
     title: 'Understanding Market Research',
     description: 'Learn the basics of market research for your business',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     id: '3',
     title: 'Financial Planning Basics',
     description: 'Essential financial planning tips for entrepreneurs',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     id: '4',
     title: 'Marketing Strategies for Small Business',
     description: 'Effective marketing tactics for local businesses',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     id: '5',
     title: 'Legal Considerations for Startups',
     description: 'Important legal aspects of starting a business',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     id: '6',
     title: 'Building a Strong Team',
     description: 'Tips for hiring and managing employees',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
 ];
 
@@ -89,6 +91,7 @@ const faqs = [
 ];
 
 export default function Resources() {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const videosPerPage = 3;
   const totalPages = Math.ceil(videos.length / videosPerPage);
@@ -136,9 +139,12 @@ export default function Resources() {
       <div className="bg-gray-900 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Video Resources</h2>
+            <div className="flex items-center gap-4">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Video Resources</h2>
+              <span className="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800">Coming Soon</span>
+            </div>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Watch our educational videos to learn more about starting and growing your business.
+              <strong>Coming Soon.</strong> We’re hard at work building even more valuable tools and video content to help you plan, launch, and grow your business. Stay tuned—more resources are on the way!
             </p>
           </div>
           
@@ -166,25 +172,27 @@ export default function Resources() {
           </div>
 
           {/* Pagination */}
-          <div className="mt-8 flex items-center justify-center gap-x-2">
-            <button
-              onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
-              disabled={currentPage === 1}
-              className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <span className="text-sm text-gray-300">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
-              disabled={currentPage === totalPages}
-              className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+          {totalPages > 1 && (
+            <div className="mt-8 flex items-center justify-center gap-x-2">
+              <button
+                onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
+                disabled={currentPage === 1}
+                className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <span className="text-sm text-gray-300">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
+                disabled={currentPage === totalPages}
+                className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -216,36 +224,14 @@ export default function Resources() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-primary-700 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-            <div className="absolute inset-0 -z-10" aria-hidden="true">
-              <div
-                className="absolute inset-0 bg-gradient-to-bl from-[#fc8089] via-[#90fc89] to-[#80b5ff] opacity-30 blur-3xl"
-              />
-            </div>
-            <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to Start Your Business Journey?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Connect with our team to access personalized guidance and support for your business goals.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/about/contact"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
-              </a>
-              <a href="/counselling" className="text-sm font-semibold leading-6 text-white">
-                Learn About Our Services <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <EngagementCTA 
+        title="Need More Help?"
+        subtitle="Our team is here to support you with expert guidance and resources for your business journey."
+        primaryButtonText="Get in Touch"
+        secondaryButtonText="View All Resources"
+        onPrimaryClick={() => navigate('/about/contact')}
+        onSecondaryClick={() => navigate('/resources')}
+      />
     </div>
   );
 }

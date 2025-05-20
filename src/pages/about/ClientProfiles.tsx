@@ -1,9 +1,12 @@
-import React from 'react';
-import { Star, Calendar, MapPin, Award } from 'lucide-react';
+import { Star, Calendar, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import ParallaxHero from '../../components/ParallaxHero';
+import EngagementCTA from '../../components/EngagementCTA';
 import { clientProfiles } from '../../data/clientProfiles';
 
-const MetaInfo = ({ icon: Icon, text }: { icon: any; text: string }) => (
+import { LucideIcon } from 'lucide-react';
+
+const MetaInfo = ({ icon: Icon, text }: { icon: LucideIcon; text: string }) => (
   <div className="flex items-center text-sm text-gray-500">
     <Icon className="h-4 w-4 mr-2 text-primary-600" />
     <span>{text}</span>
@@ -11,6 +14,7 @@ const MetaInfo = ({ icon: Icon, text }: { icon: any; text: string }) => (
 );
 
 export default function ClientProfiles() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white py-24 sm:py-32">
       <ParallaxHero
@@ -79,6 +83,15 @@ export default function ClientProfiles() {
             </article>
           ))}
         </div>
+        
+        <EngagementCTA 
+          title="Ready to Start Your Success Story?"
+          subtitle="Join our community of successful entrepreneurs and take your business to the next level with our expert support and resources."
+          primaryButtonText="Get Started"
+          secondaryButtonText="Contact Us"
+          onPrimaryClick={() => navigate('/start-business')}
+          onSecondaryClick={() => navigate('/about/contact')}
+        />
       </div>
   );
 }
