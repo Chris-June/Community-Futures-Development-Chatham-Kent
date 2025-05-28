@@ -14,6 +14,11 @@ export type FormField = {
   options?: { label: string; value: string }[];
   placeholder?: string;
   helperText?: string;
+  className?: string;
+  labelClassName?: string;
+  inputClassName?: string;
+  rows?: number;
+  wrapperClassName?: string;
 };
 
 // Type for form values
