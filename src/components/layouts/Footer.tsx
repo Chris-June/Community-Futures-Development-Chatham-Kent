@@ -7,6 +7,11 @@ const navigation = {
     { name: 'Starting a Business', href: '/start-business' },
     { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/about/contact' },
+    { 
+      name: 'Loan Application', 
+      href: 'https://chathamkent.commongoalsapp.com/ApplyNow?appid=2',
+      external: true 
+    },
   ],
   social: [
     {
@@ -60,9 +65,20 @@ export default function Footer({ className = '' }: { className?: string }) {
               <ul role="list" className="mt-6 space-y-4">
                 {navigation.main.map((item) => (
                   <li key={item.name}>
-                    <Link to={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                      {item.name}
-                    </Link>
+                    {item.external ? (
+                      <a 
+                        href={item.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link to={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

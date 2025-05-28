@@ -20,6 +20,11 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
   onSecondaryClick = () => {},
   className = '',
 }) => {
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className={`w-full ${className}`} style={{ margin: 0, padding: 0 }}>
       <div className="w-full bg-gradient-to-b from-white to-gray-900" style={{ marginBottom: 0 }}>
@@ -48,7 +53,7 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <button
-            onClick={onPrimaryClick}
+            onClick={handleGetStarted}
             className="flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             {primaryButtonText}
