@@ -26,7 +26,7 @@ export default function Board() {
 
   return (
     
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white pb-24 sm:pb-32">
       <ParallaxHero
         title="Board of Directors"
         description="Our board members bring diverse expertise and deep community connections to guide our organization's mission and strategic direction. Together, they ensure we maintain the highest standards of governance and community impact."

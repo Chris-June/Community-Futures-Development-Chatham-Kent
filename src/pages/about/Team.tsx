@@ -50,7 +50,7 @@ const StatsSection = () => (
 export default function Team() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white pb-24 sm:pb-32">
       <ParallaxHero
         title="Our Team"
         description="Meet the dedicated professionals who work every day to support and grow businesses in Chatham-Kent. Our team brings together expertise in business development, financial management, and community economic growth."

@@ -101,7 +101,7 @@ export default function Resources() {
   const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-24 sm:pb-32">
       {/* Hero Section */}
       <ParallaxHero
         title="Business Resources"

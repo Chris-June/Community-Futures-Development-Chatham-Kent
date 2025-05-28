@@ -39,7 +39,7 @@ export default function Partners() {
   };
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white pb-24 sm:pb-32">
       <ParallaxHero
         title="Community Partners"
         description="We work closely with local organizations to create a strong support network for businesses in Chatham-Kent. Our partnerships enhance the resources and opportunities available to entrepreneurs in our community."

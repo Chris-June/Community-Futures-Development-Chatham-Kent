@@ -156,7 +156,7 @@ const Carousel = () => {
 export default function WhoWeAre() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-24 sm:pb-32">
       {/* Hero Section */}
       <ParallaxHero
         title="Who We Are"

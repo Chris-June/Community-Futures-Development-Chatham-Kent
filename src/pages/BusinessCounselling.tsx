@@ -23,7 +23,7 @@ const getIcon = (iconName: string) => {
 export default function BusinessCounselling() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-24 sm:pb-32">
       <ParallaxHero
         title="Expert Business Counselling"
         description="Get personalized guidance from our experienced business advisors to help your business thrive. Whether you're starting up or scaling up, we're here to support your success."
