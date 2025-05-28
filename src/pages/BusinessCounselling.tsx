@@ -157,7 +157,7 @@ export default function BusinessCounselling() {
       <EngagementCTA 
         title="Ready to Take Your Business to the Next Level?"
         subtitle="Schedule a free consultation with our business advisors and start your journey to success."
-        primaryButtonText="Book Now"
+        primaryButtonText="Apply Here"
         secondaryButtonText="View Resources"
         onPrimaryClick={() => navigate('/about/contact')}
         onSecondaryClick={() => navigate('/resources')}

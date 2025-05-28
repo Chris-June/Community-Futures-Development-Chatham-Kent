@@ -228,7 +228,7 @@ export default function Resources() {
         <EngagementCTA 
           title="Need More Help?"
           subtitle="Our team is here to support you with expert guidance and resources for your business journey."
-          primaryButtonText="Get in Touch"
+          primaryButtonText="Apply Here"
           secondaryButtonText="View All Resources"
           onPrimaryClick={() => navigate('/about/contact')}
           onSecondaryClick={() => navigate('/resources')}

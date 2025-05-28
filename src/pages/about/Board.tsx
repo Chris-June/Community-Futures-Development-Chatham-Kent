@@ -82,7 +82,7 @@ export default function Board() {
       <EngagementCTA 
         title="Join Our Board"
         subtitle="Make a lasting impact on Chatham-Kent's economic future by joining our board of directors."
-        primaryButtonText="Learn More"
+        primaryButtonText="Apply Here"
         secondaryButtonText="Contact Us"
         onPrimaryClick={() => navigate('/about/board')}
         onSecondaryClick={() => navigate('/about/contact')}

@@ -263,7 +263,7 @@ export default function WhoWeAre() {
       <EngagementCTA 
         title="Join Our Community"
         subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
-        primaryButtonText="Get Started"
+        primaryButtonText="Apply Here"
         secondaryButtonText="Contact Us"
         onPrimaryClick={() => navigate('/start-business')}
         onSecondaryClick={() => navigate('/about/contact')}

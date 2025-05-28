@@ -136,7 +136,7 @@ export default function Team() {
       <EngagementCTA 
         title="Join Our Team"
         subtitle="We're always looking for talented individuals who are passionate about supporting local businesses."
-        primaryButtonText="View Open Positions"
+        primaryButtonText="Apply Here"
         secondaryButtonText="Learn About Our Culture"
         onPrimaryClick={() => navigate('/careers')}
         onSecondaryClick={() => navigate('/about/culture')}

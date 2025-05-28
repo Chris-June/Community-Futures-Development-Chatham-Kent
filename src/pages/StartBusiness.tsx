@@ -137,7 +137,7 @@ export default function StartBusiness() {
         <EngagementCTA 
         title="Ready to Start Your Business?"
         subtitle="Book a free consultation with our business advisors and take the first step towards entrepreneurship."
-        primaryButtonText="Get Started"
+        primaryButtonText="Apply Here"
         secondaryButtonText="Learn More"
         onPrimaryClick={() => navigate('/about/contact')}
           onSecondaryClick={() => navigate('/resources')}

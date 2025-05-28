@@ -136,7 +136,7 @@ export default function Partners() {
       <EngagementCTA 
         title="Become a Partner"
         subtitle="Join our network of community partners and help support local businesses in Chatham-Kent."
-        primaryButtonText="Partner With Us"
+        primaryButtonText="Apply Here"
         secondaryButtonText="Contact Our Team"
         onPrimaryClick={() => navigate('/about/partners#join')}
         onSecondaryClick={() => navigate('/about/contact')}

@@ -118,7 +118,7 @@ export default function Home() {
         <EngagementCTA 
           title="Business Support for Chatham-Kent"
           subtitle="The next Chatham-Kent success story starts with your idea."
-          primaryButtonText="Get Started"
+          primaryButtonText="Apply Here"
           secondaryButtonText="Learn More"
           onPrimaryClick={() => navigate('/start-business')}
           onSecondaryClick={() => navigate('/about/contact')}

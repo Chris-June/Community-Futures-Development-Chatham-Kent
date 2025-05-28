@@ -14,15 +14,20 @@ type EngagementCTAProps = {
 const EngagementCTA: React.FC<EngagementCTAProps> = ({
   title = "Shape the Future of Our Community",
   subtitle = "Your voice matters! Join us in creating positive change and building a better tomorrow, together.",
-  primaryButtonText = "Join the Movement",
+  primaryButtonText = "Apply Now",
   secondaryButtonText = "Learn More",
   onPrimaryClick = () => {},
   onSecondaryClick = () => {},
   className = '',
 }) => {
-  const handleGetStarted = (e: React.MouseEvent) => {
+  const handlePrimaryClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer');
+    if (onPrimaryClick) {
+      onPrimaryClick();
+    } else {
+      // Default behavior if no onPrimaryClick is provided
+      window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -53,7 +58,7 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <button
-            onClick={handleGetStarted}
+            onClick={handlePrimaryClick}
             className="flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             {primaryButtonText}
