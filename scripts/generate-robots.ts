@@ -1,5 +1,10 @@
-const { writeFileSync } = require('fs');
-const { join } = require('path');
+import { writeFileSync } from 'fs';
+import { join } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Base URL for the website
 const BASE_URL = 'https://communityfuturesck.ca';

@@ -23,7 +23,7 @@ const defaultSEO = {
   ],
 };
 
-const routesSEO: RouteSEO[] = [
+export const routesSEO: RouteSEO[] = [
   {
     path: '/',
     ...defaultSEO,

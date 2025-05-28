@@ -1,7 +1,12 @@
-const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream } = require('fs');
-const { join } = require('path');
-const { routesSEO } = require('../src/utils/seoUtils');
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { createWriteStream } from 'fs';
+import { join } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { routesSEO } from '../src/utils/seoUtils';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Base URL for the website
 const BASE_URL = 'https://communityfuturesck.ca';
