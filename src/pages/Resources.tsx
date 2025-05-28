@@ -101,7 +101,7 @@ export default function Resources() {
   const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
 
   return (
-    <div className="bg-white pb-24 sm:pb-32">
+    <div className="bg-white">
       {/* Hero Section */}
       <ParallaxHero
         title="Business Resources"
@@ -197,7 +197,7 @@ export default function Resources() {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white py-24">
+      <div className="bg-white pt-24 pb-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -224,14 +224,16 @@ export default function Resources() {
         </div>
       </div>
 
-      <EngagementCTA 
-        title="Need More Help?"
-        subtitle="Our team is here to support you with expert guidance and resources for your business journey."
-        primaryButtonText="Get in Touch"
-        secondaryButtonText="View All Resources"
-        onPrimaryClick={() => navigate('/about/contact')}
-        onSecondaryClick={() => navigate('/resources')}
-      />
+      <div className="bg-white">
+        <EngagementCTA 
+          title="Need More Help?"
+          subtitle="Our team is here to support you with expert guidance and resources for your business journey."
+          primaryButtonText="Get in Touch"
+          secondaryButtonText="View All Resources"
+          onPrimaryClick={() => navigate('/about/contact')}
+          onSecondaryClick={() => navigate('/resources')}
+        />
+      </div>
     </div>
   );
 }
