@@ -120,8 +120,8 @@ export default function Home() {
           subtitle="The next Chatham-Kent success story starts with your idea."
           primaryButtonText="Apply Here"
           secondaryButtonText="Learn More"
-          onPrimaryClick={() => navigate('/start-business')}
-          onSecondaryClick={() => navigate('/about/contact')}
+          onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+          onSecondaryClick={() => navigate('/learn-more')}
         />
       </motion.div>
 

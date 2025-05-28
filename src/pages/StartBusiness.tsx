@@ -139,8 +139,8 @@ export default function StartBusiness() {
         subtitle="Book a free consultation with our business advisors and take the first step towards entrepreneurship."
         primaryButtonText="Apply Here"
         secondaryButtonText="Learn More"
-        onPrimaryClick={() => navigate('/about/contact')}
-          onSecondaryClick={() => navigate('/resources')}
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+          onSecondaryClick={() => navigate('/learn-more')}
         />
       </div>
     </div>

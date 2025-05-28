@@ -6,6 +6,7 @@ const navigation = {
     { name: 'Who We Are', href: '/about/who-we-are' },
     { name: 'Starting a Business', href: '/start-business' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Learn More', href: '/learn-more' },
     { name: 'Contact', href: '/about/contact' },
     { 
       name: 'Loan Application', 

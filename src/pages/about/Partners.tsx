@@ -137,9 +137,9 @@ export default function Partners() {
         title="Become a Partner"
         subtitle="Join our network of community partners and help support local businesses in Chatham-Kent."
         primaryButtonText="Apply Here"
-        secondaryButtonText="Contact Our Team"
-        onPrimaryClick={() => navigate('/about/partners#join')}
-        onSecondaryClick={() => navigate('/about/contact')}
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        onSecondaryClick={() => navigate('/learn-more')}
         className="mt-0"
       />
     </div>

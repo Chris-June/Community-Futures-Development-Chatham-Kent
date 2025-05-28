@@ -137,9 +137,9 @@ export default function Team() {
         title="Join Our Team"
         subtitle="We're always looking for talented individuals who are passionate about supporting local businesses."
         primaryButtonText="Apply Here"
-        secondaryButtonText="Learn About Our Culture"
-        onPrimaryClick={() => navigate('/careers')}
-        onSecondaryClick={() => navigate('/about/culture')}
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        onSecondaryClick={() => navigate('/learn-more')}
         className="mt-0"
       />
     </div>

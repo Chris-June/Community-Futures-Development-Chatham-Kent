@@ -229,9 +229,9 @@ export default function Resources() {
           title="Need More Help?"
           subtitle="Our team is here to support you with expert guidance and resources for your business journey."
           primaryButtonText="Apply Here"
-          secondaryButtonText="View All Resources"
-          onPrimaryClick={() => navigate('/about/contact')}
-          onSecondaryClick={() => navigate('/resources')}
+          secondaryButtonText="Learn More"
+          onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+          onSecondaryClick={() => navigate('/learn-more')}
         />
       </div>
     </div>

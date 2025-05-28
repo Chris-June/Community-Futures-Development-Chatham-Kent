@@ -23,6 +23,7 @@ const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'));
 const TermsOfUse = lazy(() => import('./pages/legal/TermsOfUse'));
 const Accessibility = lazy(() => import('./pages/legal/Accessibility'));
 const Disclaimer = lazy(() => import('./pages/legal/Disclaimer'));
+const LearnMore = lazy(() => import('./pages/LearnMore'));
 
 // Component to handle route changes and update SEO
 const RouteHandler = () => {
@@ -51,6 +52,7 @@ const RouteHandler = () => {
         <Route path="/about/client-profiles" element={<ClientProfiles />} />
         <Route path="/about/partners" element={<Partners />} />
         <Route path="/about/contact" element={<Contact />} />
+        <Route path="/learn-more" element={<LearnMore />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/accessibility" element={<Accessibility />} />

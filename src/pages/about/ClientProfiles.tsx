@@ -87,9 +87,9 @@ export default function ClientProfiles() {
         <EngagementCTA 
           title="Share Your Story"
           subtitle="Have you benefited from our services? We'd love to hear your success story!"
-          primaryButtonText="Apply Here"
+          primaryButtonText="Learn More"
           secondaryButtonText="View All Stories"
-          onPrimaryClick={() => navigate('/about/contact?subject=Share%20My%20Story')}
+          onPrimaryClick={() => navigate('/learn-more')}
           onSecondaryClick={() => navigate('/about/client-profiles')}
           className="mt-0"
         />

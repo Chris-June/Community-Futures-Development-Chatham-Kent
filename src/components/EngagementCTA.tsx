@@ -30,6 +30,16 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
     }
   };
 
+  const handleSecondaryClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onSecondaryClick) {
+      onSecondaryClick();
+    } else {
+      // Default behavior if no onSecondaryClick is provided
+      window.location.href = '/learn-more';
+    }
+  };
+
   return (
     <div className={`w-full ${className}`} style={{ margin: 0, padding: 0 }}>
       <div className="w-full bg-gradient-to-b from-white to-gray-900" style={{ marginBottom: 0 }}>
@@ -66,7 +76,7 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
           </button>
           
           <button
-            onClick={onSecondaryClick}
+            onClick={handleSecondaryClick}
             className="flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-colors duration-200"
           >
             <FaHandsHelping className="mr-2" />

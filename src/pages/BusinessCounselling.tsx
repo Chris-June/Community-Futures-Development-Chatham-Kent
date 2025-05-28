@@ -159,8 +159,8 @@ export default function BusinessCounselling() {
         subtitle="Schedule a free consultation with our business advisors and start your journey to success."
         primaryButtonText="Apply Here"
         secondaryButtonText="View Resources"
-        onPrimaryClick={() => navigate('/about/contact')}
-        onSecondaryClick={() => navigate('/resources')}
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        onSecondaryClick={() => navigate('/learn-more')}
         className="mt-0"
       />
     </div>

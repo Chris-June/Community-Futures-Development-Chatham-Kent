@@ -83,9 +83,9 @@ export default function Board() {
         title="Join Our Board"
         subtitle="Make a lasting impact on Chatham-Kent's economic future by joining our board of directors."
         primaryButtonText="Apply Here"
-        secondaryButtonText="Contact Us"
-        onPrimaryClick={() => navigate('/about/board')}
-        onSecondaryClick={() => navigate('/about/contact')}
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        onSecondaryClick={() => navigate('/learn-more')}
         className="mt-0"
       />
     </div>

@@ -264,9 +264,9 @@ export default function WhoWeAre() {
         title="Join Our Community"
         subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
         primaryButtonText="Apply Here"
-        secondaryButtonText="Contact Us"
-        onPrimaryClick={() => navigate('/start-business')}
-        onSecondaryClick={() => navigate('/about/contact')}
+        secondaryButtonText="Learn More"
+        onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        onSecondaryClick={() => navigate('/learn-more')}
         className="mt-0"
       />
     </div>
