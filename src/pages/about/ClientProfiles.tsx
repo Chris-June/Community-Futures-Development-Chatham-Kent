@@ -85,12 +85,13 @@ export default function ClientProfiles() {
         </div>
         
         <EngagementCTA 
-          title="Ready to Start Your Success Story?"
-          subtitle="Join our community of successful entrepreneurs and take your business to the next level with our expert support and resources."
-          primaryButtonText="Get Started"
-          secondaryButtonText="Contact Us"
-          onPrimaryClick={() => navigate('/start-business')}
-          onSecondaryClick={() => navigate('/about/contact')}
+          title="Share Your Story"
+          subtitle="Have you benefited from our services? We'd love to hear your success story!"
+          primaryButtonText="Share Your Story"
+          secondaryButtonText="View All Stories"
+          onPrimaryClick={() => navigate('/about/contact?subject=Share%20My%20Story')}
+          onSecondaryClick={() => navigate('/about/client-profiles')}
+          className="mt-0"
         />
       </div>
   );

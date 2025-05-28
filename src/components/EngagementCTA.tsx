@@ -21,14 +21,15 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`w-full bg-gradient-to-b from-white to-gray-900 py-16 ${className}`}>
-      {/* Decorative elements */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full mix-blend-overlay"></div>
-        <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full mix-blend-overlay"></div>
-      </div>
-      
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-12 lg:px-16">
+    <div className={`w-full ${className}`} style={{ margin: 0, padding: 0 }}>
+      <div className="w-full bg-gradient-to-b from-white to-gray-900" style={{ marginBottom: 0 }}>
+        {/* Decorative elements */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full mix-blend-overlay"></div>
+          <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full mix-blend-overlay"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-12 lg:px-16 py-12 sm:py-14">
         {/* Icon */}
         <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm">
           <FaRegHandshake className="w-8 h-8 text-white" />
@@ -73,6 +74,7 @@ const EngagementCTA: React.FC<EngagementCTAProps> = ({
             ))}
           </div>
           <p className="mt-3 text-center">Join over 1,000+ community members making a difference</p>
+        </div>
         </div>
       </div>
     </div>

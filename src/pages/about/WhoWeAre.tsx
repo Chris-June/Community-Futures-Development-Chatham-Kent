@@ -156,7 +156,7 @@ const Carousel = () => {
 export default function WhoWeAre() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white pb-24 sm:pb-32">
+    <div className="bg-white">
       {/* Hero Section */}
       <ParallaxHero
         title="Who We Are"
@@ -165,7 +165,7 @@ export default function WhoWeAre() {
       />
       
       {/* Impact Stats */}
-      <div className="bg-gradient-to-b from-white to-gray-900 py-24 sm:py-32">
+      <div className="bg-gradient-to-b from-white to-gray-900 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-primary-600">Our Impact</h2>
@@ -212,7 +212,7 @@ export default function WhoWeAre() {
       <LogoCarousel />
 
       {/* Features Grid */}
-      <div className="py-24 bg-gradient-to-b from-white to-gray-900">
+      <div className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-900">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -259,7 +259,7 @@ export default function WhoWeAre() {
       {/* Success Stories Carousel */}
       <Carousel />
 
-      {/* CTA Section */}
+      {/* CTA Section - No extra spacing */}
       <EngagementCTA 
         title="Join Our Community"
         subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
@@ -267,6 +267,7 @@ export default function WhoWeAre() {
         secondaryButtonText="Contact Us"
         onPrimaryClick={() => navigate('/start-business')}
         onSecondaryClick={() => navigate('/about/contact')}
+        className="mt-0"
       />
     </div>
   );

@@ -1,8 +1,10 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Mail, MapPin, Phone, Clock, Send } from 'lucide-react';
 import ParallaxHero from '../../components/ParallaxHero';
+import EngagementCTA from '../../components/EngagementCTA'; // Assuming EngagementCTA is a component
 
 export default function Contact() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
       <ParallaxHero
@@ -10,7 +12,16 @@ export default function Contact() {
         description="Have questions about starting or growing your business? Our team is here to help you succeed."
         image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
       />
-      <div className="relative isolate">
+      <EngagementCTA 
+        title="Have More Questions?"
+        subtitle="Our team is ready to help you with any questions about starting or growing your business."
+        primaryButtonText="Contact Us"
+        secondaryButtonText="Visit Our FAQ"
+        onPrimaryClick={() => navigate('/about/contact')}
+        onSecondaryClick={() => navigate('/faq')}
+        className="mt-0"
+      />
+      <div className="relative isolate pb-0">
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
           <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">

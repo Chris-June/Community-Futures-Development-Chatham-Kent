@@ -9,18 +9,20 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <SkipToContent />
       <Navbar />
       <main 
         id="main-content" 
-        className="flex-grow" 
+        className="flex-grow flex flex-col" 
         role="main"
         tabIndex={-1}
       >
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
       </main>
-      <Footer />
+      <Footer className="mt-auto" />
     </div>
   );
 }

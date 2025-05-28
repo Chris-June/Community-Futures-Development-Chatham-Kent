@@ -25,69 +25,69 @@ export default function Board() {
   const navigate = useNavigate();
 
   return (
-    
-    <div className="bg-white pb-24 sm:pb-32">
+    <div className="bg-white">
       <ParallaxHero
         title="Board of Directors"
         description="Our board members bring diverse expertise and deep community connections to guide our organization's mission and strategic direction. Together, they ensure we maintain the highest standards of governance and community impact."
         image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
       />
-        <ul
-          role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2"
-        >
-          {boardMembers.map((member) => (
-            <li
-              key={member.id}
-              className="bg-white rounded-2xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl cursor-pointer"
-              onClick={() => setSelectedMember(member)}
-            >
-              <img
-                className="aspect-square w-48 mx-auto rounded-full object-cover mb-6"
-                src={member.image}
-                alt={member.name}
-              />
-              <div className="text-center">
-                <h3 className="text-xl font-semibold leading-8 tracking-tight text-gray-900">
-                  {member.name}
-                </h3>
-                <p className="text-base leading-7 text-primary-600 font-medium">{member.role}</p>
-                <p className="text-sm leading-6 text-gray-600 mb-4">{member.company}</p>
-                <p className="text-sm leading-6 text-gray-600 mb-6">{member.bio}</p>
-                <div className="flex justify-center space-x-4">
-                  {member.socialLinks && Object.entries(member.socialLinks).map(([type, url]) => (
-                    <a
-                      key={type}
-                      href={url}
-                      className="text-gray-400 hover:text-primary-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">{type}</span>
-                      <SocialIcon type={type} />
-                    </a>
-                  ))}
-                </div>
+      <ul
+        role="list"
+        className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+      >
+        {boardMembers.map((member) => (
+          <li
+            key={member.id}
+            className="bg-white rounded-2xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl cursor-pointer"
+            onClick={() => setSelectedMember(member)}
+          >
+            <img
+              className="aspect-square w-48 mx-auto rounded-full object-cover mb-6"
+              src={member.image}
+              alt={member.name}
+            />
+            <div className="text-center">
+              <h3 className="text-xl font-semibold leading-8 tracking-tight text-gray-900">
+                {member.name}
+              </h3>
+              <p className="text-base leading-7 text-primary-600 font-medium">{member.role}</p>
+              <p className="text-sm leading-6 text-gray-600 mb-4">{member.company}</p>
+              <p className="text-sm leading-6 text-gray-600 mb-6">{member.bio}</p>
+              <div className="flex justify-center space-x-4">
+                {member.socialLinks && Object.entries(member.socialLinks).map(([type, url]) => (
+                  <a
+                    key={type}
+                    href={url}
+                    className="text-gray-400 hover:text-primary-600 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">{type}</span>
+                    <SocialIcon type={type} />
+                  </a>
+                ))}
               </div>
-            </li>
-          ))}
-        </ul>
-        {selectedMember && (
-          <BoardMemberModal
-            member={selectedMember}
-            isOpen={true}
-            onClose={() => setSelectedMember(null)}
-          />
-        )}
-        
-        <EngagementCTA 
-          title="Interested in Joining Our Board?"
-          subtitle="We're always looking for passionate community leaders to join our board of directors."
-          primaryButtonText="Learn More"
-          secondaryButtonText="Contact Us"
-          onPrimaryClick={() => navigate('/about/board#join')}
-          onSecondaryClick={() => navigate('/about/contact')}
+            </div>
+          </li>
+        ))}
+      </ul>
+      {selectedMember && (
+        <BoardMemberModal
+          member={selectedMember}
+          isOpen={true}
+          onClose={() => setSelectedMember(null)}
         />
-      </div>
+      )}
+      {/* CTA Section */}
+      <EngagementCTA 
+        title="Join Our Board"
+        subtitle="Make a lasting impact on Chatham-Kent's economic future by joining our board of directors."
+        primaryButtonText="Learn More"
+        secondaryButtonText="Contact Us"
+        onPrimaryClick={() => navigate('/about/board')}
+        onSecondaryClick={() => navigate('/about/contact')}
+        className="mt-0"
+      />
+    </div>
   );
 }

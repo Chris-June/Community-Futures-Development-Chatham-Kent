@@ -49,8 +49,9 @@ const StatsSection = () => (
 
 export default function Team() {
   const navigate = useNavigate();
+  
   return (
-    <div className="bg-white pb-24 sm:pb-32">
+    <div className="bg-white">
       <ParallaxHero
         title="Our Team"
         description="Meet the dedicated professionals who work every day to support and grow businesses in Chatham-Kent. Our team brings together expertise in business development, financial management, and community economic growth."
@@ -133,12 +134,13 @@ export default function Team() {
       </div>
       
       <EngagementCTA 
-        title="Ready to Meet Our Team?"
-        subtitle="Schedule a consultation with one of our business advisors and discover how we can help your business thrive."
-        primaryButtonText="Book a Consultation"
-        secondaryButtonText="Contact Us"
-        onPrimaryClick={() => navigate('/about/contact?type=consultation')}
-        onSecondaryClick={() => navigate('/about/contact')}
+        title="Join Our Team"
+        subtitle="We're always looking for talented individuals who are passionate about supporting local businesses."
+        primaryButtonText="View Open Positions"
+        secondaryButtonText="Learn About Our Culture"
+        onPrimaryClick={() => navigate('/careers')}
+        onSecondaryClick={() => navigate('/about/culture')}
+        className="mt-0"
       />
     </div>
   );
