@@ -107,13 +107,18 @@ export const useFormWithValidation = ({
     (onValid: SubmitHandler<any>) =>
       async (e?: React.BaseSyntheticEvent) => {
         try {
-          await rhfHandleSubmit(onValid)(e);
+          if (onSubmit) {
+            const result = await rhfHandleSubmit(onValid)(e);
+            await onSubmit(result);
+          } else {
+            await rhfHandleSubmit(onValid)(e);
+          }
         } catch (error) {
           console.error('Form submission error:', error);
           onError?.(error);
         }
       },
-    [rhfHandleSubmit, onError]
+    [rhfHandleSubmit, onError, onSubmit]
   );
 
   return {
