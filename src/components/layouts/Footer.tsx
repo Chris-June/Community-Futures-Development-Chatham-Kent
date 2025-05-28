@@ -31,13 +31,6 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <div className="flex flex-col space-y-4">
-            <img 
-              className="h-12 w-auto" 
-              src="/assets/images/CFDC-logo.png" 
-              alt="Community Futures Chatham-Kent"
-            />
-          </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin className="h-5 w-5" />
