@@ -13,6 +13,7 @@ const Home = lazy(() => import('./pages/Home'));
 const StartBusiness = lazy(() => import('./pages/StartBusiness'));
 const BusinessCounselling = lazy(() => import('./pages/BusinessCounselling'));
 const Resources = lazy(() => import('./pages/Resources'));
+const BusinessPlanForm = lazy(() => import('./pages/BusinessPlanForm'));
 const WhoWeAre = lazy(() => import('./pages/about/WhoWeAre'));
 const Team = lazy(() => import('./pages/about/Team'));
 const Board = lazy(() => import('./pages/about/Board'));
@@ -24,6 +25,7 @@ const TermsOfUse = lazy(() => import('./pages/legal/TermsOfUse'));
 const Accessibility = lazy(() => import('./pages/legal/Accessibility'));
 const Disclaimer = lazy(() => import('./pages/legal/Disclaimer'));
 const LearnMore = lazy(() => import('./pages/LearnMore'));
+const MarketResearchGuidePage = lazy(() => import('./pages/MarketResearchGuidePage'));
 
 // Component to handle route changes and update SEO
 const RouteHandler = () => {
@@ -46,6 +48,7 @@ const RouteHandler = () => {
         <Route path="/start-business" element={<StartBusiness />} />
         <Route path="/counselling" element={<BusinessCounselling />} />
         <Route path="/resources" element={<Resources />} />
+              <Route path="/business-plan-form" element={<BusinessPlanForm />} />
         <Route path="/about/who-we-are" element={<WhoWeAre />} />
         <Route path="/about/team" element={<Team />} />
         <Route path="/about/board" element={<Board />} />
@@ -57,6 +60,7 @@ const RouteHandler = () => {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/accessibility" element={<Accessibility />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/market-research-guide" element={<MarketResearchGuidePage />} />
       </Routes>
     </SEO>
   );

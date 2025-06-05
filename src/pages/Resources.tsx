@@ -1,23 +1,31 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileText, Download, Link as LinkIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Download, Link as LinkIcon, ChevronLeft, ChevronRight, Edit3, BookOpen } from 'lucide-react';
 import ParallaxHero from '../components/ParallaxHero';
 import EngagementCTA from '../components/EngagementCTA';
 
 const resources = [
   {
-    title: 'Business Plan Template',
-    description: 'A comprehensive template to help you create your business plan.',
-    type: 'download',
-    icon: Download,
-    link: '/resources/business-plan-template.pdf',
+    title: 'Interactive Business Plan Builder',
+    description: 'Start building your business plan with our interactive step-by-step guide. Save your progress as you go!',
+    type: 'interactive',
+    icon: Edit3, // Using Edit3 for an interactive tool
+    link: '/business-plan-form', // New route for the interactive form
   },
   {
-    title: 'Market Research Guide',
-    description: 'Learn how to conduct effective market research for your business.',
-    type: 'article',
-    icon: FileText,
-    link: '/resources/market-research',
+    title: 'Download Full Business Plan Template (MD)',
+    description: 'Download the complete business plan template in Markdown format to fill out manually.',
+    type: 'download',
+    icon: Download,
+    link: '/BusinessPlan.md', // Direct link to the markdown file in public or root
+    downloadName: 'Business_Plan_Template.md',
+  },
+  {
+    title: 'Interactive Market Research Guide',
+    description: 'An interactive guide to help you learn about and plan market research activities for your Ontario business.',
+    type: 'interactive',
+    icon: BookOpen,
+    link: '/market-research-guide',
   },
   {
     title: 'Government Resources',
@@ -208,6 +216,39 @@ export default function Resources() {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl lg:max-w-none">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {resources.map((resource) => (
+                <div
+                  key={resource.title}
+                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer"
+                  onClick={() => {
+                    if (resource.type === 'download' && resource.downloadName) {
+                      // Create a temporary link element to trigger download
+                      const link = document.createElement('a');
+                      link.href = resource.link;
+                      link.download = resource.downloadName;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    } else if (resource.type === 'link' || resource.type === 'interactive' || resource.type === 'article') {
+                      navigate(resource.link);
+                    } else {
+                      // Fallback for older structure or unhandled types
+                      navigate(resource.link);
+                    }
+                  }}
+                >
+                  <resource.icon className="w-12 h-12 text-indigo-600 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{resource.title}</h3>
+                  <p className="text-gray-600 text-sm flex-grow">{resource.description}</p>
+                  <div className="mt-4">
+                    <span className="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                      {resource.type === 'download' ? 'Download Now' : resource.type === 'interactive' ? 'Start Building' : 'Learn More'} <ChevronRight size={16} className="ml-1" />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
             <dl className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
               {faqs.map((faq, index) => (
                 <div key={index}>
