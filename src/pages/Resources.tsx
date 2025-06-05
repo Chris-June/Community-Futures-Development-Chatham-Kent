@@ -30,37 +30,37 @@ const resources = [
 
 const videos = [
   {
-    id: '1',
+    id: 'video1',
     title: 'How to Write a Business Plan',
     description: 'Step-by-step guide to creating a winning business plan',
     youtubeId: '',
   },
   {
-    id: '2',
+    id: 'video2',
     title: 'Understanding Market Research',
     description: 'Learn the basics of market research for your business',
     youtubeId: '',
   },
   {
-    id: '3',
+    id: 'video3',
     title: 'Financial Planning Basics',
     description: 'Essential financial planning tips for entrepreneurs',
     youtubeId: '',
   },
   {
-    id: '4',
+    id: 'video4',
     title: 'Marketing Strategies for Small Business',
     description: 'Effective marketing tactics for local businesses',
     youtubeId: '',
   },
   {
-    id: '5',
+    id: 'video5',
     title: 'Legal Considerations for Startups',
     description: 'Important legal aspects of starting a business',
     youtubeId: '',
   },
   {
-    id: '6',
+    id: 'video6',
     title: 'Building a Strong Team',
     description: 'Tips for hiring and managing employees',
     youtubeId: '',
