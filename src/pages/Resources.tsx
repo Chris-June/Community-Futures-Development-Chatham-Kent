@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Download, Link as LinkIcon, ChevronLeft, ChevronRight, Edit3, BookOpen } from 'lucide-react';
+import { Link as LinkIcon, ChevronLeft, ChevronRight, Edit3, BookOpen } from 'lucide-react';
 import ParallaxHero from '../components/ParallaxHero';
 import EngagementCTA from '../components/EngagementCTA';
 
@@ -13,27 +13,11 @@ const resources = [
     link: '/business-plan-form', // New route for the interactive form
   },
   {
-    title: 'Download Full Business Plan Template (MD)',
-    description: 'Download the complete business plan template in Markdown format to fill out manually.',
-    type: 'download',
-    icon: Download,
-    link: '/BusinessPlan.md', // Direct link to the markdown file in public or root
-    downloadName: 'Business_Plan_Template.md',
-  },
-  {
     title: 'Interactive Market Research Guide',
     description: 'An interactive guide to help you learn about and plan market research activities for your Ontario business.',
     type: 'interactive',
     icon: BookOpen,
     link: '/market-research-guide',
-  },
-  {
-    title: 'Download Market Research Guide (MD)',
-    description: 'Download the complete market research guide in Markdown format for offline reference.',
-    type: 'download',
-    icon: Download,
-    link: '/MarketResearch.md',
-    downloadName: 'Market_Research_Guide.md',
   },
   {
     title: 'Government Resources',
@@ -134,21 +118,15 @@ export default function Resources() {
               className="group relative flex flex-col rounded-2xl bg-white p-8 ring-1 ring-gray-200 hover:ring-gray-300 transition-all duration-200 hover:shadow-md cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                if (resource.type === 'download' && resource.downloadName) {
-                  // Handle download
-                  const link = document.createElement('a');
-                  link.href = resource.link;
-                  link.download = resource.downloadName;
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                  return;
-                } else if (resource.type === 'link' || resource.type === 'interactive') {
+                if (resource.type === 'link' || resource.type === 'interactive') {
                   // Handle internal navigation
                   navigate(resource.link);
                   return;
                 }
-                // Fallback for external links
+                // Fallback for external links (if any other types were to be added)
+                // For now, this will only be hit if a resource type is neither 'link' nor 'interactive'
+                // which shouldn't happen with the current data.
+                // Consider if an explicit external link type is needed in the future.
                 window.open(resource.link, '_blank', 'noopener,noreferrer');
               }}
             >
