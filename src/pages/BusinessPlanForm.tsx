@@ -12,9 +12,10 @@
  *   - Users will benefit from an interactive way to start their business plan.
  *   - localStorage is available and acceptable for saving draft data.
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { PdfExportButton } from '@/components/common/PdfExportButton';
 import ExecutiveSummaryPart, { ExecutiveSummaryData } from '../components/business_plan_form_parts/ExecutiveSummaryPart';
 import CompanyDescriptionPart, { CompanyDescriptionData } from '../components/business_plan_form_parts/CompanyDescriptionPart';
 import MarketAnalysisPart, { MarketAnalysisData } from '../components/business_plan_form_parts/MarketAnalysisPart';
@@ -265,79 +266,60 @@ export default function BusinessPlanForm() {
     }
   };
 
-  const renderStepContent = () => {
-    const stepId = formSteps[currentStep].id as keyof FormData;
-
+  // Function to render a specific step's content based on its ID
+  const renderSpecificStepContent = (stepId: string) => {
+    // For simplicity, directly returning the component based on stepId
     switch (stepId) {
       case 'executiveSummary':
-        return (
-          <ExecutiveSummaryPart 
-            data={formData.executiveSummary} 
-            onChange={(fieldName, value) => handleInputChange('executiveSummary', fieldName, value)} 
-          />
-        );
+        return <ExecutiveSummaryPart data={formData.executiveSummary} onChange={(fieldName, value) => handleInputChange('executiveSummary', fieldName, value)} />;
       case 'companyDescription':
-        return (
-          <CompanyDescriptionPart
-            data={formData.companyDescription}
-            onChange={(fieldName, value) => handleInputChange('companyDescription', fieldName, value)}
-          />
-        );
+        return <CompanyDescriptionPart data={formData.companyDescription} onChange={(fieldName, value) => handleInputChange('companyDescription', fieldName, value)} />;
       case 'marketAnalysis':
-        return (
-          <MarketAnalysisPart
-            data={formData.marketAnalysis}
-            onChange={(fieldName, value) => handleInputChange('marketAnalysis', fieldName, value)}
-          />
-        );
+        return <MarketAnalysisPart data={formData.marketAnalysis} onChange={(fieldName, value) => handleInputChange('marketAnalysis', fieldName, value)} />;
       case 'organizationAndManagement':
-        return (
-          <OrganizationAndManagementPart
-            data={formData.organizationAndManagement}
-            onChange={(fieldName, value) => handleInputChange('organizationAndManagement', fieldName, value)}
-          />
-        );
+        return <OrganizationAndManagementPart data={formData.organizationAndManagement} onChange={(fieldName, value) => handleInputChange('organizationAndManagement', fieldName, value)} />;
       case 'productsOrServices':
-        return (
-          <ProductsOrServicesPart
-            data={formData.productsOrServices}
-            onChange={(fieldName, value) => handleInputChange('productsOrServices', fieldName, value)}
-          />
-        );
+        return <ProductsOrServicesPart data={formData.productsOrServices} onChange={(fieldName, value) => handleInputChange('productsOrServices', fieldName, value)} />;
       case 'marketingAndSalesStrategy':
-        return (
-          <MarketingAndSalesStrategyPart
-            data={formData.marketingAndSalesStrategy}
-            onChange={(fieldName, value) => handleInputChange('marketingAndSalesStrategy', fieldName, value)}
-          />
-        );
+        return <MarketingAndSalesStrategyPart data={formData.marketingAndSalesStrategy} onChange={(fieldName, value) => handleInputChange('marketingAndSalesStrategy', fieldName, value)} />;
       case 'fundingRequest':
-        return (
-          <FundingRequestPart
-            data={formData.fundingRequest}
-            onChange={(fieldName, value) => handleInputChange('fundingRequest', fieldName, value)}
-          />
-        );
+        return <FundingRequestPart data={formData.fundingRequest} onChange={(fieldName, value) => handleInputChange('fundingRequest', fieldName, value)} />;
       case 'financialProjections':
-        return (
-          <FinancialProjectionsPart
-            data={formData.financialProjections}
-            onChange={(fieldName, value) => handleInputChange('financialProjections', fieldName, value)}
-          />
-        );
+        return <FinancialProjectionsPart data={formData.financialProjections} onChange={(fieldName, value) => handleInputChange('financialProjections', fieldName, value)} />;
       case 'appendix':
-        return (
-          <AppendixPart
-            data={formData.appendix}
-            onChange={(fieldName, value) => handleInputChange('appendix', fieldName, value)}
-          />
-        );
+        return <AppendixPart data={formData.appendix} onChange={(fieldName, value) => handleInputChange('appendix', fieldName, value)} />;
       default:
-        const _exhaustiveCheck: never = stepId;
-        console.warn('Unhandled form step:', _exhaustiveCheck);
+        console.warn('Unhandled form step ID in renderSpecificStepContent:', stepId);
         return <div>Unknown Step: {String(stepId)}</div>;
     }
   };
+
+  const renderStepContent = () => {
+    const stepId = formSteps[currentStep].id;
+    return renderSpecificStepContent(stepId);
+  };
+
+  const contentRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  
+  // Create refs for each step
+  const setStepRef = useCallback((stepId: string) => (el: HTMLDivElement | null) => {
+    if (el) { // Ensure element is not null before assigning
+      stepRefs.current[stepId] = el;
+    }
+  }, []);
+
+  // Render all steps for PDF export (hidden from view)
+  const renderAllStepsForPdf = useCallback(() => (
+    <div style={{ position: 'absolute', left: '-9999px', top: 0, width: '210mm' }}>
+      {formSteps.map(step => (
+        <div key={step.id} ref={setStepRef(step.id)} className="pdf-export-section mb-8 p-4 border border-gray-300 bg-white">
+          <h2 className="text-xl font-semibold mb-3 text-indigo-700 border-b pb-2">{step.title}</h2>
+          {renderSpecificStepContent(step.id)}
+        </div>
+      ))}
+    </div>
+  ), [formData, handleInputChange, setStepRef, renderSpecificStepContent]); // Added renderSpecificStepContent and corrected dependencies
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -345,28 +327,44 @@ export default function BusinessPlanForm() {
         <ChevronLeft size={20} className="mr-1" /> Back to Resources
       </button>
 
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto" ref={contentRef}>
         <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-800">Interactive Business Plan Builder</h1>
             <p className="text-gray-600 mt-1">Fill out key sections of your business plan. Your progress is saved automatically.</p>
           </div>
-          <a 
+          <div className="flex gap-2">
+            <PdfExportButton
+              title="Business Plan"
+              filename="Business_Plan"
+              contentRef={contentRef} // This ref should ideally wrap ALL content meant for PDF, or be a general page ref
+              stepElements={formSteps.map(step => stepRefs.current[step.id]).filter(Boolean).map(el => ({ current: el as HTMLElement }))}
+              captureAllSteps={true} // Explicitly tell the button to capture all steps
+              variant="outline"
+              size="sm"
+              className="print:hidden"
+            />
+            <a 
               href="/BusinessPlan.md"
               download="Business_Plan_Template.md"
-              className="ml-4 shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-          >
+              className="shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            >
               <Download size={18} className="mr-2" /> Download Template
-          </a>
+            </a>
+          </div>
         </div>
         
         <div className="mb-6">
             <h2 className="text-2xl font-semibold text-indigo-700">{formSteps[currentStep].title}</h2>
         </div>
 
-        <div className="p-6 border border-gray-200 rounded-md bg-gray-50 min-h-[400px]">
-          {renderStepContent()}
+        <div className="p-6 border border-gray-200 rounded-md bg-gray-50 min-h-[400px]" ref={setStepRef(formSteps[currentStep].id)}>
+            {/* Visible content - only the current step */}
+            {renderStepContent()} 
         </div>
+
+        {/* Hidden container for rendering all steps for PDF export */}
+        {renderAllStepsForPdf()}
 
         <div className="mt-8 flex justify-between items-center">
           <button

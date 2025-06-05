@@ -48,7 +48,7 @@ const RouteHandler = () => {
         <Route path="/start-business" element={<StartBusiness />} />
         <Route path="/counselling" element={<BusinessCounselling />} />
         <Route path="/resources" element={<Resources />} />
-              <Route path="/business-plan-form" element={<BusinessPlanForm />} />
+        <Route path="/business-plan-form" element={<BusinessPlanForm />} />
         <Route path="/about/who-we-are" element={<WhoWeAre />} />
         <Route path="/about/team" element={<Team />} />
         <Route path="/about/board" element={<Board />} />

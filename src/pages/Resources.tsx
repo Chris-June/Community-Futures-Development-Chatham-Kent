@@ -28,6 +28,14 @@ const resources = [
     link: '/market-research-guide',
   },
   {
+    title: 'Download Market Research Guide (MD)',
+    description: 'Download the complete market research guide in Markdown format for offline reference.',
+    type: 'download',
+    icon: Download,
+    link: '/MarketResearch.md',
+    downloadName: 'Market_Research_Guide.md',
+  },
+  {
     title: 'Government Resources',
     description: 'Links to helpful government programs and services.',
     type: 'link',
@@ -123,20 +131,38 @@ export default function Resources() {
           {resources.map((resource) => (
             <div
               key={resource.title}
-              className="flex flex-col rounded-2xl bg-white p-8 ring-1 ring-gray-200 hover:ring-gray-300 transition-all duration-200"
+              className="group relative flex flex-col rounded-2xl bg-white p-8 ring-1 ring-gray-200 hover:ring-gray-300 transition-all duration-200 hover:shadow-md cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                if (resource.type === 'download' && resource.downloadName) {
+                  // Handle download
+                  const link = document.createElement('a');
+                  link.href = resource.link;
+                  link.download = resource.downloadName;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  return;
+                } else if (resource.type === 'link' || resource.type === 'interactive') {
+                  // Handle internal navigation
+                  navigate(resource.link);
+                  return;
+                }
+                // Fallback for external links
+                window.open(resource.link, '_blank', 'noopener,noreferrer');
+              }}
             >
-              <div className="flex items-center gap-x-4 text-xs">
-                <resource.icon className="h-6 w-6 text-primary-600" />
-                <span className="text-gray-500 uppercase">{resource.type}</span>
-              </div>
-              <div className="mt-4 flex flex-col gap-4">
-                <h2 className="text-lg font-semibold leading-6 text-gray-900">
-                  <a href={resource.link}>
-                    <span className="absolute inset-0" />
+              <div className="relative z-10 w-full h-full">
+                <div className="flex items-center gap-x-4 text-xs">
+                  <resource.icon className="h-6 w-6 text-primary-600" />
+                  <span className="text-gray-500 uppercase">{resource.type}</span>
+                </div>
+                <div className="mt-4 flex flex-col gap-4">
+                  <h2 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-primary-600 transition-colors">
                     {resource.title}
-                  </a>
-                </h2>
-                <p className="text-sm leading-6 text-gray-600">{resource.description}</p>
+                  </h2>
+                  <p className="text-sm leading-6 text-gray-600">{resource.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -216,39 +242,6 @@ export default function Resources() {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl lg:max-w-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {resources.map((resource) => (
-                <div
-                  key={resource.title}
-                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer"
-                  onClick={() => {
-                    if (resource.type === 'download' && resource.downloadName) {
-                      // Create a temporary link element to trigger download
-                      const link = document.createElement('a');
-                      link.href = resource.link;
-                      link.download = resource.downloadName;
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    } else if (resource.type === 'link' || resource.type === 'interactive' || resource.type === 'article') {
-                      navigate(resource.link);
-                    } else {
-                      // Fallback for older structure or unhandled types
-                      navigate(resource.link);
-                    }
-                  }}
-                >
-                  <resource.icon className="w-12 h-12 text-indigo-600 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{resource.title}</h3>
-                  <p className="text-gray-600 text-sm flex-grow">{resource.description}</p>
-                  <div className="mt-4">
-                    <span className="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
-                      {resource.type === 'download' ? 'Download Now' : resource.type === 'interactive' ? 'Start Building' : 'Learn More'} <ChevronRight size={16} className="ml-1" />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
             <dl className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
               {faqs.map((faq, index) => (
                 <div key={index}>
