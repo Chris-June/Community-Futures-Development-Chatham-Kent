@@ -52,27 +52,42 @@ const AnalyzingFindingsSection: React.FC<AnalyzingFindingsSectionProps> = ({ for
       {renderNotesField(
         'dataCleaningPreparationNotes',
         'Data Cleaning and Preparation',
-        'Describe the steps taken to clean and prepare your collected data for analysis (e.g., handling missing data, outliers, formatting).'
+        `Describe the steps taken to clean and prepare your collected data for analysis (e.g., handling missing data, outliers, formatting).
+Example Content:
+We consolidated survey data from Typeform and removed incomplete entries. All categorical fields were standardized (e.g., "Tech Company" vs "Technology Co.") and dates were formatted to ISO standard. Outliers in revenue were flagged but retained for trend analysis.
+`
       )}
       {renderNotesField(
         'quantitativeAnalysisNotes',
         'Quantitative Analysis',
-        'Detail the methods used for quantitative analysis (e.g., statistical tests, descriptive statistics, charts, graphs). Summarize key numerical findings.'
+        `Detail the methods used for quantitative analysis (e.g., statistical tests, descriptive statistics, charts, graphs). Summarize key numerical findings.
+Example Content:
+We used descriptive statistics to summarize user demographics. A paired t-test was run on productivity metrics before and after IntelliNova tool usage. Charts show a 37% average time savings across beta participants.
+`
       )}
       {renderNotesField(
         'qualitativeAnalysisNotes',
         'Qualitative Analysis',
-        'Explain how qualitative data (e.g., from interviews, focus groups) was analyzed (e.g., thematic analysis, content analysis). Summarize key themes and insights.'
+        `Explain how qualitative data (e.g., from interviews, focus groups) was analyzed (e.g., thematic analysis, content analysis). Summarize key themes and insights.
+Example Content:
+Conducted thematic analysis of open-ended feedback. Key themes included appreciation for local support, concerns about data privacy, and a desire for more customization. Used keyword frequency mapping to identify patterns.
+`
       )}
       {renderNotesField(
         'drawingConclusionsNotes',
         'Drawing Conclusions',
-        'Based on your analysis, what are the main conclusions? How do these findings answer your initial research questions or objectives?'
+        `Based on your analysis, what are the main conclusions? How do these findings answer your initial research questions or objectives?
+Example Content:
+Findings show that IntelliNova's SmartOps tool improves SME workflow efficiency and has strong appeal due to its Canadian localization. Survey responses aligned closely with original hypotheses, especially around perceived ease-of-use and support satisfaction.
+`
       )}
       {renderNotesField(
         'reportingFindingsNotes',
         'Reporting Findings',
-        'Outline how you will report your findings (e.g., written report, presentation). Consider the audience and key messages to convey. Include any visual aids planned.'
+        `Outline how you will report your findings (e.g., written report, presentation). Consider the audience and key messages to convey. Include any visual aids planned.
+Example Content:
+Findings will be shared in a written report and presented to stakeholders at the Chamber of Commerce. Visuals include a bar chart of time savings, user quotes, and a summary matrix of product feedback themes. A one-pager will be used for broader outreach.
+`
       )}
     </div>
   );

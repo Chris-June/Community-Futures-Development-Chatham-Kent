@@ -51,22 +51,22 @@ const CompetitiveAnalysisSection: React.FC<CompetitiveAnalysisSectionProps> = ({
       {renderNotesField(
         'identifyingCompetitorsNotes',
         'Identifying Competitors',
-        'List your direct and indirect competitors. Consider their products/services, market share, and customer base.'
+        'Example: List your direct and indirect competitors. Consider their products/services, market share, and customer base.\n\nExample Content:\nDirect competitors: Ada (Toronto) – conversational AI, Blue J – AI legal tech.  \nIndirect competitors: Monday.com, Zoho CRM, and regional IT consultants offering traditional software without AI integration.'
       )}
       {renderNotesField(
         'assessingStrengthsWeaknessesNotes',
         'Assessing Strengths & Weaknesses (SWOT Analysis for Competitors)',
-        'For key competitors, analyze their Strengths, Weaknesses, Opportunities, and Threats. How do you compare?'
+        'Example: For key competitors, analyze their Strengths, Weaknesses, Opportunities, and Threats. How do you compare?\n\nExample Content:\nAda – Strength: Strong enterprise adoption. Weakness: Limited support for SMEs.  \nBlue J – Strength: Legal niche expertise. Weakness: Less flexible tech stack.  \nIntelliNova – Strength: Canadian SME focus, agile deployment. Weakness: Brand awareness still growing.'
       )}
       {renderNotesField(
         'marketPositioningNotes',
         'Market Positioning of Competitors',
-        'Describe how your competitors position themselves in the market (e.g., price, quality, innovation, customer service).'
+        'Example: Describe how your competitors position themselves in the market (e.g., price, quality, innovation, customer service).\n\nExample Content:\nCompetitors often market themselves as either high-end enterprise platforms or general-purpose tools. IntelliNova is positioned as the “approachable AI-first solution for Canadian SMEs,” emphasizing customization, support, and ease-of-use.'
       )}
       {renderNotesField(
         'ontarioCompetitiveLandscapeNotes',
         'Ontario-Specific Competitive Landscape',
-        'Note any unique aspects of the competitive environment in Ontario or your specific local market (e.g., local regulations, dominant local players, specific consumer behaviors).'
+        'Example: Note any unique aspects of the competitive environment in Ontario or your specific local market (e.g., local regulations, dominant local players, specific consumer behaviors).\n\nExample Content:\nMany Ontario SMEs express distrust in outsourced tech and prefer regional providers. Local Chambers and funding groups (e.g., Innovation Kent) are strong allies. Some sectors (e.g., agriculture, manufacturing) are ripe for AI transformation but underrepresented.'
       )}
     </div>
   );

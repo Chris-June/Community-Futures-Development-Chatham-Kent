@@ -32,7 +32,7 @@ const PrimaryResearchSection: React.FC<PrimaryResearchSectionProps> = ({ form })
               <FormLabel className="text-md font-medium">Design Notes</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder={`Detail the design of your ${methodName.toLowerCase()}. Consider questions, format, participant selection criteria, etc.`}
+                  placeholder={`Detail the design of your ${methodName.toLowerCase()}. Consider questions, format, participant selection criteria, etc.\n\nExample Content:\nOur survey includes 12 multiple-choice questions and 3 open-ended responses focused on productivity tools and AI familiarity. Participants are selected from the Chamber directory and local business networks, targeting owners/operators of SMEs with 5–50 employees.`}
                   {...field}
                 />
               </FormControl>
@@ -48,7 +48,7 @@ const PrimaryResearchSection: React.FC<PrimaryResearchSectionProps> = ({ form })
               <FormLabel className="text-md font-medium">Distribution/Recruitment Notes</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder={`How will you distribute the ${methodName.toLowerCase()} or recruit participants? Describe the channels and logistics.`}
+                  placeholder={`How will you distribute the ${methodName.toLowerCase()} or recruit participants? Describe the channels and logistics.\n\nExample Content:\nSurveys will be emailed via Mailchimp to a segmented list of 300 local SMEs. Interviews will be scheduled with referrals from CK Chamber and Innovation Kent. Focus groups will be hosted at co-working spaces with coffee incentives provided.`}
                   {...field}
                 />
               </FormControl>
@@ -64,7 +64,7 @@ const PrimaryResearchSection: React.FC<PrimaryResearchSectionProps> = ({ form })
               <FormLabel className="text-md font-medium">Analysis Notes</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder={`Outline your plan for analyzing the data collected from ${methodName.toLowerCase()}. What tools or techniques will you use?`}
+                  placeholder={`Outline your plan for analyzing the data collected from ${methodName.toLowerCase()}. What tools or techniques will you use?\n\nExample Content:\nQuantitative data will be analyzed using Google Sheets and charts to identify usage patterns and pain points. Open-ended responses will undergo basic thematic analysis. Interview transcripts will be coded in Notion to extract key insights.`}
                   {...field}
                 />
               </FormControl>

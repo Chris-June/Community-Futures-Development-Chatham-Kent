@@ -29,7 +29,10 @@ const IntroductionSection: React.FC<IntroductionSectionProps> = ({ form }) => {
             <FormLabel className="text-lg font-semibold">Purpose of Your Market Research</FormLabel>
             <FormControl>
               <Textarea
-                placeholder="Define the main objectives of your research. What specific questions do you want to answer? What are the boundaries of your research (e.g., specific geographic area, customer segment)?"
+                placeholder={`Define the main objectives of your research. What specific questions do you want to answer? What are the boundaries of your research (e.g., specific geographic area, customer segment)?
+
+Example Content:
+This research aims to evaluate the demand for AI-first workflow automation tools among small businesses in Southwestern Ontario. Key questions include: What are the most common pain points in existing business software? What is the perceived value of AI-driven features? What support models are most appealing to non-technical users?`}
                 {...field}
                 rows={5}
               />
@@ -47,7 +50,10 @@ const IntroductionSection: React.FC<IntroductionSectionProps> = ({ form }) => {
             <FormLabel className="text-lg font-semibold">Scope of Your Market Research</FormLabel>
             <FormControl>
               <Textarea
-                placeholder="Define the scope of your research. What are the boundaries (e.g., specific geographic area, customer segment)?"
+                placeholder={`Define the scope of your research. What are the boundaries (e.g., specific geographic area, customer segment)?
+
+Example Content:
+The research is limited to SMEs operating within a 150km radius of Chatham-Kent, Ontario, with a focus on professional services, logistics, and retail. Participants will include decision-makers with roles in operations or technology adoption.`}
                 {...field}
                 rows={5}
               />
@@ -65,7 +71,10 @@ const IntroductionSection: React.FC<IntroductionSectionProps> = ({ form }) => {
             <FormLabel className="text-lg font-semibold">Methodology Overview</FormLabel>
             <FormControl>
               <Textarea
-                placeholder="Briefly outline the research methodologies you plan to use (e.g., surveys, interviews, secondary data analysis)."
+                placeholder={`Briefly outline the research methodologies you plan to use (e.g., surveys, interviews, secondary data analysis).
+
+Example Content:
+We will use a combination of structured surveys (distributed via local chambers and online forums), follow-up interviews with 10 SME leaders, and secondary research from StatCan and MaRS Discovery District reports.`}
                 {...field}
                 rows={5}
               />
