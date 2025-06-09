@@ -64,19 +64,17 @@ export default function LearnMore() {
         description="Everything you need to know to prepare a successful loan application with Community Futures Chatham-Kent."
         image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
       >
-        <div className="mt-10 flex items-center gap-x-6">
+        {/* <div className="mt-10 flex items-center gap-x-6">
           <a
-            href="https://chathamkent.commongoalsapp.com/ApplyNow?appid=2"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => navigate("/apply", { replace: true })}
             className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
           >
             Start Application
           </a>
-          <a href="/about/contact" className="text-sm font-semibold leading-6 text-gray-900">
+          <a onClick={() => navigate("/about/contact", { replace: true })} className="text-sm font-semibold leading-6 text-gray-900">
             Contact Us <span aria-hidden="true">→</span>
           </a>
-        </div>
+        </div> */}
       </ParallaxHero>
 
       {/* Requirements Section */}
@@ -157,7 +155,7 @@ export default function LearnMore() {
 
       {/* CTA Section */}
       <EngagementCTA 
-        title="Join Our Community"
+        title="Join 100's of successful businesses located here in Chatham-Kent"
         subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
         primaryButtonText="Apply Here"
         secondaryButtonText="Contact Us"

@@ -37,7 +37,7 @@ const FundingRequestPart: React.FC<FundingRequestPartProps> = ({ data, onChange 
         type="textarea"
         value={data.currentFundingStatus}
         onChange={handleChange}
-        placeholder="Describe your current funding situation (e.g., bootstrapped, seed funding received). Include amounts and sources if applicable."
+        placeholder={`Example: IntelliNova is currently bootstrapped by the co-founders with $75,000 in personal contributions. An additional $150,000 was raised through a local angel investment round in Q1 2025.`}
         rows={3}
       />
 
@@ -48,7 +48,7 @@ const FundingRequestPart: React.FC<FundingRequestPartProps> = ({ data, onChange 
         type="text" // Could also be 'number' if we add specific validation
         value={data.fundingNeeded}
         onChange={handleChange}
-        placeholder="Specify the total amount of funding you are seeking."
+        placeholder={`Example: $250,000 CAD`}
       />
 
       <FormField
@@ -58,7 +58,12 @@ const FundingRequestPart: React.FC<FundingRequestPartProps> = ({ data, onChange 
         type="textarea"
         value={data.useOfFunds}
         onChange={handleChange}
-        placeholder="Detail how the requested funds will be used (e.g., product development, marketing, hiring, working capital). Provide a breakdown if possible."
+        placeholder={`Example: The requested $250,000 will be allocated as follows:
+• 40% – Product development (engineering hires, cloud infrastructure)
+• 30% – Sales and marketing (launch campaigns, CRM setup)
+• 20% – Customer support and onboarding
+• 10% – Legal, compliance, and operational reserves
+`}
         rows={5}
       />
 
@@ -69,7 +74,7 @@ const FundingRequestPart: React.FC<FundingRequestPartProps> = ({ data, onChange 
         type="textarea"
         value={data.futureFundingPlans}
         onChange={handleChange}
-        placeholder="Outline any plans for future funding rounds or financial milestones."
+        placeholder={`Example: IntelliNova plans to raise a $1M seed round in late 2026 to scale nationally. That round will support broader market expansion, platform integrations, and the development of new AI product lines tailored for financial services and municipal systems.`}
         rows={3}
       />
     </div>

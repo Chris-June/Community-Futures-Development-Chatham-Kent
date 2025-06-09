@@ -50,7 +50,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.missionStatement}
         onChange={handleChange}
-        placeholder="Describe your company's mission."
+        placeholder="Example: To empower businesses of all sizes with intelligent, AI-first digital solutions that streamline operations, enhance customer experiences, and drive innovation from the heart of Chatham-Kent, Ontario."
         rows={3}
       />
 
@@ -61,7 +61,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.visionStatement}
         onChange={handleChange}
-        placeholder="Describe your company's vision for the future."
+        placeholder="Example: To become Canada's leading provider of AI-powered business platforms by 2030, redefining how organizations interact with software through adaptive and intuitive systems."
         rows={3}
       />
 
@@ -74,7 +74,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
           type="textarea"
           value={data.businessGoals.specific}
           onChange={handleChange}
-          placeholder="What specific goals do you want to achieve?"
+          placeholder="Example: Launch three flagship AI SaaS products in our first 18 months, focused on SME automation, intelligent CRM, and real-time business analytics."
           rows={2}
         />
         <FormField
@@ -84,7 +84,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
           type="textarea"
           value={data.businessGoals.measurable}
           onChange={handleChange}
-          placeholder="How will you measure progress towards these goals?"
+          placeholder="Example: Achieve 1,000 paying users, reach $500,000 in annual recurring revenue, and maintain a 90% customer retention rate within 24 months."
           rows={2}
         />
         <FormField
@@ -94,7 +94,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
           type="textarea"
           value={data.businessGoals.achievable}
           onChange={handleChange}
-          placeholder="Are these goals realistic and attainable?"
+          placeholder="Example: We’ve assembled a highly skilled development team with previous startup success, secured $150,000 in early-stage funding, and validated market need through beta testing with 20 local businesses."
           rows={2}
         />
         <FormField
@@ -104,7 +104,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
           type="textarea"
           value={data.businessGoals.relevant}
           onChange={handleChange}
-          placeholder="How do these goals align with your overall business strategy?"
+          placeholder="Example: Our goals align directly with our strategy to become a leader in regional tech innovation, supporting Chatham-Kent’s economic development goals and Canada's national AI strategy."
           rows={2}
         />
         <FormField
@@ -114,7 +114,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
           type="textarea"
           value={data.businessGoals.timeBound}
           onChange={handleChange}
-          placeholder="What is the timeframe for achieving these goals?"
+          placeholder="Example: All core milestones are set within 24 months: MVP by month 6, beta testing completed by month 9, full launch by month 12, and targeted growth KPIs achieved by month 24."
           rows={2}
         />
       </div>
@@ -126,7 +126,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.productsServicesOverview}
         onChange={handleChange}
-        placeholder="Briefly describe your products or services."
+        placeholder="Example: We develop scalable AI-first SaaS solutions, including automated task managers, conversational CRMs, and predictive financial tools, designed for small and mid-sized enterprises (SMEs)."
         rows={4}
       />
 
@@ -137,7 +137,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.targetMarketSummary}
         onChange={handleChange}
-        placeholder="Briefly describe your target market."
+        placeholder="Example: Our initial market includes SMEs in Southwestern Ontario with 5–50 employees, especially in professional services, logistics, and retail—industries under increasing pressure to automate and digitize."
         rows={3}
       />
 
@@ -148,7 +148,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.competitiveAdvantage}
         onChange={handleChange}
-        placeholder="What makes your business unique and competitive?"
+        placeholder="Example: Unlike legacy systems, our solutions are modular, customizable, and deeply integrated with OpenAI’s GPT models. We offer localized support and direct onboarding for Canadian businesses, giving us an edge over US-based competitors."
         rows={3}
       />
 
@@ -159,7 +159,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.financialHighlights}
         onChange={handleChange}
-        placeholder="Summarize key financial projections (e.g., revenue, profit)."
+        placeholder="Example: Year 1 projected revenue: $250K; Year 2: $750K. Operating at breakeven by Q3 of Year 2. Initial funding secured: $150K through angel investment."
         rows={3}
       />
 
@@ -170,7 +170,7 @@ const ExecutiveSummaryPart: React.FC<ExecutiveSummaryPartProps> = ({ data, onCha
         type="textarea"
         value={data.fundingRequest}
         onChange={handleChange}
-        placeholder="State the amount and purpose of funding, if any."
+        placeholder="Example: We are seeking an additional $250,000 in seed funding to scale development, hire sales and support staff, and expand our marketing outreach across Ontario."
         rows={3}
       />
     </div>

@@ -43,8 +43,13 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
         type="textarea"
         value={data.keyAssumptions}
         onChange={handleChange}
-        placeholder="List the key assumptions underlying your financial projections (e.g., sales growth rate, cost of goods sold, operating expenses)."
-        rows={4}
+        placeholder={`Example: 
+• Year-over-year user growth: 150%  
+• Average revenue per user (ARPU): $720 annually  
+• COGS: 25% of revenue (includes cloud hosting and support)  
+• Operating expenses: 45% of revenue  
+• No debt financing assumed`}
+        rows={6}
       />
 
       <FormField
@@ -54,8 +59,14 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
         type="textarea"
         value={data.startupCostsTable}
         onChange={handleChange}
-        placeholder="Detail your startup costs. You can describe them here or link to a separate table/spreadsheet."
-        rows={4}
+        placeholder={`Example: 
+Total Startup Costs: $210,000  
+• Product development: $100,000  
+• Marketing and launch: $50,000  
+• Legal and incorporation: $10,000  
+• Hardware & software licenses: $25,000  
+• Working capital reserve: $25,000`}
+        rows={7}
       />
 
       <FormField
@@ -65,8 +76,12 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
         type="textarea"
         value={data.salesForecastTable}
         onChange={handleChange}
-        placeholder="Summarize your sales forecasts (e.g., Year 1, 2, 3) or provide a link to a detailed table/spreadsheet."
-        rows={4}
+        placeholder={`Example: 
+Year 1: $120,000  
+Year 2: $360,000  
+Year 3: $900,000  
+Forecasts based on a subscription model with increasing monthly signups and tiered pricing.`}
+        rows={5}
       />
 
       <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
@@ -78,7 +93,7 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
           type="textarea"
           value={data.financialStatements.incomeStatementProjections}
           onChange={handleChange}
-          placeholder="Summarize your projected income statements or provide a link to the detailed statements."
+          placeholder={`Example: Gross revenue growing from $120K to $900K over three years. Gross margin target: 75%. Net profit in Year 3 projected at $120K after reinvestment into product scaling.`}
           rows={3}
         />
         <FormField
@@ -88,7 +103,7 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
           type="textarea"
           value={data.financialStatements.balanceSheetProjections}
           onChange={handleChange}
-          placeholder="Summarize your projected balance sheets or provide a link."
+          placeholder={`Example: Total assets expected to grow from $75K to $500K by Year 3. Equity grows as company reinvests profits and avoids major debt liabilities.`}
           rows={3}
         />
         <FormField
@@ -98,7 +113,7 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
           type="textarea"
           value={data.financialStatements.cashFlowProjections}
           onChange={handleChange}
-          placeholder="Summarize your projected cash flow statements or provide a link."
+          placeholder={`Example: Positive cash flow expected by Q2 of Year 2. Operating cash flow increases year over year as CAC drops and user retention improves. Monthly burn rate falls below $10K by Year 3.`}
           rows={3}
         />
       </div>
@@ -110,7 +125,7 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
         type="textarea"
         value={data.breakEvenAnalysis}
         onChange={handleChange}
-        placeholder="Describe your break-even point and the analysis used to determine it."
+        placeholder={`Example: Break-even at 175 paying users at $60/month. Expected to achieve this milestone in Month 9 based on current acquisition rates and churn model.`}
         rows={3}
       />
 
@@ -121,8 +136,13 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
         type="textarea"
         value={data.financialRatios}
         onChange={handleChange}
-        placeholder="List any key financial ratios relevant to your business and industry (e.g., gross profit margin, net profit margin, current ratio)."
-        rows={3}
+        placeholder={`Example: 
+• Gross Margin: 75%  
+• Net Margin (Yr 3): 13.3%  
+• Current Ratio: 3.2  
+• Customer Lifetime Value (LTV): $1,500  
+• CAC: $250`}
+        rows={6}
       />
     </div>
   );

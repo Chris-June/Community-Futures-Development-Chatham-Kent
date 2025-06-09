@@ -156,7 +156,7 @@ export default function BusinessCounselling() {
       {/* CTA Section */}
       <EngagementCTA 
         title="Ready to Take Your Business to the Next Level?"
-        subtitle="Schedule a free consultation with our business advisors and start your journey to success."
+        subtitle="Apply for your Business loan or view our Supporting Resources to help get you started on your Entrepreneurial journey."
         primaryButtonText="Apply Here"
         secondaryButtonText="View Resources"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}

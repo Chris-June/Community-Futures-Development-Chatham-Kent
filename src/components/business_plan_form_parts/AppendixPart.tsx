@@ -35,8 +35,15 @@ const AppendixPart: React.FC<AppendixPartProps> = ({ data, onChange }) => {
         type="textarea"
         value={data.supportingDocumentsList}
         onChange={handleChange}
-        placeholder="List any supporting documents you will include in your appendix (e.g., resumes of key personnel, permits, licenses, letters of support, market research data, detailed financial statements). You can list them here and attach them separately when submitting your full plan."
-        rows={5}
+        placeholder={`Example: 
+• Resumes of Jane Doe (CEO), John Smith (CTO), and Emily Tran (COO)  
+• Letters of support from Community Futures and Innovation Kent  
+• Product development roadmap and sprint timelines  
+• Trademark filings for SmartOps and SyncCRM  
+• Detailed Year 1–3 financial model (Excel)  
+• Customer testimonials from beta partners  
+• Market research report: AI adoption in Ontario SMEs`}
+        rows={9}
       />
 
       <FormField
@@ -46,8 +53,8 @@ const AppendixPart: React.FC<AppendixPartProps> = ({ data, onChange }) => {
         type="textarea"
         value={data.additionalInformation}
         onChange={handleChange}
-        placeholder="Include any other relevant information that doesn't fit elsewhere in the business plan."
-        rows={5}
+        placeholder={`Example: IntelliNova is exploring an academic research partnership with the University of Windsor to study the socioeconomic impact of AI adoption in rural businesses. We are also drafting an internal code of ethics for responsible AI deployment.`}
+        rows={4}
       />
     </div>
   );

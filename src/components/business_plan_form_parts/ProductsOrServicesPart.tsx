@@ -38,7 +38,10 @@ const ProductsOrServicesPart: React.FC<ProductsOrServicesPartProps> = ({ data, o
         type="textarea"
         value={data.detailedDescription}
         onChange={handleChange}
-        placeholder="Provide a detailed description of each product or service you offer or plan to offer. Include features, benefits, and how they meet customer needs."
+        placeholder={`Example: IntelliNova offers a suite of AI-first SaaS tools tailored for small businesses. Our flagship products include:  
+• SmartOps – an AI-powered task manager that auto-delegates tasks based on real-time priority detection.  
+• SyncCRM – a conversational, GPT-integrated CRM platform that allows voice-driven updates and intelligent client summaries.  
+• InsightIQ – a predictive analytics dashboard with financial forecasting, KPI tracking, and market insights.`}
         rows={6}
       />
 
@@ -49,7 +52,7 @@ const ProductsOrServicesPart: React.FC<ProductsOrServicesPartProps> = ({ data, o
         type="textarea"
         value={data.uniqueSellingProposition}
         onChange={handleChange}
-        placeholder="What makes your products/services unique compared to competitors? What is your key differentiator?"
+        placeholder={`Example: We are one of the only Canadian-based AI SaaS firms building locally customized tools with OpenAI’s GPT models. Unlike generic platforms, our systems are modular, conversational, and backed by local onboarding and support.`}
         rows={4}
       />
 
@@ -60,7 +63,7 @@ const ProductsOrServicesPart: React.FC<ProductsOrServicesPartProps> = ({ data, o
         type="textarea"
         value={data.productDevelopmentLifecycle}
         onChange={handleChange}
-        placeholder="Describe the current stage of development for your products/services (e.g., idea, prototype, market-ready). Outline future development plans and timelines."
+        placeholder={`Example: All three products are in active development. SmartOps is in live beta with select SMEs in Chatham-Kent; SyncCRM is in early alpha; InsightIQ is scheduled for MVP release by Q4 2025. We follow agile development cycles with bi-weekly sprint reviews.`}
         rows={4}
       />
 
@@ -71,7 +74,7 @@ const ProductsOrServicesPart: React.FC<ProductsOrServicesPartProps> = ({ data, o
         type="textarea"
         value={data.intellectualProperty}
         onChange={handleChange}
-        placeholder="Describe any patents, trademarks, copyrights, or trade secrets associated with your products/services. If none, state so."
+        placeholder={`Example: Proprietary prompt chaining models and fine-tuned GPT system instructions. Trademarks filed for SmartOps and SyncCRM. All code is owned and maintained in private GitHub repositories.`}
         rows={3}
       />
 
@@ -82,7 +85,7 @@ const ProductsOrServicesPart: React.FC<ProductsOrServicesPartProps> = ({ data, o
         type="textarea"
         value={data.sourcingAndFulfillment}
         onChange={handleChange}
-        placeholder="How will your products be sourced or manufactured? How will services be delivered? Describe your supply chain and fulfillment process."
+        placeholder={`Example: All software is developed in-house by IntelliNova’s dev team. Services are cloud-hosted via Canadian data centers with 99.9% uptime SLAs. User onboarding and customer support are delivered through our hybrid team using Intercom and direct Slack channels.`}
         rows={4}
       />
     </div>

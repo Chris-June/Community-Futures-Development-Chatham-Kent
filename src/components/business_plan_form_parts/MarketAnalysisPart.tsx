@@ -53,7 +53,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
         type="textarea"
         value={data.industryOverview}
         onChange={handleChange}
-        placeholder="Describe the industry, its size, growth rate, and key characteristics."
+        placeholder="Example: The AI software industry is experiencing rapid global growth, projected to exceed $500 billion by 2027. In Canada, AI adoption is surging among small businesses seeking operational efficiency. This industry is characterized by high innovation, frequent disruption, and increasing demand for tailored solutions in underserved regional markets like Chatham-Kent."
         rows={4}
       />
 
@@ -66,7 +66,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.targetMarket.demographics}
           onChange={handleChange}
-          placeholder="Describe the age, gender, income, location, etc., of your target customers."
+          placeholder="Example: Small to mid-sized businesses (5–50 employees) in Southwestern Ontario, particularly in logistics, retail, and professional services. Decision-makers are typically aged 35–60, with moderate to high digital literacy and annual revenues ranging from $500K to $5M."
           rows={3}
         />
         <FormField
@@ -76,7 +76,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.targetMarket.psychographics}
           onChange={handleChange}
-          placeholder="Describe the lifestyle, values, interests, and attitudes of your target customers."
+          placeholder="Example: These businesses value efficiency, cost-savings, and innovation but are often overwhelmed by complex tech. They prefer hands-on service and local support. Their leaders are pragmatic early adopters open to intelligent systems that show clear ROI and ease-of-use."
           rows={3}
         />
         <FormField
@@ -86,7 +86,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.targetMarket.needsAndPreferences}
           onChange={handleChange}
-          placeholder="What specific needs does your target market have? What are their preferences?"
+          placeholder="Example: They need affordable, scalable digital tools to automate operations, manage clients, and streamline data. Preferences include intuitive interfaces, personalized onboarding, and responsive customer support that understands regional business culture."
           rows={3}
         />
         <FormField
@@ -96,8 +96,8 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.targetMarket.sizeAndGrowthRate}
           onChange={handleChange}
-          placeholder="Estimate the size of your target market and its potential for growth."
-          rows={2}
+          placeholder="Example: Over 15,000 SMEs operate within a 200km radius of Chatham-Kent. This segment is growing at ~3% annually. A large percentage are digitizing core operations post-COVID, presenting a strong opportunity for AI-first platforms built for local scalability."
+          rows={4}
         />
       </div>
 
@@ -108,7 +108,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
         type="textarea"
         value={data.marketTrends}
         onChange={handleChange}
-        placeholder="Identify key trends in the market and how they might impact your business."
+        placeholder="Example: Key trends include rising demand for AI-powered automation, the normalization of hybrid work models, and a shift toward no-code/low-code platforms. Businesses increasingly expect integrated, smart systems rather than siloed software tools."
         rows={4}
       />
 
@@ -121,7 +121,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.competition.directCompetitors}
           onChange={handleChange}
-          placeholder="Identify your main direct competitors and their offerings."
+          placeholder="Direct competitors include Toronto-based AI SaaS providers like Ada and Blue J. These companies offer automation tools but lack tailored services for regional SMEs or localized implementation support."
           rows={3}
         />
         <FormField
@@ -131,7 +131,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           type="textarea"
           value={data.competition.indirectCompetitors}
           onChange={handleChange}
-          placeholder="Identify any indirect competitors or alternative solutions."
+          placeholder="Example: Indirect competitors include traditional CRM and workflow platforms like Monday.com and Salesforce, as well as IT consultants offering manual solutions. While functional, these options are often too complex or costly for small regional businesses."
           rows={3}
         />
         <div className="mt-4 p-3 border border-gray-300 rounded-md bg-white">
@@ -143,7 +143,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
                 type="textarea"
                 value={data.competition.swotAnalysis.strengths}
                 onChange={handleChange}
-                placeholder="What are your company's internal strengths?"
+                placeholder="Example: Local presence, rapid deployment timelines, flexible pricing, deep GPT integration, and strong founder credibility in both tech and business development."
                 rows={2}
             />
             <FormField
@@ -153,7 +153,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
                 type="textarea"
                 value={data.competition.swotAnalysis.weaknesses}
                 onChange={handleChange}
-                placeholder="What are your company's internal weaknesses?"
+                placeholder="Example: Limited brand awareness outside of Ontario, lean initial team size, and heavy reliance on strategic partnerships for scaling."
                 rows={2}
             />
             <FormField
@@ -163,7 +163,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
                 type="textarea"
                 value={data.competition.swotAnalysis.opportunities}
                 onChange={handleChange}
-                placeholder="What external opportunities can your company leverage?"
+                placeholder="Example: Increase in government funding for AI innovation, underserved rural markets, and growing demand for ethical AI solutions tailored to Canadian compliance standards."
                 rows={2}
             />
             <FormField
@@ -173,7 +173,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
                 type="textarea"
                 value={data.competition.swotAnalysis.threats}
                 onChange={handleChange}
-                placeholder="What external threats does your company face?"
+                placeholder="Example: Potential market saturation from big tech, rapid evolution of AI tools requiring constant adaptation, and rising customer expectations for full-service support."
                 rows={2}
             />
         </div>
@@ -186,7 +186,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
         type="textarea"
         value={data.barriersToEntry}
         onChange={handleChange}
-        placeholder="What are the potential barriers to entry for new competitors in this market?"
+        placeholder="Example: High technical expertise required, upfront development costs, evolving regulatory compliance for AI use in Canada, and trust-building challenges with non-technical SME audiences."
         rows={3}
       />
     </div>

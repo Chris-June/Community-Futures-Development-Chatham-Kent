@@ -38,7 +38,7 @@ export default function Home() {
         description="Supporting local entrepreneurs with business loans, expert counselling, and resources to help your business thrive in our community."
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
       >
-        <div className="mt-10 flex items-center gap-x-6">
+        {/* <div className="mt-10 flex items-center gap-x-6">
           <a
             href="/start-business"
             className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
@@ -48,7 +48,7 @@ export default function Home() {
           <a href="/about/contact" className="text-sm font-semibold leading-6 text-gray-900">
             Contact Us <span aria-hidden="true">→</span>
           </a>
-        </div>
+        </div> */}
       </ParallaxHero>
       
       {/* Impact Stats */}

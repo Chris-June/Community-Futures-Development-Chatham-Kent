@@ -38,7 +38,7 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
         type="textarea"
         value={data.organizationalStructureChart}
         onChange={handleChange}
-        placeholder="Describe your company's organizational structure. You can describe it here or link to a visual chart if you have one."
+        placeholder={`Example: IntelliNova operates with a flat organizational structure. The co-founders oversee three core departments: Product Development, Client Success, and Operations. Each department is led by a department head reporting directly to the founders. A chart link can be provided in the appendix.`}
         rows={4}
       />
 
@@ -49,8 +49,10 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
         type="textarea"
         value={data.managementTeamBios}
         onChange={handleChange}
-        placeholder="Provide detailed biographies for key management team members, highlighting relevant experience and expertise."
-        rows={6}
+        placeholder={`Example: Jane Doe, CEO – 12 years in enterprise software leadership, previously at Shopify. Expert in scaling tech teams and product-market fit.
+John Smith, CTO – AI specialist with 10+ years experience. Former lead ML engineer at a national fintech firm.
+Emily Tran, COO – Operations strategist with a background in startup scaling, logistics, and systems implementation.`}
+        rows={5}
       />
 
       <FormField
@@ -60,7 +62,10 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
         type="textarea"
         value={data.rolesAndResponsibilities}
         onChange={handleChange}
-        placeholder="Outline the primary roles and responsibilities of each key team member or department."
+        placeholder={`Example: CEO: Strategic leadership, investor relations, long-term vision.
+CTO: Oversees software architecture, AI model integration, tech hiring.
+COO: Manages daily operations, legal/compliance, internal systems.
+Each team member leads 1–2 direct reports in their respective domain.`}
         rows={4}
       />
 
@@ -71,7 +76,9 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
         type="textarea"
         value={data.personnelPlan}
         onChange={handleChange}
-        placeholder="Describe your current and future staffing needs, including number of employees, types of roles, and hiring plans."
+        placeholder={`Example: Current team: 3 founders, 2 part-time developers, 1 freelance designer.
+Year 1 hires: 2 full-time engineers, 1 customer success rep.
+Year 2 hires: 1 product manager, 1 sales lead, 1 QA specialist.`}
         rows={4}
       />
 
@@ -82,8 +89,11 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
         type="textarea"
         value={data.advisoryBoard}
         onChange={handleChange}
-        placeholder="If you have an advisory board, list the members and briefly describe their roles and contributions."
-        rows={3}
+        placeholder={`Example: Our advisory board includes:
+- Dr. Amina Patel, AI ethics advisor and University of Waterloo professor.
+- Raj Gupta, former VP at a national SaaS firm, advising on go-to-market.
+- Lisa Murray, local entrepreneur with experience in rural business development.`}
+        rows={5}
       />
     </div>
   );

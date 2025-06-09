@@ -42,7 +42,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.description}
         onChange={handleChange}
-        placeholder="Provide a general description of your company, what it does, and what makes it unique."
+        placeholder="Example: IntelliNova is an AI-first software development firm based in Chatham-Kent, Ontario. We specialize in building adaptive, intelligent digital solutions that automate business workflows, enhance decision-making, and improve operational efficiency for SMEs across Canada."
         rows={5}
       />
 
@@ -53,7 +53,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.missionStatement}
         onChange={handleChange}
-        placeholder="Elaborate on your company's mission. What is its purpose and core values? (You can expand on the version from the Executive Summary)"
+        placeholder="Example: Our mission is to democratize access to intelligent software by creating intuitive, AI-first platforms that empower small businesses to compete with enterprise-level efficiency—while staying grounded in our values of trust, transparency, and community impact."
         rows={3}
       />
 
@@ -64,7 +64,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.visionStatement}
         onChange={handleChange}
-        placeholder="Elaborate on your company's vision. Where do you see the company in the long term? (You can expand on the version from the Executive Summary)"
+        placeholder="Example: We envision a future where every business—regardless of size—can access the power of AI through scalable, user-friendly technology developed right here in Canada. Our long-term goal is to lead the AI transformation of Canada's digital economy."
         rows={3}
       />
 
@@ -75,7 +75,8 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="text"
         value={data.legalStructureAndOwnership}
         onChange={handleChange}
-        placeholder="e.g., Sole Proprietorship, Partnership, LLC, Corporation. Describe ownership structure."
+        placeholder="Example: Federally incorporated Canadian Corporation. Owned and operated by two co-founders, each holding 50% equity."
+        rows={3}
       />
 
       <FormField
@@ -85,7 +86,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.businessLocation}
         onChange={handleChange}
-        placeholder="Describe your physical and/or online locations, facilities, and any geographical advantages."
+        placeholder="Example: Headquartered in downtown Chatham-Kent, Ontario, our office is located within a co-working innovation hub that supports local tech entrepreneurs. We operate with a hybrid remote team model and serve clients across Ontario and beyond."
         rows={3}
       />
 
@@ -96,7 +97,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.managementTeamSummary}
         onChange={handleChange}
-        placeholder="Briefly introduce key members of the management team and their expertise. (Detailed bios will be in 'Organization and Management' section)"
+        placeholder="Example: Our co-founders include a senior software architect with 10+ years in enterprise AI development, and a business strategist with a background in finance and digital transformation. Together, they combine technical depth with market insight."
         rows={3}
       />
 
@@ -107,7 +108,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.objectives}
         onChange={handleChange}
-        placeholder="Outline specific short-term and long-term objectives for the company."
+        placeholder="Example: Short-term: Complete MVP of two flagship platforms by Q4, 2025.  \nLong-term: Onboard 500+ users by end of 2026, hire 10 full-time staff, and secure Series A funding to scale across Canada."
         rows={4}
       />
 
@@ -118,7 +119,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
         type="textarea"
         value={data.historicalSummary}
         onChange={handleChange}
-        placeholder="If your business is already established, provide a brief history, including founding, key milestones, and significant achievements or challenges."
+        placeholder="Example: IntelliNova was incorporated in early 2025 following successful prototype testing of our AI task management engine. Since inception, we've built key partnerships with local businesses for beta trials and secured $150,000 in pre-seed funding."
         rows={4}
       />
     </div>

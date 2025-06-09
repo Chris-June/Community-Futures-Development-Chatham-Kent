@@ -48,7 +48,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.marketingPlan.targetAudienceRecap}
           onChange={handleChange}
-          placeholder="Briefly recap your target audience (detailed in Market Analysis)."
+          placeholder={`Example: Our target audience includes small and mid-sized businesses in Southwestern Ontario, particularly in the logistics, retail, and service sectors, seeking to modernize their operations with practical AI tools.`}
           rows={2}
         />
         <FormField
@@ -58,7 +58,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.marketingPlan.positioningStrategy}
           onChange={handleChange}
-          placeholder="How will you position your products/services in the market relative to competitors?"
+          placeholder={`Example: We position IntelliNova as the trusted local provider of AI-first solutions for SMEs—offering practical, approachable, and affordable software designed specifically for the Canadian business landscape.`}
           rows={3}
         />
         <FormField
@@ -68,7 +68,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.marketingPlan.pricingStrategy}
           onChange={handleChange}
-          placeholder="Describe your pricing strategy and how it reflects value to the customer and market position."
+          placeholder={`Example: Our freemium-to-premium pricing model offers entry-level access with essential tools, while paid tiers introduce advanced features like API access, multi-user support, and custom GPT integration—providing clear value for scale.`}
           rows={3}
         />
         <FormField
@@ -78,7 +78,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.marketingPlan.promotionStrategy}
           onChange={handleChange}
-          placeholder="Outline your promotion and advertising plans (e.g., online marketing, social media, PR, events)."
+          placeholder={`Example: Multi-channel approach: digital marketing (Google Ads, LinkedIn), social media (LinkedIn, Facebook), Chamber events, webinars, and community-led tech education programs to build trust and brand visibility.`}
           rows={4}
         />
         <FormField
@@ -88,7 +88,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.marketingPlan.distributionChannels}
           onChange={handleChange}
-          placeholder="How will customers access your products/services? (e.g., direct sales, online store, retail partners)."
+          placeholder={`Example: Products are distributed via our secure web portal. Onboarding is supported with live Zoom walkthroughs and a customer portal. Direct sales will be supplemented by regional partnerships and tech ecosystem referrals.`}
           rows={3}
         />
       </div>
@@ -102,7 +102,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.salesStrategy.salesProcess}
           onChange={handleChange}
-          placeholder="Describe your sales process from lead generation to closing the sale."
+          placeholder={`Example: Inbound marketing generates leads through our website and social channels. Leads are nurtured via email campaigns and AI demos. Sales team conducts consultative discovery calls, followed by tailored product walkthroughs and onboarding.`}
           rows={4}
         />
         <FormField
@@ -112,7 +112,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.salesStrategy.salesTeamStructure}
           onChange={handleChange}
-          placeholder="Describe your sales team structure, roles, and training. If no dedicated team, explain who handles sales."
+          placeholder={`Example: Initial sales handled by co-founders and early hires trained in solution selling. As we scale, we will hire a dedicated account executive and sales enablement coordinator to streamline the funnel.`}
           rows={3}
         />
         <FormField
@@ -122,8 +122,8 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
           type="textarea"
           value={data.salesStrategy.salesForecastsSummary}
           onChange={handleChange}
-          placeholder="Summarize your sales forecasts. (Detailed forecasts will be in Financial Projections)."
-          rows={2}
+          placeholder={`Example: Year 1 goal: 100 paying users.  \nYear 2: 500 users.  \nYear 3: 1,500+ users. Growth driven by repeatable onboarding and expansion into adjacent sectors.`}
+          rows={3}
         />
       </div>
 
@@ -134,7 +134,7 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
         type="textarea"
         value={data.customerServicePlan}
         onChange={handleChange}
-        placeholder="How will you handle customer service and support? Describe your approach to customer satisfaction and retention."
+        placeholder={`Example: We provide customer service via live chat (Intercom), email, and scheduled onboarding calls. Our knowledge base supports self-service. We aim for a 24-hour response time and 95% satisfaction score.`}
         rows={4}
       />
     </div>
