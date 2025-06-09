@@ -80,8 +80,8 @@ export default function Board() {
       )}
       {/* CTA Section */}
       <EngagementCTA 
-        title="Join Our Board"
-        subtitle="Make a lasting impact on Chatham-Kent's economic future by joining our board of directors."
+        title="Ready to Apply?"
+        subtitle="JApply for your Business Loan today! or learn more about our programs and services and how we can help you grow your business."
         primaryButtonText="Apply Here"
         secondaryButtonText="Learn More"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}

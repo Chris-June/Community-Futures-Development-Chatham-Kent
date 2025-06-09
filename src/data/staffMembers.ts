@@ -2,7 +2,7 @@ import { StaffMember } from '../types';
 
 export const staffMembers: StaffMember[] = [
   {
-    id: '1',
+    id: 'StaffMember1',
     name: 'David Argenti',
     role: 'Executive Director',
     bio: 'Leading CFDC Chatham-Kent\'s mission to foster economic growth and business success in our community.',
@@ -14,7 +14,7 @@ export const staffMembers: StaffMember[] = [
     email: 'dargenti@cfdcck.on.ca'
   },
   {
-    id: '2',
+    id: 'StaffMember2',
     name: 'Peter Maguire',
     role: 'Business Development Coordinator',
     bio: 'Dedicated to helping entrepreneurs turn their business ideas into reality through expert guidance and support.',
@@ -26,7 +26,7 @@ export const staffMembers: StaffMember[] = [
     email: 'pmaguire@cfdcck.on.ca'
   },
   {
-    id: '3',
+    id: 'StaffMember3',
     name: 'Brenda Richardson',
     role: 'Business Development Coordinator',
     bio: 'Specializing in business expansion strategies and helping established businesses reach new heights.',

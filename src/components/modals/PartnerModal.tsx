@@ -1,4 +1,3 @@
-import React from 'react';
 import { X, Globe, Mail, Phone, MapPin } from 'lucide-react';
 import { CommunityPartner } from '../../types';
 import { motion, AnimatePresence } from 'framer-motion';

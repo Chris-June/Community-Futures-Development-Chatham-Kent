@@ -2,7 +2,7 @@ import { ClientProfile } from '../types';
 
 export const clientProfiles: ClientProfile[] = [
   {
-    id: '1',
+    id: 'ClientProfile1',
     businessName: 'Sarah\'s Bakery',
     ownerName: 'Sarah Miller',
     industry: 'Food & Beverage',
@@ -16,7 +16,7 @@ export const clientProfiles: ClientProfile[] = [
     location: 'Downtown Chatham'
   },
   {
-    id: '2',
+    id: 'ClientProfile2',
     businessName: 'TechGrow Solutions',
     ownerName: 'James Wilson',
     industry: 'Agricultural Technology',
@@ -30,7 +30,7 @@ export const clientProfiles: ClientProfile[] = [
     location: 'Chatham-Kent Research Park'
   },
   {
-    id: '3',
+    id: 'ClientProfile3',
     businessName: 'Green Earth Landscaping',
     ownerName: 'Maria Rodriguez',
     industry: 'Landscaping & Environmental Services',

@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const testimonials = [
   {
-    id: 1,
+    id: 'SuccessStory1',
     name: "Name",
     business: "Padget Accounting",
     quote: "CFDC helped me turn my passion for accounting into a thriving business. Their guidance was invaluable.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
   },
   {
-    id: 2,
+    id: 'SuccessStory2',
     name: "Name",
     business: "Smith Cycles",
     quote: "Community Futures Development Corporation helped me turn my passion for bicycles into a thriving business. Their guidance was invaluable.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
   },
   {
-    id: 3,
+    id: 'SuccessStory3',
     name: "Name",
     business: "Quo Vadis Pizza",
     quote: "Community Futures Development Corporation helped me turn my passion for pizza into a thriving business. Their guidance was invaluable.",
@@ -31,7 +31,7 @@ export default function TestimonialCarousel() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    let interval: number;
+    let interval: ReturnType<typeof setInterval>;
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => 
@@ -39,7 +39,9 @@ export default function TestimonialCarousel() {
         );
       }, 5000);
     }
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isAutoPlaying]);
 
   const handlePrevious = () => {

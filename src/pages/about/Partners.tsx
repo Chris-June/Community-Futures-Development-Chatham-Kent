@@ -134,8 +134,8 @@ export default function Partners() {
         )}
       </div>
       <EngagementCTA 
-        title="Become a Partner"
-        subtitle="Join our network of community partners and help support local businesses in Chatham-Kent."
+        title="Your Journey to Success"
+        subtitle="Apply Now or learn more about our programs and services and how we can help you grow your business."
         primaryButtonText="Apply Here"
         secondaryButtonText="Learn More"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}

@@ -134,8 +134,8 @@ export default function Team() {
       </div>
       
       <EngagementCTA 
-        title="Join Our Team"
-        subtitle="We're always looking for talented individuals who are passionate about supporting local businesses."
+        title="Start your Entrepreneurship Journey with us"
+        subtitle="We're always ready to support talented individuals who are passionate about Growing their business in Chatham-Kent."
         primaryButtonText="Apply Here"
         secondaryButtonText="Learn More"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
