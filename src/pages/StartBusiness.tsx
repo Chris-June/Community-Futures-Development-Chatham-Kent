@@ -29,17 +29,6 @@ export default function StartBusiness() {
         description="Turn your business idea into reality with expert guidance and support from our team. We'll help you navigate every step of the entrepreneurial journey."
         image="https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
       >
-        <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="/about/contact"
-            className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-          >
-            Schedule a Consultation
-          </a>
-          <a href="/resources" className="text-sm font-semibold leading-6 text-gray-900">
-            View Resources <span aria-hidden="true">→</span>
-          </a>
-        </div>
       </ParallaxHero>
 
       {/* Quick Tips Section */}

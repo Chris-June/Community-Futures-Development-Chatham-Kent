@@ -29,17 +29,6 @@ export default function BusinessCounselling() {
         description="Get personalized guidance from our experienced business advisors to help your business thrive. Whether you're starting up or scaling up, we're here to support your success."
         image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
       >
-        <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="/about/contact"
-            className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-          >
-            Book a Consultation
-          </a>
-          <a href="#services" className="text-sm font-semibold leading-6 text-gray-900">
-            Learn More <span aria-hidden="true">→</span>
-          </a>
-        </div>
       </ParallaxHero>
 
       {/* Services Section */}
