@@ -6,32 +6,40 @@ export default {
   	extend: {
   		colors: {
   			primary: {
-  				'50': '#f0f9ff',
-  				'100': '#e0f2fe',
-  				'200': '#bae6fd',
-  				'300': '#7dd3fc',
-  				'400': '#38bdf8',
-  				'500': '#0ea5e9',
-  				'600': '#0284c7',
-  				'700': '#0369a1',
-  				'800': '#075985',
-  				'900': '#0c4a6e',
-  				'950': '#082f49',
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				'50': '#f0f9f0',
+  				'100': '#d4f0d4',
+  				'200': '#a8e1a8',
+  				'300': '#7bd27b',
+  				'400': '#4fc34f',
+  				'500': '#36a336',
+  				'600': '#2b812b',
+  				'700': '#1f5f1f',
+  				'800': '#144014',
+  				'900': '#0a210a',
+  				'950': '#051805',
+  				DEFAULT: '#006837', // Primary Brand Green
+  				foreground: '#ffffff' // White text for contrast
+  			},
+  			dark: {
+  				DEFAULT: '#004d29', // Dark Green for navigation
+  				foreground: '#ffffff' // White text for contrast
+  			},
+  			highlight: {
+  				DEFAULT: '#ffd700', // Highlight color
+  				foreground: '#000000' // Black text for contrast
   			},
   			secondary: {
-  				'50': '#f0fdf4',
-  				'100': '#dcfce7',
-  				'200': '#bbf7d0',
-  				'300': '#86efac',
-  				'400': '#4ade80',
-  				'500': '#22c55e',
-  				'600': '#16a34a',
-  				'700': '#15803d',
-  				'800': '#166534',
-  				'900': '#14532d',
-  				'950': '#052e16',
+  				'50': '#f0f9f5',
+  				'100': '#d4f0e2',
+  				'200': '#a8e1c5',
+  				'300': '#7bd2a8',
+  				'400': '#4fc38b',
+  				'500': '#36a36e',
+  				'600': '#2b8158',
+  				'700': '#1f5f41',
+  				'800': '#14402b',
+  				'900': '#0a2116',
+  				'950': '#05180b',
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},

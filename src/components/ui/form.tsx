@@ -78,7 +78,11 @@ const FormItem = React.forwardRef<
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={cn("space-y-2", className)} {...props} />
+      <div 
+        ref={ref} 
+        className={cn("space-y-1.5 w-full", className)} 
+        {...props} 
+      />
     </FormItemContext.Provider>
   )
 })
@@ -86,17 +90,30 @@ FormItem.displayName = "FormItem"
 
 const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> & {
+    required?: boolean
+  }
+>(({ className, children, required, ...props }, ref) => {
   const { error, formItemId } = useFormField()
 
   return (
-    <Label
-      ref={ref}
-      className={cn(error && "text-destructive", className)}
-      htmlFor={formItemId}
-      {...props}
-    />
+    <div className="flex items-center justify-between">
+      <Label
+        ref={ref}
+        className={cn(
+          "text-sm font-medium text-foreground/90",
+          error ? "text-destructive" : "",
+          className
+        )}
+        htmlFor={formItemId}
+        {...props}
+      >
+        {children}
+        {required && (
+          <span className="ml-1 text-destructive" aria-hidden="true">*</span>
+        )}
+      </Label>
+    </div>
   )
 })
 FormLabel.displayName = "FormLabel"
@@ -133,7 +150,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn("text-[0.8rem] text-muted-foreground", className)}
+      className={cn("mt-1 text-sm text-muted-foreground/80", className)}
       {...props}
     />
   )
@@ -155,7 +172,11 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-[0.8rem] font-medium text-destructive", className)}
+      className={cn(
+        "mt-1.5 flex items-center text-sm font-medium text-destructive",
+        "before:mr-1.5 before:inline-block before:h-1.5 before:w-1.5 before:rounded-full before:bg-destructive before:content-['']",
+        className
+      )}
       {...props}
     >
       {body}

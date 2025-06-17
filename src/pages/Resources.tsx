@@ -110,36 +110,54 @@ export default function Resources() {
       />
 
       {/* Resources Grid */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-200 mb-4">
+            Tools & Resources
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
+            Business Resources & Tools
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Access our comprehensive library of tools and resources designed to support your business journey at every stage.
+          </p>
+        </div>
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {resources.map((resource) => (
             <div
               key={resource.title}
-              className="group relative flex flex-col rounded-2xl bg-white p-8 ring-1 ring-gray-200 hover:ring-gray-300 transition-all duration-200 hover:shadow-md cursor-pointer"
+              className="group relative flex flex-col rounded-2xl bg-white dark:bg-gray-800 p-8 ring-1 ring-gray-200 dark:ring-gray-700 transition-all duration-300 hover:shadow-xl hover:ring-gray-300 dark:hover:ring-gray-600 cursor-pointer hover:-translate-y-1"
               onClick={(e) => {
                 e.preventDefault();
                 if (resource.type === 'link' || resource.type === 'interactive') {
-                  // Handle internal navigation
                   navigate(resource.link);
                   return;
                 }
-                // Fallback for external links (if any other types were to be added)
-                // For now, this will only be hit if a resource type is neither 'link' nor 'interactive'
-                // which shouldn't happen with the current data.
-                // Consider if an explicit external link type is needed in the future.
                 window.open(resource.link, '_blank', 'noopener,noreferrer');
               }}
             >
               <div className="relative z-10 w-full h-full">
-                <div className="flex items-center gap-x-4 text-xs">
-                  <resource.icon className="h-6 w-6 text-primary-600" />
-                  <span className="text-gray-500 uppercase">{resource.type}</span>
+                <div className="flex items-center gap-x-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-300 ring-1 ring-primary-100 dark:ring-primary-800 group-hover:bg-primary-100 dark:group-hover:bg-primary-800/50 group-hover:ring-primary-200 dark:group-hover:ring-primary-700 transition-all duration-300">
+                    <resource.icon className="h-6 w-6" />
+                  </div>
+                  <span className="text-xs font-medium text-primary-700 dark:text-primary-300 bg-primary-50 dark:bg-primary-900/30 px-2.5 py-1 rounded-full">
+                    {resource.type}
+                  </span>
                 </div>
-                <div className="mt-4 flex flex-col gap-4">
-                  <h2 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-primary-600 transition-colors">
+                <div className="mt-5 flex flex-col gap-3">
+                  <h2 className="text-xl font-bold leading-7 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {resource.title}
                   </h2>
-                  <p className="text-sm leading-6 text-gray-600">{resource.description}</p>
+                  <p className="text-base leading-6 text-gray-600 dark:text-gray-300">{resource.description}</p>
+                </div>
+                <div className="mt-6">
+                  <span className="text-sm font-medium text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors flex items-center">
+                    Access resource
+                    <svg className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </div>
               </div>
             </div>
@@ -148,35 +166,39 @@ export default function Resources() {
       </div>
 
       {/* Video Resources */}
-      <div className="bg-gray-900 py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Video Resources</h2>
-              <span className="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800">Coming Soon</span>
-            </div>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
-              <strong>Coming Soon.</strong> We’re hard at work building even more valuable tools and video content to help you plan, launch, and grow your business. Stay tuned—more resources are on the way!
+      <div className="bg-gradient-to-b from-primary-900 to-primary-700 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-200/30 text-primary-100 mb-4">
+              Coming Soon
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
+              Video Resources
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-primary-100 max-w-3xl mx-auto">
+              We're hard at work building even more valuable tools and video content to help you plan, launch, and grow your business. Stay tuned—more resources are on the way!
             </p>
           </div>
           
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {currentVideos.map((video) => (
-              <div key={video.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                <div className="flex-shrink-0">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-48 object-cover"
-                    />
+              <div key={video.id} className="group flex flex-col overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                <div className="relative aspect-video bg-gradient-to-br from-primary-800 to-primary-900 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary-500 transition-colors duration-300">
+                      <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
                   </div>
+                  <span className="text-sm font-medium text-white/70 px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-sm absolute bottom-3 right-3">
+                    5:00
+                  </span>
                 </div>
-                <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                <div className="flex flex-1 flex-col justify-between p-6">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900">{video.title}</h3>
-                    <p className="mt-3 text-base text-gray-500">{video.description}</p>
+                    <h3 className="text-lg font-semibold text-white">{video.title}</h3>
+                    <p className="mt-2 text-sm text-primary-100">{video.description}</p>
                   </div>
                 </div>
               </div>
@@ -185,21 +207,37 @@ export default function Resources() {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="mt-8 flex items-center justify-center gap-x-2">
+            <div className="mt-12 flex items-center justify-center gap-x-4">
               <button
                 onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
                 disabled={currentPage === 1}
-                className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
+                className="inline-flex items-center justify-center rounded-full p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Previous page"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <span className="text-sm text-gray-300">
-                Page {currentPage} of {totalPages}
-              </span>
+              <div className="flex items-center gap-x-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                  <button
+                    key={pageNum}
+                    onClick={() => setCurrentPage(pageNum)}
+                    className={`h-8 w-8 rounded-full text-sm font-medium flex items-center justify-center ${
+                      currentPage === pageNum 
+                        ? 'bg-white text-primary-700' 
+                        : 'text-white hover:bg-white/10'
+                    } transition-colors`}
+                    aria-current={currentPage === pageNum ? 'page' : undefined}
+                    aria-label={`Page ${pageNum}`}
+                  >
+                    {pageNum}
+                  </button>
+                ))}
+              </div>
               <button
                 onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
                 disabled={currentPage === totalPages}
-                className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 disabled:opacity-50"
+                className="inline-flex items-center justify-center rounded-full p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Next page"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -209,24 +247,32 @@ export default function Resources() {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white pt-24 pb-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <div className="bg-white dark:bg-gray-900 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-200 mb-4">
+              Support
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
               Frequently Asked Questions
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Find answers to common questions about our services and support programs.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl lg:max-w-none">
-            <dl className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
+          <div className="mx-auto mt-16 max-w-4xl lg:max-w-5xl">
+            <dl className="space-y-10">
               {faqs.map((faq, index) => (
-                <div key={index}>
-                  <dt className="text-lg font-semibold leading-7 text-gray-900">
-                    {faq.question}
+                <div key={index} className="relative">
+                  <dt>
+                    <div className="absolute flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white">
+                      <span className="text-sm font-medium">0{index + 1}</span>
+                    </div>
+                    <h3 className="ml-16 text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                      {faq.question}
+                    </h3>
                   </dt>
-                  <dd className="mt-4 text-base leading-7 text-gray-600">
+                  <dd className="mt-2 ml-16 text-base leading-7 text-gray-600 dark:text-gray-300">
                     {faq.answer}
                   </dd>
                 </div>

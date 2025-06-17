@@ -1,5 +1,6 @@
-import { Briefcase, FileText, LineChart } from 'lucide-react';
+import { Briefcase, FileText, LineChart, ArrowRight } from 'lucide-react';
 import { ServiceCard } from '../types';
+import { motion } from 'framer-motion';
 
 const services: ServiceCard[] = [
   {
@@ -37,51 +38,64 @@ export default function ServiceCards() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-900 py-12 sm:py-16">
+    <div className="w-full py-16 bg-gradient-to-b from-primary-50 to-white dark:from-primary-950 dark:to-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-100 mb-4">
+            What We Offer
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white font-heading">
             Our Services
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-            Comprehensive support for your business journey
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+            Comprehensive support for your business journey in Chatham-Kent
           </p>
-        </div>
+        </motion.div>
+
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative group rounded-xl border-2 border-white/30 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 bg-white/5 backdrop-blur-sm"
+              className="relative group rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 bg-white dark:bg-gray-800/50 dark:border-gray-700/50 backdrop-blur-sm hover:border-primary-300/70 dark:hover:border-primary-500/30"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div>
-                <span className="inline-flex rounded-xl bg-white/10 p-3 text-white ring-4 ring-white/20">
-                  {getIcon(service.icon)}
-                </span>
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
+                {getIcon(service.icon)}
               </div>
-              <div className="mt-8">
-                <h3 className="text-lg font-medium text-white">
-                  <a href={service.link} className="focus:outline-none">
+              
+              <div className="mt-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  <a 
+                    href={service.link} 
+                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded-md"
+                  >
                     <span className="absolute inset-0" aria-hidden="true" />
                     {service.title}
                   </a>
                 </h3>
-                <p className="mt-2 text-sm text-gray-200">
+                <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
                   {service.description}
                 </p>
+                <div className="mt-4">
+                  <a 
+                    href={service.link} 
+                    className="inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 group transition-colors"
+                  >
+                    Learn more
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
               </div>
-              <span
-                className="pointer-events-none absolute top-6 right-6 text-white/50 group-hover:text-white/70"
-                aria-hidden="true"
-              >
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                </svg>
-              </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

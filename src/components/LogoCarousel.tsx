@@ -81,77 +81,97 @@ export default function LogoCarousel() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary-400">Success Stories</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Businesses We've Supported
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            Meet some of the local entrepreneurs who have partnered with us to achieve their business goals.
-          </p>
+    <div className="w-full bg-gradient-to-b from-primary-900 to-primary-50 dark:from-primary-950 dark:to-gray-900">
+      <div className="w-full">
+        <div className="w-full py-12 px-6 lg:px-8 bg-gradient-to-b from-primary-900 to-primary-50 dark:from-primary-950 dark:to-gray-900">
+          <div className="mx-auto max-w-7xl">
+            <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+              Success Stories
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-primary-900 dark:text-white sm:text-4xl">
+              Businesses We've Supported
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-primary-800 dark:text-primary-200">
+              Meet some of the local entrepreneurs who have partnered with us to achieve their business goals.
+            </p>
+          </div>
         </div>
 
-        <div className="relative mt-16">
-          <div className="relative overflow-hidden">
-            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3">
+        <div className="relative w-full bg-white dark:bg-gray-900 py-12">
+          <div className="relative w-full overflow-hidden">
+            <div className="w-full grid grid-cols-1 gap-8 md:grid-cols-3 px-6 lg:px-12 max-w-7xl mx-auto">
               {currentBusinesses.map((business) => (
                 <motion.div
                   key={business.name}
+                  className="group relative flex flex-col items-center rounded-2xl bg-white/80 dark:bg-gray-800/50 p-6 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700/50"
+                  whileHover={{ y: -5 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="flex flex-col items-center"
+                  viewport={{ once: true }}
                 >
-                  <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white p-4 flex items-center justify-center">
+                  <div className="relative h-32 w-full flex items-center justify-center bg-white dark:bg-gray-800 p-4 rounded-lg group-hover:bg-primary-50 dark:group-hover:bg-gray-700/50 transition-colors">
                     <img
                       src={business.logo}
-                      alt={business.name}
-                      className="max-h-full w-auto object-contain"
+                      alt={`${business.name} logo`}
+                      className="max-h-20 w-auto max-w-full object-contain"
+                      loading="lazy"
+                      width="160"
+                      height="80"
                     />
                   </div>
-                  <div className="mt-4 text-center">
-                    <h3 className="text-lg font-semibold text-gray-900">{business.name}</h3>
-                    <p className="mt-1 text-sm text-gray-500">{business.industry}</p>
-                    <p className="text-sm text-primary-600">Supported since {business.year}</p>
-                  </div>
+                  <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-primary-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
+                    {business.name}
+                  </h3>
+                  <p className="text-base leading-7 text-primary-800 dark:text-primary-200">
+                    {business.industry}
+                  </p>
+                  <p className="text-sm leading-6 text-primary-600 dark:text-primary-400">
+                    Since {business.year}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
 
           {/* Navigation Controls */}
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2">
+          <div className="relative w-full">
             <button
+              type="button"
               onClick={handlePrevious}
-              className="rounded-full bg-white p-2 text-gray-600 shadow-lg hover:text-gray-900 focus:outline-none"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 dark:bg-gray-800/90 text-primary-700 dark:text-primary-300 shadow-lg ring-1 ring-primary-200 dark:ring-gray-700 hover:bg-white dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-100 dark:focus:ring-offset-gray-900"
+              aria-label="Previous slide"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" aria-hidden="true" />
             </button>
-          </div>
-          <div className="absolute -right-4 top-1/2 -translate-y-1/2">
             <button
+              type="button"
               onClick={handleNext}
-              className="rounded-full bg-white p-2 text-gray-600 shadow-lg hover:text-gray-900 focus:outline-none"
+              className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 dark:bg-gray-800/90 text-primary-700 dark:text-primary-300 shadow-lg ring-1 ring-primary-200 dark:ring-gray-700 hover:bg-white dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-100 dark:focus:ring-offset-gray-900"
+              aria-label="Next slide"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
 
           {/* Pagination Dots */}
-          <div className="mt-8 flex justify-center gap-2">
+          <div className="mt-8 flex justify-center gap-4">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => {
-                  setIsAutoPlaying(false);
                   setCurrentPage(index);
+                  setIsAutoPlaying(false);
                 }}
-                className={`h-2 w-2 rounded-full transition-colors duration-200 ${
-                  index === currentPage ? 'bg-primary-600' : 'bg-gray-300'
+                className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                  index === currentPage 
+                    ? 'bg-primary-700 dark:bg-primary-400 w-8' 
+                    : 'bg-primary-300 dark:bg-primary-700 hover:bg-primary-500 dark:hover:bg-primary-500'
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={index === currentPage ? 'step' : undefined}
               />
             ))}
           </div>

@@ -32,96 +32,93 @@ const stats = [
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <motion.div className="w-full">
+    <motion.div className="w-full bg-gradient-to-b from-white to-primary-50 dark:from-gray-900 dark:to-primary-950">
       <ParallaxHero
         title="Empowering Business Growth in Chatham-Kent"
         description="Supporting local entrepreneurs with business loans, expert counselling, and resources to help your business thrive in our community."
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
-      >
-        {/* <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="/start-business"
-            className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-          >
-            Get Started
-          </a>
-          <a href="/about/contact" className="text-sm font-semibold leading-6 text-gray-900">
-            Contact Us <span aria-hidden="true">→</span>
-          </a>
-        </div> */}
-      </ParallaxHero>
+      />
       
       {/* Impact Stats */}
-      <div className="w-full py-12 bg-gradient-to-b from-gray-900 to-white">
+      <div className="w-full py-24 bg-gradient-to-b from-primary-600 to-primary-800 dark:from-primary-800 dark:to-primary-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Impact at a Glance
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-white/10 text-primary-50 mb-4">
+              Our Impact
+            </span>
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl font-heading">
+              Building a Stronger Community
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
-              Making a real difference in our community through business support and development.
+            <p className="mt-4 text-xl leading-8 text-primary-100 max-w-3xl mx-auto">
+              Making a real difference in Chatham-Kent through business support and economic development.
             </p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          </motion.div>
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative rounded-xl border-2 border-white/30 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 bg-transparent"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1, 
+                  ease: [0.4, 0, 0.2, 1],
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }}
+                className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 backdrop-blur-sm ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5"
               >
-                <dt className="text-sm font-semibold leading-6 text-white">
-                  <div className="mb-4 flex justify-center">
-                    <span className="inline-flex rounded-xl bg-white/20 p-3 text-white ring-4 ring-white/20">
-                      <stat.icon className="h-6 w-6" />
-                    </span>
-                  </div>
-                  {stat.label}
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-white mt-2">
-                  <AnimatedCounter
-                    end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
-                    suffix={stat.value.includes('+') ? '+' : ''}
-                    prefix={stat.value.includes('$') ? '$' : ''}
-                  />
-                </dd>
-                <dd className="mt-2 text-sm text-gray-500">{stat.description}</dd>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <dt className="text-base font-semibold leading-7 text-white">
+                    <div className="mb-6 flex justify-center">
+                      <span className="inline-flex rounded-xl bg-gradient-to-br from-white to-primary-100 p-3.5 text-primary-600 shadow-lg shadow-primary-500/20 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary-500/30 group-hover:scale-105">
+                        <stat.icon className="h-7 w-7" />
+                      </span>
+                    </div>
+                    <span className="text-lg font-medium text-primary-50">{stat.label}</span>
+                  </dt>
+                  <dd className="order-first text-5xl font-bold tracking-tight text-white mt-4 font-heading">
+                    <AnimatedCounter
+                      end={parseInt(stat.value.replace(/[^0-9]/g, ''))}
+                      suffix={stat.value.includes('+') ? '+' : ''}
+                      prefix={stat.value.includes('$') ? '$' : ''}
+                    />
+                  </dd>
+                  <dd className="mt-3 text-base text-primary-100/90">{stat.description}</dd>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}>
-        <ServiceCards />
-      </motion.div>
+      <ServiceCards />
+
+      <TestimonialCarousel />
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}>
-        <TestimonialCarousel />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}>
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+      >
         <EngagementCTA 
-          title="Business Support for Chatham-Kent"
-          subtitle="The next Chatham-Kent success story starts with your idea."
-          primaryButtonText="Apply Here"
+          title="Ready to Grow Your Business?"
+          subtitle="Join the community of successful Chatham-Kent businesses that started with an idea and grew with our support."
+          primaryButtonText="Apply Now"
           secondaryButtonText="Learn More"
           onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
           onSecondaryClick={() => navigate('/learn-more')}
+          className="bg-gradient-to-r from-primary-600 to-primary-700"
         />
       </motion.div>
 

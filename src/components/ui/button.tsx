@@ -10,15 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "bg-primary text-white shadow hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-all duration-200",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "bg-destructive text-white shadow-sm hover:bg-destructive/90 focus-visible:ring-2 focus-visible:ring-destructive/50 focus-visible:ring-offset-2 transition-all duration-200",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border border-primary bg-transparent text-primary shadow-sm hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 transition-all duration-200",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-dark text-white shadow-sm hover:bg-dark/90 focus-visible:ring-2 focus-visible:ring-dark/50 focus-visible:ring-offset-2 transition-all duration-200",
+        highlight:
+          "bg-highlight text-black shadow-sm hover:bg-highlight/90 focus-visible:ring-2 focus-visible:ring-highlight/50 focus-visible:ring-offset-2 transition-all duration-200",
+        ghost: "text-foreground hover:bg-accent/10 hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 transition-all duration-200",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary/90 focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 rounded-md transition-all duration-200",
       },
       size: {
         default: "h-9 px-4 py-2",

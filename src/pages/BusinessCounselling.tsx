@@ -23,7 +23,7 @@ const getIcon = (iconName: string) => {
 export default function BusinessCounselling() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-200">
       <ParallaxHero
         title="Expert Business Counselling"
         description="Get personalized guidance from our experienced business advisors to help your business thrive. Whether you're starting up or scaling up, we're here to support your success."
@@ -32,43 +32,47 @@ export default function BusinessCounselling() {
       </ParallaxHero>
 
       {/* Services Section */}
-      <div id="services" className="w-full py-24 sm:py-32 bg-gradient-to-b from-white to-gray-900">
+      <section id="services" aria-labelledby="services-heading" className="w-full py-16 sm:py-24 bg-gradient-to-b from-white to-primary-50 dark:from-gray-900 dark:to-primary-950/30 transition-colors duration-200">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-base font-semibold leading-7 text-primary-700">Our Services</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-100 mb-4">
+                Our Services
+              </span>
+              <h2 id="services-heading" className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
                 Comprehensive Business Support
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-700">
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 We offer a range of professional services designed to help your business succeed at every stage.
               </p>
             </div>
             <div className="mt-16 max-w-2xl mx-auto sm:mt-20 lg:mt-24 lg:max-w-7xl w-full">
               <dl className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-            {counsellingServices.map((service) => (
+            {counsellingServices.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col bg-transparent p-8 shadow-lg ring-1 ring-white/20 rounded-2xl hover:ring-white/40 transition-all duration-200"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group flex flex-col bg-white dark:bg-gray-800 p-8 shadow-xl rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700/50 hover:border-primary-200 dark:hover:border-primary-500/30"
               >
-                <dt className="text-xl font-semibold leading-8 text-white">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20">
+                <dt className="flex flex-col">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 ring-1 ring-primary-100 dark:ring-primary-800/50 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/50 group-hover:ring-primary-200 dark:group-hover:ring-primary-700 transition-all duration-300">
                     {getIcon(service.icon)}
                   </div>
-                  {service.title}
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {service.title}
+                  </h3>
                 </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7">
-                  <p className="flex-auto text-gray-200">{service.description}</p>
+                <dd className="mt-4 flex flex-1 flex-col">
+                  <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
                   <div className="mt-6">
                     <ul role="list" className="space-y-3">
                       {service.benefits.map((benefit, index) => (
                         <li key={index} className="flex gap-x-3">
-                          <CheckCircle2 className="h-6 w-5 flex-none text-primary-400" aria-hidden="true" />
-                          <span className="text-sm leading-6 text-gray-200">{benefit}</span>
+                          <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary-500 dark:text-primary-400 mt-0.5" aria-hidden="true" />
+                          <span className="text-gray-700 dark:text-gray-300">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -76,22 +80,24 @@ export default function BusinessCounselling() {
                 </dd>
               </motion.div>
             ))}
-              </dl>
-            </div>
+            </dl>
           </div>
         </div>
       </div>
+      </section>
 
       {/* Expertise Areas */}
-      <div className="w-full py-24 sm:py-32 bg-gradient-to-b from-gray-900 to-white">
+      <section aria-labelledby="expertise-heading" className="w-full py-16 sm:py-24 bg-gradient-to-b from-primary-700/90 to-white dark:from-primary-950 dark:to-gray-900 transition-colors duration-200">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-base font-semibold leading-7 text-primary-300">Areas of Expertise</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-primary-100/20 text-primary-100 dark:bg-primary-900/50 dark:text-primary-200 mb-4">
+                Expertise Areas
+              </span>
+              <h2 id="expertise-heading" className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
                 Supporting Your Business Journey
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
+              </h2>
+              <p className="mt-4 text-lg text-primary-100/90 dark:text-primary-200 max-w-2xl mx-auto">
                 Our experienced advisors provide expert guidance across key business areas to help you achieve your goals.
               </p>
             </div>
@@ -104,7 +110,7 @@ export default function BusinessCounselling() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="flex flex-col items-start bg-gradient-to-br from-white to-gray-900 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700/50"
+                    className="group flex flex-col h-full bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700/50 hover:border-primary-300 dark:hover:border-primary-500/50"
                   >
                     <div className="relative w-full group">
                       <div className="relative overflow-hidden rounded-2xl">
@@ -118,16 +124,16 @@ export default function BusinessCounselling() {
                     </div>
                     <div className="w-full mt-6">
                       <div className="flex items-center gap-x-3">
-                        <span className="inline-flex items-center rounded-full bg-primary-900/30 px-3 py-1 text-sm font-medium text-primary-300">
+                        <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800 dark:bg-primary-900/50 dark:text-primary-200">
                           {area.title}
                         </span>
                       </div>
                       <div className="mt-4">
-                        <p className="text-base leading-7 text-gray-300">{area.description}</p>
+                        <p className="text-gray-700 dark:text-gray-300">{area.description}</p>
                         <ul role="list" className="mt-4 space-y-3">
                           {area.points.map((point, index) => (
-                            <li key={index} className="flex items-start text-base text-gray-300">
-                              <CheckCircle2 className="mt-1 mr-2 h-5 w-5 flex-shrink-0 text-primary-600" />
+                            <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
+                              <CheckCircle2 className="mt-1 mr-2 h-5 w-5 flex-shrink-0 text-primary-500 dark:text-primary-400" />
                               <span>{point}</span>
                             </li>
                           ))}
@@ -140,7 +146,7 @@ export default function BusinessCounselling() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
       <EngagementCTA 

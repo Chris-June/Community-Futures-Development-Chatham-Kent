@@ -1,89 +1,258 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useState, useMemo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion, Variants } from 'framer-motion';
+import { cn } from '../lib/utils';
 
 interface ParallaxHeroProps {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   image: string;
   children?: React.ReactNode;
   pattern?: boolean;
+  className?: string;
+  overlayGradient?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  contentClassName?: string;
+  priority?: boolean;
+  loading?: 'eager' | 'lazy';
+  minHeight?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
 }
+
+const DEFAULT_OVERLAY_GRADIENT = 'bg-gradient-to-b from-primary-900/80 via-primary-900/60 to-primary-950/90 dark:from-gray-900/90 dark:to-primary-950/95';
 
 export default function ParallaxHero({ 
   title, 
   description, 
   image,
   children,
-  pattern = true 
+  pattern = true,
+  className = '',
+  overlayGradient = DEFAULT_OVERLAY_GRADIENT,
+  titleClassName = '',
+  descriptionClassName = '',
+  contentClassName = '',
+  priority = false,
+  loading = 'lazy',
+  minHeight = 'min-h-[80vh]',
+  ctaText,
+  ctaLink,
+  secondaryCtaText,
+  secondaryCtaLink,
 }: ParallaxHeroProps) {
   const [isMounted, setIsMounted] = useState(false);
   const { scrollY } = useScroll();
+  const prefersReducedMotion = useReducedMotion();
+  const [imageLoaded, setImageLoaded] = useState(false);
   
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0.5]);
+  // Handle parallax effect with reduced motion preference
+  const y = useTransform(
+    scrollY, 
+    [0, 500], 
+    [0, prefersReducedMotion ? 0 : 100],
+    { clamp: false }
+  );
+  
+  const opacity = useTransform(
+    scrollY, 
+    [0, 300], 
+    [1, prefersReducedMotion ? 1 : 0.7],
+    { clamp: true }
+  );
+
+  // Animation variants for staggered children
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        damping: 15,
+        stiffness: 100,
+      },
+    },
+  };
 
   useEffect(() => {
     setIsMounted(true);
+    return () => setIsMounted(false);
   }, []);
 
+  // Skip animations if user prefers reduced motion
+  const motionConfig = useMemo(() => ({
+    initial: prefersReducedMotion ? false : 'hidden',
+    animate: isMounted ? 'visible' : 'hidden',
+    variants: containerVariants,
+  }), [isMounted, prefersReducedMotion]);
+
   if (!isMounted) {
-    return null;
+    return (
+      <div className={cn('relative w-full', minHeight, className)}>
+        <div className="absolute inset-0 bg-primary-900" />
+      </div>
+    );
   }
 
   return (
-    <div className="relative isolate overflow-hidden">
-      {/* Background Pattern */}
+    <section 
+      className={cn(
+        'relative isolate w-full overflow-hidden',
+        minHeight,
+        className
+      )}
+      aria-labelledby="hero-heading"
+    >
+      {/* Background Pattern - Subtle texture */}
       {pattern && (
-        <svg
-          className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-          aria-hidden="true"
-        >
-          <defs>
-            <pattern
-              id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-              width={200}
-              height={200}
-              x="50%"
-              y={-1}
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M100 200V.5M.5 .5H200" fill="none" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
-        </svg>
+        <div className="absolute inset-0 -z-10 opacity-20 dark:opacity-10">
+          <svg
+            className="h-full w-full"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="hero-pattern"
+                width={80}
+                height={80}
+                patternUnits="userSpaceOnUse"
+                patternTransform="scale(2)"
+              >
+                <path 
+                  d="M0 0h80v80H0z" 
+                  fill="none"
+                />
+                <path 
+                  d="M0 40h80" 
+                  stroke="currentColor" 
+                  className="text-primary-700 dark:text-primary-400"
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                />
+              </pattern>
+            </defs>
+            <rect 
+              width="100%" 
+              height="100%" 
+              fill="url(#hero-pattern)" 
+              className="text-primary-300 dark:text-primary-900"
+            />
+          </svg>
+        </div>
       )}
 
       {/* Parallax Background */}
       <motion.div 
-        className="absolute inset-0 -z-10"
-        style={{ y, opacity }}
+        className="absolute inset-0 -z-20"
+        style={prefersReducedMotion ? {} : { y, opacity }}
+        aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-100/30 to-white/90" />
+        {/* Overlay gradient */}
+        <div className={cn(
+          'absolute inset-0',
+          overlayGradient || DEFAULT_OVERLAY_GRADIENT
+        )} />
+        
+        {/* Background image */}
         <img
           src={image}
-          alt="Background"
-          className="h-full w-full object-cover"
+          alt=""
+          className={cn(
+            'h-full w-full object-cover transition-opacity duration-700',
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          )}
+          loading={loading}
+          fetchPriority={priority ? 'high' : 'auto'}
+          onLoad={() => setImageLoaded(true)}
+          role="presentation"
         />
+        
+        {/* Fallback background color */}
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-primary-900" />
+        )}
       </motion.div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:pt-8">
+      {/* Content */}
+      <div className={cn(
+        'mx-auto flex h-full max-w-7xl items-center px-6 py-24 sm:py-32 lg:px-8',
+        contentClassName
+      )}>
+        <div className="w-full max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            className="space-y-6 lg:space-y-8"
+            {...motionConfig}
           >
-            <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <motion.h1
+              id="hero-heading"
+              className={cn(
+                'text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl',
+                'drop-shadow-md',
+                titleClassName
+              )}
+              variants={itemVariants}
+            >
               {title}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              {description}
-            </p>
-            {children}
+            </motion.h1>
+            
+            {description && (
+              <motion.div 
+                className={cn(
+                  'max-w-3xl text-lg leading-8 text-gray-100 sm:text-xl',
+                  'drop-shadow-sm',
+                  descriptionClassName
+                )}
+                variants={itemVariants}
+              >
+                {typeof description === 'string' ? (
+                  <p>{description}</p>
+                ) : (
+                  description
+                )}
+              </motion.div>
+            )}
+            
+            {(ctaText || children) && (
+              <motion.div 
+                className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+                variants={itemVariants}
+              >
+                {ctaText && ctaLink && (
+                  <a
+                    href={ctaLink}
+                    className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-medium text-primary-700 shadow-sm hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200"
+                  >
+                    {ctaText}
+                  </a>
+                )}
+                {secondaryCtaText && secondaryCtaLink && (
+                  <a
+                    href={secondaryCtaLink}
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary-600 bg-opacity-20 px-6 py-3 text-base font-medium text-white hover:bg-opacity-30 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200"
+                  >
+                    {secondaryCtaText}
+                  </a>
+                )}
+                {children}
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

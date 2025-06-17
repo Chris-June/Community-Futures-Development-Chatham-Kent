@@ -40,7 +40,7 @@ const DropdownMenu = ({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.2 }}
-        className="absolute left-0 z-50 mt-2 w-56 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        className="absolute left-0 z-50 mt-2 w-56 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-primary/30 focus:outline-none"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown-button"
@@ -49,7 +49,7 @@ const DropdownMenu = ({
           <Link
             key={item.href}
             to={item.href}
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            className="block px-4 py-2 text-sm text-gray-900 hover:bg-primary/10"
             role="menuitem"
           >
             {item.name}
@@ -109,7 +109,7 @@ export default function Navbar() {
       initial="hidden"
       animate={controls}
       variants={navVariants}
-      className="sticky top-0 z-50 w-full bg-white shadow-md"
+      className="sticky top-0 z-50 w-full bg-dark text-white shadow-lg backdrop-blur-sm bg-opacity-95"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="sr-only">
@@ -133,7 +133,7 @@ export default function Navbar() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:bg-primary/20"
               onClick={() => setIsOpen(true)}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -159,7 +159,7 @@ export default function Navbar() {
                   <>
                     <div className="relative">
                       <button
-                        className="flex items-center gap-1 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
+                        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium leading-6 text-white transition-all duration-200 hover:bg-primary/10 hover:text-highlight focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:ring-offset-2 focus:ring-offset-dark"
                         onClick={(e) => {
                           e.stopPropagation();
                           setDropdownOpen(dropdownOpen === item.name ? null : item.name);
@@ -170,8 +170,8 @@ export default function Navbar() {
                       >
                         <motion.div
                           whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.5 }}
-                          className="text-primary-600"
+                          transition={{ duration: 0.5, type: 'spring', stiffness: 300 }}
+                          className="text-highlight"
                         >
                           {item.icon && <item.icon className="h-5 w-5 mr-1" />}
                         </motion.div>
@@ -193,17 +193,17 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-sm font-semibold leading-6 transition-colors flex items-center gap-2 ${
+                    className={`rounded-md px-3 py-2 text-sm font-medium leading-6 transition-all duration-200 flex items-center gap-2 ${
                       activeItem === item.href
-                        ? 'text-primary-600'
-                        : 'text-gray-900 hover:text-primary-600'
-                    }`}
+                        ? 'bg-primary/10 text-highlight ring-2 ring-highlight/20'
+                        : 'text-white hover:bg-primary/10 hover:text-highlight'
+                    } focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:ring-offset-2 focus:ring-offset-dark`}
                   >
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                      className="text-primary-600"
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      className="text-highlight"
                     >
                       {item.icon && <item.icon className="h-5 w-5" />}
                     </motion.div>

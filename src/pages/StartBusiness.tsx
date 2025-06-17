@@ -23,115 +23,124 @@ const getIcon = (iconName: string) => {
 export default function StartBusiness() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900">
       <ParallaxHero
         title="Start Your Business Journey"
         description="Turn your business idea into reality with expert guidance and support from our team. We'll help you navigate every step of the entrepreneurial journey."
         image="https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-      >
-      </ParallaxHero>
+      />
 
       {/* Quick Tips Section */}
-      <div className="bg-gradient-to-b from-white to-gray-900 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary-600">Quick Tips</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Things to Know Before Starting
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-700">
-            Essential insights to help you start your business journey on the right foot.
-          </p>
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-primary-50 dark:from-gray-900 dark:to-primary-950/30" aria-labelledby="quick-tips-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-100 mb-4">
+              Quick Tips
+            </span>
+            <h2 id="quick-tips-heading" className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
+              Things to Know Before Starting
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Essential insights to help you start your business journey on the right foot.
+            </p>
+          </div>
+          
+          <div className="mt-16">
+            <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {quickTips.map((tip) => (
+                <motion.div
+                  key={tip.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5 }}
+                  className="flex flex-col p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+                >
+                  <dt className="flex flex-col">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-600 text-white">
+                      {getIcon(tip.icon)}
+                    </div>
+                    <h3 className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                      {tip.title}
+                    </h3>
+                  </dt>
+                  <dd className="mt-2 flex-1">
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      {tip.description}
+                    </p>
+                  </dd>
+                </motion.div>
+              ))}
+            </dl>
+          </div>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-            {quickTips.map((tip) => (
-              <motion.div
-                key={tip.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col"
-              >
-                <dt className="text-base font-semibold leading-7 text-gray-100">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
-                    {getIcon(tip.icon)}
-                  </div>
-                  {tip.title}
-                </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
-                  <p className="flex-auto">{tip.description}</p>
-                </dd>
-              </motion.div>
-            ))}
-          </dl>
-        </div>
-        </div>
-      </div>
+      </section>
 
       {/* Steps Section */}
-      <div className="bg-gradient-to-b from-gray-900 to-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-primary-400">The Process</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
+      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900" aria-labelledby="process-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-100 mb-4">
+              The Process
+            </span>
+            <h2 id="process-heading" className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
               How We Help You Succeed
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Our proven process helps turn your business idea into reality with expert guidance every step of the way.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8">
-              {startupSteps.map((step) => (
+          
+          <div className="mt-16">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+              {startupSteps.map((step, index) => (
                 <motion.article
                   key={step.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="flex flex-col items-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group flex flex-col h-full"
                 >
-                  <div className="relative w-full">
+                  <div className="relative aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800">
                     <img
                       src={step.image}
-                      alt={step.title}
-                      className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                      alt=""
+                      className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  <div className="max-w-xl">
-                    <div className="mt-8 flex items-center gap-x-4 text-xs">
-                      <span className="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-1 text-xs font-medium text-primary-600">
-                        Step {step.id}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <span className="inline-flex items-center rounded-full bg-primary-600 px-3 py-1 text-sm font-medium text-white">
+                        Step {index + 1}
                       </span>
                     </div>
-                    <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-800 group-hover:text-gray-800">
-                        {step.title}
-                      </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-800">{step.description}</p>
-                    </div>
+                  </div>
+                  
+                  <div className="mt-6 flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-gray-600 dark:text-gray-300">
+                      {step.description}
+                    </p>
                   </div>
                 </motion.article>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-b from-white to-gray-900">
-        <EngagementCTA 
+      <EngagementCTA 
         title="Ready to Start Your Business?"
         subtitle="Book a free consultation with our business advisors and take the first step towards entrepreneurship."
         primaryButtonText="Apply Here"
         secondaryButtonText="Contact Us"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
-          onSecondaryClick={() => navigate('/about/contact')}
-        />
-      </div>
+        onSecondaryClick={() => navigate('/about/contact')}
+        className="bg-gradient-to-r from-primary-600 to-primary-700"
+      />
     </div>
   );
 }

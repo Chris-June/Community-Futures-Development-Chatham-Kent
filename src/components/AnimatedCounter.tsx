@@ -6,9 +6,16 @@ interface AnimatedCounterProps {
   duration?: number;
   prefix?: string;
   suffix?: string;
+  className?: string;
 }
 
-export default function AnimatedCounter({ end, duration = 2, prefix = '', suffix = '' }: AnimatedCounterProps) {
+export default function AnimatedCounter({ 
+  end, 
+  duration = 2, 
+  prefix = '', 
+  suffix = '',
+  className = '' 
+}: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -55,7 +62,7 @@ export default function AnimatedCounter({ end, duration = 2, prefix = '', suffix
   }, [isInView, end, duration]);
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span ref={ref} className={`${className} tabular-nums`}>
       {prefix}
       {count.toLocaleString()}
       {suffix}

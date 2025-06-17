@@ -24,6 +24,10 @@ export interface SuccessStory {
   businessName: string;
   image: string;
   description: string;
+  cta?: {
+    url: string;
+    text?: string;
+  };
 }
 
 export interface Partner {
