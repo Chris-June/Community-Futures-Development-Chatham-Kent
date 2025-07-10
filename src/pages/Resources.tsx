@@ -107,6 +107,8 @@ export default function Resources() {
         title="Business Resources"
         description="Access tools, templates, and guides to help you succeed. Our comprehensive resource library is designed to support your business journey."
         image="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
 
       {/* Resources Grid */}

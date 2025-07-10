@@ -63,6 +63,8 @@ export default function LearnMore() {
         title="Loan Application Requirements"
         description="Everything you need to know to prepare a successful loan application with Community Futures Chatham-Kent."
         image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       >
         {/* <div className="mt-10 flex items-center gap-x-6">
           <a

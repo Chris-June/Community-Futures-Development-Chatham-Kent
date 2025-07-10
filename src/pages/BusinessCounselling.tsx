@@ -28,6 +28,8 @@ export default function BusinessCounselling() {
         title="Expert Business Counselling"
         description="Get personalized guidance from our experienced business advisors to help your business thrive. Whether you're starting up or scaling up, we're here to support your success."
         image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       >
       </ParallaxHero>
 

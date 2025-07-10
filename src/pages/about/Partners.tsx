@@ -48,6 +48,8 @@ export default function Partners() {
         title="Community Partners"
         description="We work closely with local organizations to create a strong support network for businesses in Chatham-Kent. Our partnerships enhance the resources and opportunities available to entrepreneurs in our community."
         image="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
       
       <div className="py-16 sm:py-20 lg:py-24">

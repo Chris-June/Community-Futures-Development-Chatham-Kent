@@ -21,6 +21,8 @@ export default function ClientProfiles() {
         title="Success Stories"
         description="Meet some of the local entrepreneurs who have partnered with us to achieve their business goals. These success stories showcase the diverse range of businesses we've helped grow in Chatham-Kent."
         image="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
       
       <div className="py-16 sm:py-20 lg:py-24">

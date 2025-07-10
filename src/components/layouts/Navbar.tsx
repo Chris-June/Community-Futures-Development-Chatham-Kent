@@ -121,11 +121,13 @@ export default function Navbar() {
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5 flex items-center">
               <span className="sr-only">Community Futures Chatham-Kent</span>
-              <img 
-                className="h-12 w-auto" 
-                src="/assets/images/CFDC-logo.png" 
-                alt="Community Futures Chatham-Kent"
-              />
+              <div className="bg-white p-2 rounded-lg shadow-sm">
+                <img 
+                  className="h-12 w-auto" 
+                  src="/assets/images/CFDC-logo.png" 
+                  alt="Community Futures Chatham-Kent"
+                />
+              </div>
             </Link>
           </div>
           

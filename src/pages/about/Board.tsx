@@ -31,6 +31,8 @@ export default function Board() {
         title="Board of Directors"
         description="Our board members bring diverse expertise and deep community connections to guide our organization's mission and strategic direction. Together, they ensure we maintain the highest standards of governance and community impact."
         image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
       
       <div className="py-16 sm:py-20 lg:py-24">

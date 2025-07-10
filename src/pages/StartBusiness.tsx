@@ -28,6 +28,8 @@ export default function StartBusiness() {
         title="Start Your Business Journey"
         description="Turn your business idea into reality with expert guidance and support from our team. We'll help you navigate every step of the entrepreneurial journey."
         image="https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
 
       {/* Quick Tips Section */}

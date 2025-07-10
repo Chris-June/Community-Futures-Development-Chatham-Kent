@@ -22,8 +22,8 @@ const StatsSection = () => {
       value: 25, 
       suffix: '+', 
       icon: Briefcase,
-      color: 'from-primary-600 to-primary-700',
-      iconColor: 'text-primary-600 dark:text-primary-400',
+      color: 'from-blue-500 to-blue-600',
+      iconColor: 'text-white',
       description: 'Combined experience supporting local businesses'
     },
     { 
@@ -32,8 +32,8 @@ const StatsSection = () => {
       value: 500, 
       suffix: '+', 
       icon: Users2,
-      color: 'from-primary-700 to-primary-800',
-      iconColor: 'text-primary-700 dark:text-primary-300',
+      color: 'from-green-500 to-green-600',
+      iconColor: 'text-white',
       description: 'Entrepreneurs and businesses we\'ve helped'
     },
     { 
@@ -42,8 +42,8 @@ const StatsSection = () => {
       value: 1000, 
       suffix: '+', 
       icon: Briefcase,
-      color: 'from-amber-600 to-amber-700',
-      iconColor: 'text-amber-600 dark:text-amber-400',
+      color: 'from-amber-500 to-amber-600',
+      iconColor: 'text-white',
       description: 'Employment opportunities generated'
     },
     { 
@@ -53,8 +53,8 @@ const StatsSection = () => {
       prefix: '$', 
       suffix: 'M+',
       icon: Heart,
-      color: 'from-dark-700 to-dark-800',
-      iconColor: 'text-dark-700 dark:text-dark-300',
+      color: 'from-red-500 to-red-600',
+      iconColor: 'text-white',
       description: 'Invested in local economic development'
     },
   ];
@@ -111,12 +111,29 @@ const StatsSection = () => {
               )}
             >
               <div className="flex flex-col items-center text-center">
-                <div className={cn(
-                  "flex h-12 w-12 items-center justify-center rounded-full mb-4",
-                  `bg-gradient-to-br ${stat.color} text-white`
-                )}>
-                  <stat.icon className={cn(stat.iconColor, "h-6 w-6")} aria-hidden="true" />
-                </div>
+                <motion.div 
+                  className={cn(
+                    "flex h-14 w-14 items-center justify-center rounded-xl mb-4",
+                    `bg-gradient-to-br ${stat.color} shadow-md`
+                  )}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: 5,
+                    transition: { 
+                      type: 'spring',
+                      stiffness: 400,
+                      damping: 10
+                    } 
+                  }}
+                >
+                  <stat.icon 
+                    className={cn(
+                      "h-7 w-7 transition-transform duration-200 group-hover:scale-110",
+                      stat.iconColor
+                    )} 
+                    aria-hidden="true" 
+                  />
+                </motion.div>
                 <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">{stat.name}</dt>
                 <dd className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                   <AnimatedCounter 
@@ -170,16 +187,20 @@ export default function Team() {
       >
         <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/contact"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer');
+            }}
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-primary-600 hover:bg-primary-700 md:py-3 md:text-base md:px-8 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
-            Contact Our Team
+            Apply Here
           </a>
           <a
-            href="/careers"
+            href="/contact"
             className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-full text-primary-700 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:py-3 md:text-base md:px-8 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
-            View Open Positions
+            Contact Our Team
           </a>
         </div>
       </ParallaxHero>

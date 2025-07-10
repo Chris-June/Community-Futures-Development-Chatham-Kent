@@ -18,11 +18,13 @@ interface ParallaxHeroProps {
   minHeight?: string;
   ctaText?: string;
   ctaLink?: string;
+  onCtaClick?: () => void;
   secondaryCtaText?: string;
   secondaryCtaLink?: string;
+  onSecondaryCtaClick?: () => void;
 }
 
-const DEFAULT_OVERLAY_GRADIENT = 'bg-gradient-to-b from-primary-900/80 via-primary-900/60 to-primary-950/90 dark:from-gray-900/90 dark:to-primary-950/95';
+const DEFAULT_OVERLAY_GRADIENT = 'bg-gradient-to-b from-black/30 to-black/50 dark:from-black/40 dark:to-black/60';
 
 export default function ParallaxHero({ 
   title, 
@@ -40,8 +42,10 @@ export default function ParallaxHero({
   minHeight = 'min-h-[80vh]',
   ctaText,
   ctaLink,
+  onCtaClick,
   secondaryCtaText,
   secondaryCtaLink,
+  onSecondaryCtaClick,
 }: ParallaxHeroProps) {
   const [isMounted, setIsMounted] = useState(false);
   const { scrollY } = useScroll();
@@ -176,6 +180,7 @@ export default function ParallaxHero({
             imageLoaded ? 'opacity-100' : 'opacity-0'
           )}
           loading={loading}
+          // @ts-ignore - fetchPriority is valid but TypeScript types might be outdated
           fetchPriority={priority ? 'high' : 'auto'}
           onLoad={() => setImageLoaded(true)}
           role="presentation"
@@ -231,17 +236,29 @@ export default function ParallaxHero({
                 className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
                 variants={itemVariants}
               >
-                {ctaText && ctaLink && (
+                {ctaText && (ctaLink || onCtaClick) && (
                   <a
-                    href={ctaLink}
+                    href={ctaLink || '#'}
+                    onClick={(e) => {
+                      if (onCtaClick) {
+                        e.preventDefault();
+                        onCtaClick();
+                      }
+                    }}
                     className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-medium text-primary-700 shadow-sm hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200"
                   >
                     {ctaText}
                   </a>
                 )}
-                {secondaryCtaText && secondaryCtaLink && (
+                {secondaryCtaText && (secondaryCtaLink || onSecondaryCtaClick) && (
                   <a
-                    href={secondaryCtaLink}
+                    href={secondaryCtaLink || '#'}
+                    onClick={(e) => {
+                      if (onSecondaryCtaClick) {
+                        e.preventDefault();
+                        onSecondaryCtaClick();
+                      }
+                    }}
                     className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary-600 bg-opacity-20 px-6 py-3 text-base font-medium text-white hover:bg-opacity-30 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200"
                   >
                     {secondaryCtaText}

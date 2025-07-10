@@ -37,6 +37,8 @@ export default function Home() {
         title="Empowering Business Growth in Chatham-Kent"
         description="Supporting local entrepreneurs with business loans, expert counselling, and resources to help your business thrive in our community."
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
       
       {/* Impact Stats */}

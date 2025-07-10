@@ -2,53 +2,78 @@ import React, { useEffect, useState } from 'react';
 import AnimatedCounter from '../../components/AnimatedCounter';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket } from 'lucide-react';
+import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket, ShieldCheck, Lightbulb, HeartHandshake, ChevronRight as ChevronRightIcon, LucideIcon } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import ParallaxHero from '../../components/ParallaxHero';
 import { successStories } from '../../data/successStories';
 import LogoCarousel from '../../components/LogoCarousel';
 import EngagementCTA from '../../components/EngagementCTA';
+import WhoWeAreModal from '../../components/modals/WhoWeAreModal';
 
 const features = [
   {
-    name: 'Our Mission',
-    description: 'Supporting local economic development by helping small businesses start, grow, and succeed.',
+    name: 'Access to Capital',
+    description: 'Providing financial solutions to help businesses start, grow, and succeed.',
+    content: 'Our Access to Capital programs offer flexible financing options for small and medium-sized businesses in Chatham-Kent. We understand that access to funding is often the biggest hurdle for entrepreneurs, which is why we provide loans and financial products tailored to meet the unique needs of local businesses.',
+    importanceToCF: 'Access to capital is fundamental to our mission of fostering economic development. It allows us to directly support local businesses and entrepreneurs who may not qualify for traditional bank financing.',
+    importanceToCK: 'By providing access to capital, we help local businesses create jobs, stimulate economic growth, and contribute to the overall prosperity of Chatham-Kent.',
+    economicImpact: 'Every dollar invested through our financing programs generates significant economic activity in the community, creating a multiplier effect that benefits the entire region.',
+    businessImportance: 'Understanding our financing options can help businesses secure the capital they need to start, expand, or weather challenging times, ensuring their long-term success.',
     icon: Target,
-    color: 'from-primary-50 to-white dark:from-primary-900/20 dark:to-primary-900/10',
-    hoverColor: 'hover:from-primary-100/80 hover:to-primary-50/80 dark:hover:from-primary-800/30 dark:hover:to-primary-900/20',
-    borderColor: 'border-primary-200/80 dark:border-primary-700/30',
-    iconColor: 'text-primary-700 dark:text-primary-300',
-    link: '/about#mission',
+    color: 'from-blue-50 to-white dark:from-blue-900/20 dark:to-blue-900/10',
+    hoverColor: 'hover:from-blue-100/80 hover:to-blue-50/80 dark:hover:from-blue-800/30 dark:hover:to-blue-900/20',
+    borderColor: 'border-blue-200/80 dark:border-blue-700/30',
+    iconColor: 'text-white',
+    iconBgColor: 'bg-blue-500',
+    link: '/services/financing',
   },
   {
-    name: 'Our Vision',
-    description: 'To be the leading catalyst for sustainable economic growth in Chatham-Kent.',
+    name: 'Business Services',
+    description: 'Expert guidance and resources to help your business thrive.',
+    content: 'Our Business Services provide entrepreneurs and business owners with the tools, knowledge, and support they need to succeed. From business planning and market research to mentorship and training programs, we offer comprehensive services designed to address the unique challenges faced by Chatham-Kent businesses.',
+    importanceToCF: 'Business services are at the heart of what we do, allowing us to provide hands-on support and guidance to local entrepreneurs at every stage of their business journey.',
+    importanceToCK: 'Strong, well-supported businesses create jobs, drive innovation, and contribute to a vibrant local economy that benefits all residents of Chatham-Kent.',
+    economicImpact: 'By helping businesses grow and succeed, we contribute to job creation, increased local spending, and a more diversified and resilient local economy.',
+    businessImportance: 'Access to expert business advice and resources can help businesses overcome challenges, identify opportunities, and achieve sustainable growth in today\'s competitive marketplace.',
     icon: Building2,
-    color: 'from-primary-50 to-white dark:from-dark-900/20 dark:to-dark-900/10',
-    hoverColor: 'hover:from-primary-100/80 hover:to-primary-50/80 dark:hover:from-dark-800/30 dark:hover:to-dark-900/20',
-    borderColor: 'border-primary-200/80 dark:border-dark-700/30',
-    iconColor: 'text-primary-700 dark:text-primary-300',
-    link: '/about#vision',
+    color: 'from-green-50 to-white dark:from-green-900/20 dark:to-green-900/10',
+    hoverColor: 'hover:from-green-100/80 hover:to-green-50/80 dark:hover:from-green-800/30 dark:hover:to-green-900/20',
+    borderColor: 'border-green-200/80 dark:border-green-700/30',
+    iconColor: 'text-white',
+    iconBgColor: 'bg-green-500',
+    link: '/services/business-support',
   },
   {
-    name: 'Our Values',
-    description: 'Integrity, innovation, collaboration, and commitment to community success.',
-    icon: Award,
-    color: 'from-primary-50 to-white dark:from-primary-900/20 dark:to-primary-900/10',
-    hoverColor: 'hover:from-primary-100/80 hover:to-primary-50/80 dark:hover:from-primary-800/30 dark:hover:to-primary-900/20',
-    borderColor: 'border-primary-200/80 dark:border-primary-700/30',
-    iconColor: 'text-primary-700 dark:text-primary-300',
-    link: '/about#values',
-  },
-  {
-    name: 'Our Impact',
-    description: 'Creating jobs, fostering entrepreneurship, and building a stronger local economy.',
+    name: 'Community Economic Development',
+    description: 'Building a stronger, more resilient local economy together.',
+    content: 'Our Community Economic Development initiatives focus on creating the conditions for sustainable economic growth throughout Chatham-Kent. We work with local stakeholders to identify opportunities, address challenges, and implement strategies that support business growth and community prosperity.',
+    importanceToCF: 'Community economic development is central to our mandate, allowing us to address systemic challenges and create an environment where businesses can thrive.',
+    importanceToCK: 'Targeted economic development efforts help create jobs, improve quality of life, and ensure that Chatham-Kent remains a great place to live, work, and do business.',
+    economicImpact: 'By investing in community economic development, we help create a more diverse and resilient local economy that can adapt to changing circumstances and provide opportunities for all residents.',
+    businessImportance: 'A strong local economy benefits all businesses by creating a larger customer base, attracting investment, and fostering a supportive business environment.',
     icon: Users,
-    color: 'from-primary-50 to-white dark:from-primary-900/20 dark:to-primary-900/10',
-    hoverColor: 'hover:from-primary-100/80 hover:to-primary-50/80 dark:hover:from-primary-800/30 dark:hover:to-primary-900/20',
-    borderColor: 'border-primary-200/80 dark:border-primary-700/30',
-    iconColor: 'text-primary-700 dark:text-primary-300',
-    link: '/about#impact',
+    color: 'from-purple-50 to-white dark:from-purple-900/20 dark:to-purple-900/10',
+    hoverColor: 'hover:from-purple-100/80 hover:to-purple-50/80 dark:hover:from-purple-800/30 dark:hover:to-purple-900/20',
+    borderColor: 'border-purple-200/80 dark:border-purple-700/30',
+    iconColor: 'text-white',
+    iconBgColor: 'bg-purple-500',
+    link: '/about/economic-development',
+  },
+  {
+    name: 'Strategic Partnerships',
+    description: 'Collaborating for greater impact in our community.',
+    content: 'We believe in the power of partnerships to achieve meaningful change. Through strategic collaborations with government agencies, educational institutions, business organizations, and community groups, we leverage resources and expertise to maximize our collective impact on the Chatham-Kent economy.',
+    importanceToCF: 'Strategic partnerships allow us to extend our reach, share resources, and implement more effective programs and initiatives than we could achieve alone.',
+    importanceToCK: 'By working together with diverse stakeholders, we can address complex economic challenges and create more comprehensive solutions that benefit the entire community.',
+    economicImpact: 'Collaborative efforts lead to more efficient use of resources, reduced duplication of services, and greater overall impact on the local economy.',
+    businessImportance: 'Our partnerships create valuable connections and opportunities for local businesses, helping them access new markets, resources, and support services.',
+    icon: Award,
+    color: 'from-indigo-50 to-white dark:from-indigo-900/20 dark:to-indigo-900/10',
+    hoverColor: 'hover:from-indigo-100/80 hover:to-indigo-50/80 dark:hover:from-indigo-800/30 dark:hover:to-indigo-900/20',
+    borderColor: 'border-indigo-200/80 dark:border-indigo-700/30',
+    iconColor: 'text-white',
+    iconBgColor: 'bg-indigo-500',
+    link: '/about/partners',
   },
 ];
 
@@ -224,8 +249,50 @@ const Carousel = () => {
   );
 };
 
+interface ValueType {
+  name: string;
+  description: string;
+  content: string;
+  importanceToCF: string;
+  importanceToCK: string;
+  economicImpact: string;
+  businessImportance: string;
+  icon: LucideIcon;
+  color: string;
+  borderColor: string;
+  iconColor: string;
+  iconBgColor: string;
+}
+
 const WhoWeAre: React.FC = () => {
   const navigate = useNavigate();
+  const [selectedFeature, setSelectedFeature] = useState<typeof features[0] | null>(null);
+  const [selectedValue, setSelectedValue] = useState<ValueType | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isValueModalOpen, setIsValueModalOpen] = useState(false);
+
+  const handleFeatureClick = (feature: typeof features[0]) => {
+    setSelectedFeature(feature);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    // Delay to allow the modal close animation to complete before resetting the selected feature
+    setTimeout(() => setSelectedFeature(null), 300);
+  };
+
+  const handleValueClick = (value: ValueType) => {
+    setSelectedValue(value);
+    setIsValueModalOpen(true);
+  };
+
+  const closeValueModal = () => {
+    setIsValueModalOpen(false);
+    // Delay to allow the modal close animation to complete before resetting the selected value
+    setTimeout(() => setSelectedValue(null), 300);
+  };
+
   // Handle smooth scrolling for anchor links
   useEffect(() => {
     if (window.location.hash) {
@@ -235,7 +302,7 @@ const WhoWeAre: React.FC = () => {
       }
     }
   }, []);
-  
+
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-200">
       {/* Hero Section */}
@@ -243,10 +310,10 @@ const WhoWeAre: React.FC = () => {
         title="Who We Are"
         description="Community Futures Development Corporation of Chatham-Kent is a community-based, non-profit organization that provides business support services to help entrepreneurs succeed."
         image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
-        ctaText="Learn About Our Services"
-        ctaLink="/services"
-        secondaryCtaText="Meet Our Team"
-        secondaryCtaLink="/about/team"
+        ctaText="Apply Here"
+        onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
+        secondaryCtaText="Learn About Our Services"
+        secondaryCtaLink="/services"
       />
       
       {/* Impact Stats */}
@@ -319,8 +386,8 @@ const WhoWeAre: React.FC = () => {
         </div>
       </section>
       
-      {/* Features Grid */}
-      <section id="mission" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+      {/* Core Pillars with Modal */}
+      <section id="core-pillars" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16">
             <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
@@ -338,19 +405,19 @@ const WhoWeAre: React.FC = () => {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.name}
-                id={feature.name.toLowerCase().replace(/\s+/g, '-')}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
-                  "group relative overflow-hidden rounded-2xl p-8 transition-all duration-300",
+                  "group relative overflow-hidden rounded-2xl p-8 transition-all duration-300 cursor-pointer",
                   "border bg-gradient-to-br",
                   feature.color,
                   feature.borderColor,
                   feature.hoverColor,
                   "hover:shadow-lg hover:-translate-y-1 hover:shadow-primary/10 dark:hover:shadow-primary/20"
                 )}
+                onClick={() => handleFeatureClick(feature)}
               >
                 <div className="relative z-10">
                   <div className="flex items-start gap-5 mb-6">
@@ -358,19 +425,20 @@ const WhoWeAre: React.FC = () => {
                       "flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl",
                       "bg-white/90 dark:bg-primary-950/50 backdrop-blur-sm",
                       "shadow-sm border border-white/80 dark:border-primary-800/50",
-                      feature.iconColor,
                       "group-hover:bg-white/100 dark:group-hover:bg-primary-900/70 transition-colors"
                     )}>
-                      <feature.icon className="h-6 w-6" aria-hidden="true" />
+                      <div className={cn(
+                        "h-10 w-10 rounded-lg flex items-center justify-center",
+                        feature.iconBgColor || "bg-primary-100 dark:bg-primary-900/50"
+                      )}>
+                        <feature.icon 
+                          className={cn("h-5 w-5", feature.iconColor || "text-primary-600 dark:text-primary-400")} 
+                          aria-hidden="true" 
+                        />
+                      </div>
                     </div>
                     <div>
-                      <h3 className={cn(
-                        "text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r",
-                        feature.name === 'Our Mission' && "from-primary-600 to-primary-800 dark:from-primary-400 dark:to-primary-300",
-                        feature.name === 'Our Vision' && "from-primary-700 to-primary-900 dark:from-primary-300 dark:to-primary-200",
-                        feature.name === 'Our Values' && "from-primary-600 to-primary-800 dark:from-primary-400 dark:to-primary-300",
-                        feature.name === 'Our Impact' && "from-emerald-600 to-emerald-800 dark:from-emerald-400 dark:to-emerald-300"
-                      )}>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {feature.name}
                       </h3>
                     </div>
@@ -379,29 +447,170 @@ const WhoWeAre: React.FC = () => {
                     {feature.description}
                   </p>
                   <div className="mt-6">
-                    <a
-                      href={feature.link || '#'}
+                    <button
                       className={cn(
                         "inline-flex items-center text-sm font-medium transition-colors",
                         "text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300",
                         "group-hover:underline underline-offset-4"
                       )}
                       aria-label={`Learn more about ${feature.name}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleFeatureClick(feature);
+                      }}
                     >
                       <span>Learn more</span>
-                      <svg 
-                        className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" 
-                        fill="currentColor" 
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path 
-                          fillRule="evenodd" 
-                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
-                          clipRule="evenodd" 
-                        />
-                      </svg>
-                    </a>
+                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Who We Are Modal */}
+          {selectedFeature && (
+            <WhoWeAreModal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              title={selectedFeature.name}
+              description={selectedFeature.description}
+              content={selectedFeature.content}
+              importanceToCF={selectedFeature.importanceToCF}
+              importanceToCK={selectedFeature.importanceToCK}
+              economicImpact={selectedFeature.economicImpact}
+              businessImportance={selectedFeature.businessImportance}
+              icon={selectedFeature.icon}
+              iconColor={selectedFeature.iconColor}
+            />
+          )}
+        </div>
+      </section>
+
+      {/* Our Values Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
+              Our Foundation
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              Our Core Values
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Guiding principles that shape everything we do at Community Futures Chatham-Kent.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                name: 'Integrity',
+                description: 'We conduct ourselves with honesty, transparency, and ethical behavior in all our interactions.',
+                content: 'Integrity is the foundation of our organization. We believe in doing what is right, even when no one is watching. Our commitment to integrity ensures that we build trust with our clients, partners, and community members through transparent and ethical practices.',
+                importanceToCF: 'Integrity is essential to maintaining the trust of our stakeholders and ensuring the long-term success of our organization.',
+                importanceToCK: 'A community built on integrity fosters trust and cooperation among its members, leading to stronger relationships and better outcomes for all.',
+                economicImpact: 'Businesses that operate with integrity attract loyal customers, dedicated employees, and reliable partners, contributing to a thriving local economy.',
+                businessImportance: 'Understanding the importance of integrity helps businesses build strong reputations and lasting relationships with their customers and communities.',
+                icon: ShieldCheck,
+                color: 'from-blue-50 to-white dark:from-blue-900/20 dark:to-blue-900/10',
+                borderColor: 'border-blue-200/80 dark:border-blue-700/30',
+                iconColor: 'text-blue-600 dark:text-blue-400',
+                iconBgColor: 'bg-blue-100 dark:bg-blue-900/30'
+              },
+              {
+                name: 'Innovation',
+                description: 'We embrace creativity and forward-thinking to develop effective solutions for our community.',
+                content: 'Innovation drives progress and helps us find new and better ways to serve our community. We encourage creative thinking and are always looking for innovative approaches to address challenges and seize opportunities.',
+                importanceToCF: 'Innovation allows us to stay relevant and effective in a rapidly changing world, ensuring we can meet the evolving needs of our community.',
+                importanceToCK: 'A culture of innovation helps Chatham-Kent remain competitive and attractive to businesses, talent, and investment.',
+                economicImpact: 'Innovative businesses drive economic growth by creating new products, services, and markets, leading to job creation and increased prosperity.',
+                businessImportance: 'Embracing innovation helps businesses stay competitive, adapt to change, and capitalize on new opportunities in the marketplace.',
+                icon: Lightbulb,
+                color: 'from-amber-50 to-white dark:from-amber-900/20 dark:to-amber-900/10',
+                borderColor: 'border-amber-200/80 dark:border-amber-700/30',
+                iconColor: 'text-amber-600 dark:text-amber-400',
+                iconBgColor: 'bg-amber-100 dark:bg-amber-900/30'
+              },
+              {
+                name: 'Collaboration',
+                description: 'We believe in the power of partnerships and working together to achieve common goals.',
+                content: 'Collaboration is at the heart of everything we do. By working together with community partners, businesses, and stakeholders, we can achieve more than we could alone. We value diverse perspectives and believe that collective action leads to better outcomes.',
+                importanceToCF: 'Collaboration allows us to leverage the strengths and resources of our partners to maximize our impact in the community.',
+                importanceToCK: 'Strong partnerships create a more connected and resilient community where everyone has the opportunity to succeed.',
+                economicImpact: 'Collaborative efforts lead to more efficient use of resources, reduced duplication of services, and greater overall impact on the local economy.',
+                businessImportance: 'Businesses that collaborate with others can access new markets, share resources, and create more value for their customers and community.',
+                icon: Users,
+                color: 'from-green-50 to-white dark:from-green-900/20 dark:to-green-900/10',
+                borderColor: 'border-green-200/80 dark:border-green-700/30',
+                iconColor: 'text-green-600 dark:text-green-400',
+                iconBgColor: 'bg-green-100 dark:bg-green-900/30'
+              },
+              {
+                name: 'Community Commitment',
+                description: 'We are dedicated to the economic success and well-being of Chatham-Kent and its residents.',
+                content: 'Our commitment to the Chatham-Kent community runs deep. We are invested in the success of our local businesses and the well-being of all residents. Through our programs and services, we work to create opportunities, support growth, and build a brighter future for everyone in our community.',
+                importanceToCF: 'Our commitment to the community is at the core of our mission and guides all of our decisions and actions.',
+                importanceToCK: 'A strong, supportive community provides the foundation for individual and collective success, creating a better quality of life for all residents.',
+                economicImpact: 'When communities thrive, businesses thrive. A strong local economy benefits everyone by creating jobs, supporting families, and generating tax revenue for important public services.',
+                businessImportance: 'Businesses that are committed to their communities build strong relationships with customers, attract and retain top talent, and contribute to the overall health of the local economy.',
+                icon: HeartHandshake,
+                color: 'from-purple-50 to-white dark:from-purple-900/20 dark:to-purple-900/10',
+                borderColor: 'border-purple-200/80 dark:border-purple-700/30',
+                iconColor: 'text-purple-600 dark:text-purple-400',
+                iconBgColor: 'bg-purple-100 dark:bg-purple-900/30'
+              }
+            ].map((value, index) => (
+              <motion.div
+                key={value.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={cn(
+                  "group relative overflow-hidden rounded-2xl p-8 transition-all duration-300",
+                  "border bg-gradient-to-br",
+                  value.color,
+                  value.borderColor,
+                  "hover:shadow-lg hover:-translate-y-1"
+                )}
+              >
+                <div className="relative z-10">
+                  <div className="flex items-start gap-5 mb-6">
+                    <div className={cn(
+                      "flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl",
+                      "bg-white/90 dark:bg-gray-800/50 backdrop-blur-sm",
+                      "shadow-sm border border-white/80 dark:border-gray-700/50",
+                      "group-hover:bg-white/100 dark:group-hover:bg-gray-800/70 transition-colors"
+                    )}>
+                      <div className={cn("p-3 rounded-xl", value.iconBgColor)}>
+                        <value.icon className={cn("h-6 w-6", value.iconColor)} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        {value.name}
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow">
+                    {value.description}
+                  </p>
+                  <div className="mt-auto">
+                    <button
+                      className={cn(
+                        "inline-flex items-center text-sm font-medium transition-colors",
+                        "text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300",
+                        "group-hover:underline underline-offset-4"
+                      )}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleValueClick(value);
+                      }}
+                    >
+                      <span>Learn more</span>
+                      <ChevronRightIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -409,6 +618,23 @@ const WhoWeAre: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Values Modal */}
+      {selectedValue && (
+        <WhoWeAreModal
+          isOpen={isValueModalOpen}
+          onClose={closeValueModal}
+          title={selectedValue.name}
+          description={selectedValue.description}
+          content={selectedValue.content}
+          importanceToCF={selectedValue.importanceToCF}
+          importanceToCK={selectedValue.importanceToCK}
+          economicImpact={selectedValue.economicImpact}
+          businessImportance={selectedValue.businessImportance}
+          icon={selectedValue.icon}
+          iconColor={selectedValue.iconColor}
+        />
+      )}
 
       {/* Logo Carousel - Trusted By */}
       <section className="py-12 bg-gray-50 dark:bg-gray-800/50">
