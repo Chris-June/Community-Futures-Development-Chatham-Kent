@@ -27,6 +27,8 @@ const Disclaimer = lazy(() => import('./pages/legal/Disclaimer'));
 const LearnMore = lazy(() => import('./pages/LearnMore'));
 const MarketResearchGuidePage = lazy(() => import('./pages/MarketResearchGuidePage'));
 const GovernmentResourcesPage = lazy(() => import('./pages/GovernmentResourcesPage'));
+const Blogs = lazy(() => import('./pages/blog/Blogs'));
+const BlogPostPage = lazy(() => import('./pages/blog/BlogPostPage'));
 
 // Component to handle route changes and update SEO
 const RouteHandler = () => {
@@ -63,6 +65,8 @@ const RouteHandler = () => {
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/market-research-guide" element={<MarketResearchGuidePage />} />
         <Route path="/resources/government" element={<GovernmentResourcesPage />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Routes>
     </SEO>
   );

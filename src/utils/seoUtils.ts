@@ -107,4 +107,10 @@ export const routesSEO: RouteSEO[] = [
     description: 'Legal disclaimer for the Community Futures Chatham-Kent website.',
     keywords: ['disclaimer', 'legal notice', 'liability'],
   },
+  {
+    path: '/blogs',
+    title: 'Blogs',
+    description: 'Read the latest news, articles, and insights from Community Futures Chatham-Kent.',
+    keywords: ['blog', 'news', 'articles', 'small business tips'],
+  },
 ];

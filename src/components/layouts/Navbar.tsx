@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import { NavItem } from '../../types';
 import { useNavStore } from '../../store/navStore';
-import { Home, Rocket, BookOpen, Users, FileText } from 'lucide-react';
+import { Home, Rocket, BookOpen, Users, FileText, Newspaper } from 'lucide-react';
 
 const navigation: NavItem[] = [
   { name: 'Home', href: '/', icon: Home },
@@ -24,6 +24,7 @@ const navigation: NavItem[] = [
     ],
   },
   { name: 'Resources', href: '/resources', icon: FileText },
+  { name: 'Blogs', href: '/blogs', icon: Newspaper },
 ];
 
 const DropdownMenu = ({ 
