@@ -11,7 +11,7 @@ export const approvedPartnerLogos: LogoItem[] = [
     href: "https://www.padgett.com/"
   },
 {
-    src: "/assets/images/smith-cycle.jpg",
+    src: "/assets/images/filename.jpg",
     alt: "Pathways Law",
     width: 200,
     height: 80,

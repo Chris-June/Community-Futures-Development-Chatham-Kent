@@ -24,6 +24,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           {children}
         </div>
       </main>
+
       {/* Global Approved Partners marquee - slim site-wide strip */}
       <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
@@ -40,6 +41,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           />
         </div>
       </div>
+      
       <Footer className="mt-auto" />
     </div>
   );
