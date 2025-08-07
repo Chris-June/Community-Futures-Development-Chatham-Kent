@@ -7,6 +7,8 @@ import EngagementCTA from '../components/EngagementCTA';
 import { motion } from 'framer-motion';
 import { Building2, Users, LineChart } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter';
+import LogoMarquee from '../components/LogoMarquee/LogoMarquee';
+import { approvedPartnerLogos } from '../data/approvedPartners';
 
 const stats = [
   {
@@ -40,6 +42,32 @@ export default function Home() {
         ctaText="Apply Here"
         onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
+      {/* Approved Partners Marquee - prominent placement below hero */}
+      <div className="bg-white dark:bg-gray-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Approved Partners
+            </h2>
+            <a
+              href="/about/partners"
+              className="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+            >
+              View all
+            </a>
+          </div>
+          <LogoMarquee
+            logos={approvedPartnerLogos}
+            speedSeconds={28}
+            gap="2rem"
+            grayscale
+            maskEdges
+            pauseOnHover
+            className="mx-auto"
+            itemClassName="h-10 sm:h-12 md:h-14"
+          />
+        </div>
+      </div>
       
       {/* Impact Stats */}
       <div className="w-full py-24 bg-gradient-to-b from-primary-600 to-primary-800 dark:from-primary-800 dark:to-primary-900">

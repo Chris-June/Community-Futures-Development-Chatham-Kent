@@ -70,3 +70,69 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Marquee animation and utilities (Tailwind-friendly) */
+@layer utilities {
+  /* Container: sets CSS vars and clipping */
+  .marquee {
+    --duration: 30s; /* default speed */
+    --gap: 2.5rem;  /* default gap */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Optional: nice edge fading mask */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* The moving track that is 200% width (two inner rows) */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* Animation utility */
+  .animate-marquee {
+    animation: marquee var(var(--duration, 30s)) linear infinite;
+  }
+
+  /* Reverse direction */
+  .animate-marquee-reverse {
+    animation-direction: reverse;
+  }
+
+  /* Inner row spacing */
+  .marquee-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  /* Pause on hover support */
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  /* Grayscale helper for logos */
+  .logos-grayscale img {
+    filter: grayscale(100%);
+    opacity: 0.85;
+  }
+
+  /* Reduced motion: stop the animation */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation-duration: 1ms;
+      animation-iteration-count: 1;
+    }
+  }
+
+  /* Keyframes for seamless loop (shift -50% of 200% content) */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
