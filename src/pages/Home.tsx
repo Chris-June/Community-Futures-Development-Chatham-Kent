@@ -47,7 +47,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Approved Partners
+              Trusted Service Providers
             </h2>
             <a
               href="/about/partners"
@@ -60,7 +60,7 @@ export default function Home() {
             logos={approvedPartnerLogos}
             speedSeconds={28}
             gap="2rem"
-            grayscale
+            // grayscale
             maskEdges
             pauseOnHover
             className="mx-auto"
