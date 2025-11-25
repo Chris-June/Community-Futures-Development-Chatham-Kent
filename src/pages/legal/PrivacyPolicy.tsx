@@ -1,14 +1,14 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-white py-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="prose prose-lg prose-indigo mx-auto">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Privacy Policy</h1>
-          <p className="mt-2 text-sm text-gray-500">Last updated: October 25, 2016</p>
+    <div className="bg-background py-12">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-foreground">
+        <div className="prose prose-lg prose-neutral dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary-600 dark:prose-a:text-primary-400 mx-auto">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacy Policy</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Last updated: October 25, 2016</p>
           
           <div className="mt-8 space-y-8">
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">1.0 Purpose of Community Futures Development Corporation of Chatham-Kent Privacy Policy</h2>
+              <h2 className="text-2xl font-semibold text-foreground">1.0 Purpose of Community Futures Development Corporation of Chatham-Kent Privacy Policy</h2>
               <p className="mt-4">
                 Community Futures Development Corporation of Chatham-Kent is a federally supported not-for-profit community organization with a volunteer board of directors and professional staff whose purpose is to develop and diversify local economies. Community Futures Development Corporation of Chatham-Kent supports community economic development and small business growth by developing and implementing strategic community plans, delivering a range of counselling and information services to small business and operating locally controlled investment funds to provide repayable financing to new and existing businesses.
               </p>
@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">1.1 The Ten Principles of PIPEDA Summarized</h3>
+              <h3 className="text-xl font-semibold text-foreground mt-6">1.1 The Ten Principles of PIPEDA Summarized</h3>
               <p className="mt-4">The ten Principles of PIPEDA that form the basis of this Privacy Policy are as follows:</p>
               <ol className="list-decimal pl-5 mt-2 space-y-2">
                 <li><strong>Accountability:</strong> organizations are accountable for the personal information they collect, use, retain and disclose in the course of their commercial activities, including, but not limited to, the appointment of a Chief Privacy Officer;</li>
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">1.2 Definitions</h3>
+              <h3 className="text-xl font-semibold text-foreground mt-6">1.2 Definitions</h3>
               <dl className="mt-4 space-y-4">
                 <div>
                   <dt className="font-semibold">Personal information</dt>
@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">2.0 Purposes of Collecting Personal Information</h2>
+              <h2 className="text-2xl font-semibold text-foreground">2.0 Purposes of Collecting Personal Information</h2>
               <p className="mt-4">
                 Personal information is collected in order to assess the eligibility of the individual completing an application for financial assistance, as well as to report to Federal Economic Development Agency for Southern Ontario (FedDev Ontario) / Industry Canada. The individual is the main source of information but Community Futures Development Corporation of Chatham-Kent will also ask to obtain information directly from a third source where the individual does not have the required information.
               </p>
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">3.0 Consent</h2>
+              <h2 className="text-2xl font-semibold text-foreground">3.0 Consent</h2>
               <p className="mt-4">
                 An individual’s express, written consent will be obtained before or at the time of collecting personal information. The purposes for the collection, use or disclosure of the personal information will be provided to the individual at the time of seeking his or her consent. Once consent is obtained from the individual to use his or her information for those purposes, Community Futures Development Corporation of Chatham-Kent has the individual's implied consent to collect or receive any supplementary information that is necessary to fulfil the same purposes. Express consent will also be obtained if, or when, a new use is identified.
               </p>
@@ -117,15 +117,15 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">4.0 Limiting Collection</h2>
+              <h2 className="text-2xl font-semibold text-foreground">4.0 Limiting Collection</h2>
               <p className="mt-4">
                 Personal information collected will be limited to the purposes set out in this Privacy Policy, Community Futures Development Corporation of Chatham-Kent applications, and/or other forms.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">5.0 Limiting Use, Disclosure and Retention</h2>
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">5.1 Use of Personal Information</h3>
+              <h2 className="text-2xl font-semibold text-foreground">5.0 Limiting Use, Disclosure and Retention</h2>
+              <h3 className="text-xl font-semibold text-foreground mt-6">5.1 Use of Personal Information</h3>
               <p className="mt-4">Personal information will be used for only those purposes to which the individual has consented with the following exceptions, as permitted under PIPEDA:</p>
               <p className="mt-4">Community Futures Development Corporation of Chatham-Kent will use personal information without the individual's consent, where:</p>
               <ul className="list-disc pl-5 mt-2 space-y-2">
@@ -138,7 +138,7 @@ export default function PrivacyPolicy() {
                 <li>collection is required to investigate a breach of an agreement.</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">5.2 Disclosure and Transfer of Personal Information</h3>
+              <h3 className="text-xl font-semibold text-foreground mt-6">5.2 Disclosure and Transfer of Personal Information</h3>
               <p className="mt-4">
                 Personal information will be disclosed to only those Community Futures Development Corporation of Chatham-Kent employees, members of Community Futures Development Corporation of Chatham-Kent committees, and the Board of Directors that need to know the information for the purposes of their work or making an assessment as to the individual's eligibility to the loan program.
               </p>
@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
                 PIPEDA permits Community Futures Development Corporation of Chatham-Kent to transfer personal information to a third party, without the individual's knowledge or consent, if the transfer is simply for processing purposes and the third party only uses the information for the purposes for which it was transferred. Community Futures Development Corporation of Chatham-Kent will ensure, by contractual or other means, that the third party protects the information and uses it only for the purposes for which it was transferred.
               </p>
 
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">5.3 Retention of Personal Information</h3>
+              <h3 className="text-xl font-semibold text-foreground mt-6">5.3 Retention of Personal Information</h3>
               <p className="mt-4">
                 Personal information will be retained in client files as long as the file is active and for such periods of time as may be prescribed by applicable laws and regulations.
               </p>
@@ -170,7 +170,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">6.0 Accuracy</h2>
+              <h2 className="text-2xl font-semibold text-foreground">6.0 Accuracy</h2>
               <p className="mt-4">
                 Community Futures Development Corporation of Chatham-Kent endeavours to ensure that any personal information provided by the individual in his or her active file(s) is accurate, current and complete as is necessary to fulfill the purposes for which the information has been collected, used, retained and disclosed. Individuals are requested to notify Community Futures Development Corporation of Chatham-Kent of any change in personal or business information.
               </p>
@@ -178,7 +178,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">7.0 Safeguards</h2>
+              <h2 className="text-2xl font-semibold text-foreground">7.0 Safeguards</h2>
               <p className="mt-4">
                 Community Futures Development Corporation of Chatham-Kent will use physical, organizational, and technological measures to safeguard personal information to only those Community Futures Development Corporation of Chatham-Kent employees, volunteers, or third parties who need to know this information for the purposes set out in this Privacy Policy.
               </p>
@@ -200,14 +200,14 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">8.0 Openness</h2>
+              <h2 className="text-2xl font-semibold text-foreground">8.0 Openness</h2>
               <p className="mt-4">
                 Community Futures Development Corporation of Chatham-Kent will endeavour to make its privacy policies and procedures known to the individual via this Privacy Policy. This document will also be available on Community Futures Development Corporation’s website: www.cfdcck.on.ca.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">9.0 Individual Access</h2>
+              <h2 className="text-2xl font-semibold text-foreground">9.0 Individual Access</h2>
               <p className="mt-4">
                 An Individual who wishes to review or verify what personal information is held by Community Futures Development Corporation of Chatham-Kent, or to whom the information has been disclosed (as permitted by the Act), may make the request for access, in writing, to the Community Futures Development Corporation of Chatham-Kent's Chief Privacy Officer. Upon verification of the individual's identity, the Chief Privacy Officer will respond within 60 days.
               </p>
@@ -217,7 +217,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">10.0 Complaints/Recourse</h2>
+              <h2 className="text-2xl font-semibold text-foreground">10.0 Complaints/Recourse</h2>
               <p className="mt-4">
                 If an individual has a concern about Community Futures Development Corporation of Chatham-Kent's personal information handling practices, a complaint, in writing, may be directed to the Community Futures Development Corporation of Chatham-Kent's Chief Privacy Officer.
               </p>
@@ -244,7 +244,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">Questions/Access Request/Complaint</h3>
+              <h3 className="text-xl font-semibold text-foreground mt-6">Questions/Access Request/Complaint</h3>
               <p className="mt-4">
                 Any questions regarding this or any other privacy policy of Community Futures Development Corporation of Chatham-Kent may be directed to the Chief Privacy Officer. Requests for access to information, or to make a complaint, are to be made in writing and sent to the Chief Privacy Officer at the address below:
               </p>
@@ -255,12 +255,12 @@ export default function PrivacyPolicy() {
                 Chatham, Ontario<br />
                 N7L 2Y8<br />
                 Tel (226) 996-1234<br />
-                Email address: <a href="mailto:info@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500">info@cfdcck.on.ca</a>
-              </address>
-            </section>
+                Email address: <a href="mailto:info@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">info@cfdcck.on.ca</a>
+            </address>
+          </section>
 
-            <section>
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">Amendment to Community Futures Development Corporation of Chatham-Kent's Privacy Policies</h3>
+          <section>
+              <h3 className="text-xl font-semibold text-foreground mt-6">Amendment to Community Futures Development Corporation of Chatham-Kent's Privacy Policies</h3>
               <p className="mt-4">
                 This Community Futures Development Corporation of Chatham Kent's Privacy Policy is in effect October 25, 2016 and is retroactive to January 1, 2004. This policy is subject to amendment in response to developments in the privacy legislation. The Chief Privacy Officer will review and revise the Privacy Policy from time to time as required by changes in privacy law. Notification of any changes in the Privacy Policy will be posted on Community Futures Development Corporation of Chatham-Kent's website. Any changes in the Privacy Policy will apply to Personal information collected from the date of the posting of the revised Privacy Policy on Community Futures Development Corporation of Chatham-Kent's website: www.cfdcck.on.ca.
               </p>

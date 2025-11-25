@@ -14,9 +14,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
     <div className="min-h-screen flex flex-col">
       <SkipToContent />
       <Navbar />
-      <main 
-        id="main-content" 
-        className="flex-grow flex flex-col" 
+      <main
+        id="main-content"
+        className="flex-grow flex flex-col"
         role="main"
         tabIndex={-1}
       >
@@ -26,7 +26,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       </main>
 
       {/* Global Approved Partners marquee - slim site-wide strip */}
-      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      <div className="bg-white dark:bg-primary-950 border-t border-gray-200 dark:border-primary-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <h2 className="sr-only">Trusted Service Providers</h2>
           <LogoMarquee
@@ -41,7 +41,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           />
         </div>
       </div>
-      
+
       <Footer className="mt-auto" />
     </div>
   );

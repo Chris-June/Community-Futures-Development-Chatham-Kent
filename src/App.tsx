@@ -7,6 +7,7 @@ import LoadingSpinner from './components/common/LoadingSpinner';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import SEO from './components/seo/SEO';
 import { getRouteSEO } from './utils/seoUtils';
+import { ThemeProvider } from './context/ThemeContext';
 
 // Lazy load all page components
 const Home = lazy(() => import('./pages/Home'));
@@ -74,18 +75,20 @@ const RouteHandler = () => {
 
 function App() {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <Router>
-          <ScrollToTop />
-          <MainLayout>
-            <Suspense fallback={<LoadingSpinner fullPage />}>
-              <RouteHandler />
-            </Suspense>
-          </MainLayout>
-        </Router>
-      </ErrorBoundary>
-    </HelmetProvider>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <HelmetProvider>
+        <ErrorBoundary>
+          <Router>
+            <ScrollToTop />
+            <MainLayout>
+              <Suspense fallback={<LoadingSpinner fullPage />}>
+                <RouteHandler />
+              </Suspense>
+            </MainLayout>
+          </Router>
+        </ErrorBoundary>
+      </HelmetProvider>
+    </ThemeProvider>
   );
 }
 

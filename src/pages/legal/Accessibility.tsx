@@ -1,14 +1,14 @@
 export default function Accessibility() {
   return (
-    <div className="bg-white py-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="prose prose-lg prose-indigo mx-auto">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Accessibility Statement</h1>
-          <p className="mt-2 text-sm text-gray-500">Last updated: May 20, 2025</p>
+    <div className="bg-background py-12">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-foreground">
+        <div className="prose prose-lg prose-neutral dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary-600 dark:prose-a:text-primary-400 mx-auto">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Accessibility Statement</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Last updated: May 20, 2025</p>
           
           <div className="mt-8 space-y-8">
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Our Commitment</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Our Commitment</h2>
               <p className="mt-4">
                 Community Futures Development Corporation of Chatham-Kent ("CFDC") is committed to ensuring digital 
                 accessibility for people with disabilities. We are continually improving the user experience for everyone 
@@ -17,7 +17,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Conformance Status</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Conformance Status</h2>
               <p className="mt-4">
                 The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to 
                 improve accessibility for people with disabilities. We aim to meet or exceed WCAG 2.1 Level AA standards 
@@ -26,7 +26,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Accessibility Features</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Accessibility Features</h2>
               <p className="mt-4">Our website includes the following accessibility features:</p>
               <ul className="list-disc pl-5 mt-2 space-y-2">
                 <li>Keyboard navigation support</li>
@@ -40,7 +40,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Assistive Technologies</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Assistive Technologies</h2>
               <p className="mt-4">
                 Our website is designed to be compatible with assistive technologies including:
               </p>
@@ -53,7 +53,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Areas for Improvement</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Areas for Improvement</h2>
               <p className="mt-4">
                 We recognize that some areas of our website may still need improvement. We are actively working to 
                 enhance accessibility in the following areas:
@@ -67,13 +67,13 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Feedback</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Feedback</h2>
               <p className="mt-4">
                 We welcome your feedback on the accessibility of our website. Please let us know if you encounter 
                 accessibility barriers:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-2">
-                <li>Email: <a href="mailto:accessibility@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500">accessibility@cfdcck.on.ca</a></li>
+                <li>Email: <a href="mailto:accessibility@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">accessibility@cfdcck.on.ca</a></li>
                 <li>Phone: 226-996-1234</li>
                 <li>Mail: 124 Thames St., Chatham, ON N7L 2Y8</li>
               </ul>
@@ -83,7 +83,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Compatibility</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Compatibility</h2>
               <p className="mt-4">
                 Our website is designed to be compatible with the following browsers and technologies:
               </p>
@@ -95,7 +95,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Ongoing Efforts</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Ongoing Efforts</h2>
               <p className="mt-4">
                 We are committed to ongoing efforts to ensure our website remains accessible. This includes:
               </p>
@@ -108,7 +108,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Alternative Access</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Alternative Access</h2>
               <p className="mt-4">
                 If you have difficulty accessing any content on our website, please contact us and we will provide 
                 the information in an alternative format. We are committed to providing reasonable accommodations 
@@ -117,7 +117,7 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900">Contact Us</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Contact Us</h2>
               <p className="mt-4">
                 For any accessibility-related questions or concerns, please contact us at:
               </p>
@@ -125,7 +125,7 @@ export default function Accessibility() {
                 Community Futures Development Corporation of Chatham-Kent<br />
                 Accessibility Coordinator<br />
                 124 Thames St., Chatham, ON N7L 2Y8<br />
-                Email: <a href="mailto:accessibility@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500">accessibility@cfdcck.on.ca</a><br />
+                Email: <a href="mailto:accessibility@cfdcck.on.ca" className="text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">accessibility@cfdcck.on.ca</a><br />
                 Phone: 226-996-1234
               </address>
             </section>

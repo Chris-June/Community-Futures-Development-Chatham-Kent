@@ -34,7 +34,7 @@ const FinancialProjectionsPart: React.FC<FinancialProjectionsPartProps> = ({ dat
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">8. Financial Projections</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">8. Financial Projections</h2>
 
       <FormField
         label="Key Assumptions"
@@ -84,8 +84,8 @@ Forecasts based on a subscription model with increasing monthly signups and tier
         rows={5}
       />
 
-      <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
-        <h3 className="text-lg font-medium text-gray-700 mb-3">Projected Financial Statements (Summary or Link)</h3>
+      <div className="mb-6 p-4 border border-border rounded-md bg-muted">
+        <h3 className="text-lg font-medium text-foreground mb-3">Projected Financial Statements (Summary or Link)</h3>
         <FormField
           label="Income Statement Projections (e.g., for 3-5 years)"
           id="financialProjections.financialStatements.incomeStatementProjections"

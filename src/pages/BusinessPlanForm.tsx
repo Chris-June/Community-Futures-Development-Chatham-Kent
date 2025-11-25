@@ -108,15 +108,15 @@ const initialFormData: FormData = {
   },
   financialProjections: {
     keyAssumptions: '',
-    startupCostsTable: '', 
-    salesForecastTable: '', 
+    startupCostsTable: '',
+    salesForecastTable: '',
     financialStatements: {
-      incomeStatementProjections: '', 
-      balanceSheetProjections: '', 
-      cashFlowProjections: '', 
+      incomeStatementProjections: '',
+      balanceSheetProjections: '',
+      cashFlowProjections: '',
     },
     breakEvenAnalysis: '',
-    financialRatios: '', 
+    financialRatios: '',
   },
   appendix: {
     supportingDocumentsList: '',
@@ -142,7 +142,7 @@ const setNestedValue = (obj: any, path: string, value: any) => {
   let current = obj;
   for (let i = 0; i < keys.length - 1; i++) {
     if (!current[keys[i]] || typeof current[keys[i]] !== 'object') {
-      current[keys[i]] = {}; 
+      current[keys[i]] = {};
     }
     current = current[keys[i]];
   }
@@ -236,7 +236,7 @@ export default function BusinessPlanForm() {
       } catch (error) {
         console.error('Failed to parse business plan data from localStorage:', error);
         localStorage.removeItem('businessPlanFormData');
-        setFormData(initialFormData); 
+        setFormData(initialFormData);
       }
     }
   }, []);
@@ -301,7 +301,7 @@ export default function BusinessPlanForm() {
 
   const contentRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  
+
   // Create refs for each step
   const setStepRef = useCallback((stepId: string) => (el: HTMLDivElement | null) => {
     if (el) { // Ensure element is not null before assigning
@@ -313,7 +313,7 @@ export default function BusinessPlanForm() {
   const renderAllStepsForPdf = useCallback(() => (
     <div style={{ position: 'absolute', left: '-9999px', top: 0, width: '210mm' }}>
       {formSteps.map(step => (
-        <div key={step.id} ref={setStepRef(step.id)} className="pdf-export-section mb-8 p-4 border border-gray-300 bg-white">
+        <div key={step.id} ref={setStepRef(step.id)} className="pdf-export-section mb-8 p-4 border border-border bg-card">
           <h2 className="text-xl font-semibold mb-3 text-indigo-700 border-b pb-2">{step.title}</h2>
           {renderSpecificStepContent(step.id)}
         </div>
@@ -322,68 +322,80 @@ export default function BusinessPlanForm() {
   ), [formData, handleInputChange, setStepRef, renderSpecificStepContent]); // Added renderSpecificStepContent and corrected dependencies
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <button onClick={() => navigate('/resources')} className="mb-6 text-indigo-600 hover:text-indigo-800 flex items-center">
-        <ChevronLeft size={20} className="mr-1" /> Back to Resources
-      </button>
+    <div className="bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-primary-950 min-h-screen relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/10 dark:bg-accent/5 rounded-full blur-3xl" />
+      </div>
+      <div className="container mx-auto px-4 py-8 relative z-10">
+        <button onClick={() => navigate('/resources')} className="mb-6 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 flex items-center font-medium transition-colors">
+          <ChevronLeft size={20} className="mr-1" /> Back to Resources
+        </button>
 
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto" ref={contentRef}>
-        <div className="flex justify-between items-start mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800">Interactive Business Plan Builder</h1>
-            <p className="text-gray-600 mt-1">Fill out key sections of your business plan. Your progress is saved automatically.</p>
+        <div className="group relative rounded-3xl p-8 max-w-4xl mx-auto" ref={contentRef}>
+          {/* Glassmorphism Card Background */}
+          <div className="absolute inset-0 rounded-3xl bg-card/70 dark:bg-card/60 backdrop-blur-md border border-border/60 dark:border-border/40 shadow-xl transition-all duration-300" />
+          <div className="relative z-10 flex justify-between items-start mb-6">
+            <div>
+              <span className="inline-block px-3 py-1.5 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100/80 dark:bg-primary-900/30 rounded-full mb-2 backdrop-blur-sm">
+                Business Planning
+              </span>
+              <h1 className="text-3xl font-bold text-foreground">Interactive Business Plan Builder</h1>
+              <p className="text-muted-foreground mt-1">Fill out key sections of your business plan. Your progress is saved automatically.</p>
+            </div>
+            <div className="flex gap-2">
+              <PdfExportButton
+                title="Business Plan"
+                filename="Business_Plan"
+                contentRef={contentRef} // This ref should ideally wrap ALL content meant for PDF, or be a general page ref
+                stepElements={formSteps.map(step => stepRefs.current[step.id]).filter(Boolean).map(el => ({ current: el as HTMLElement }))}
+                captureAllSteps={true} // Explicitly tell the button to capture all steps
+                variant="outline"
+                size="sm"
+                className="print:hidden"
+              />
+              <a
+                href="/BusinessPlan.md"
+                download="Business_Plan_Template.md"
+                className="shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              >
+                <Download size={18} className="mr-2" /> Download Template
+              </a>
+            </div>
           </div>
-          <div className="flex gap-2">
-            <PdfExportButton
-              title="Business Plan"
-              filename="Business_Plan"
-              contentRef={contentRef} // This ref should ideally wrap ALL content meant for PDF, or be a general page ref
-              stepElements={formSteps.map(step => stepRefs.current[step.id]).filter(Boolean).map(el => ({ current: el as HTMLElement }))}
-              captureAllSteps={true} // Explicitly tell the button to capture all steps
-              variant="outline"
-              size="sm"
-              className="print:hidden"
-            />
-            <a 
-              href="/BusinessPlan.md"
-              download="Business_Plan_Template.md"
-              className="shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-            >
-              <Download size={18} className="mr-2" /> Download Template
-            </a>
-          </div>
-        </div>
-        
-        <div className="mb-6">
-            <h2 className="text-2xl font-semibold text-indigo-700">{formSteps[currentStep].title}</h2>
-        </div>
 
-        <div className="p-6 border border-gray-200 rounded-md bg-gray-50 min-h-[400px]" ref={setStepRef(formSteps[currentStep].id)}>
+          <div className="relative z-10 mb-6">
+            <h2 className="text-2xl font-semibold text-primary-700 dark:text-primary-300">{formSteps[currentStep].title}</h2>
+          </div>
+
+          <div className="relative z-10 p-6 border border-border dark:border-primary-700/30 rounded-md bg-muted dark:bg-primary-900/10 min-h-[400px]" ref={setStepRef(formSteps[currentStep].id)}>
             {/* Visible content - only the current step */}
-            {renderStepContent()} 
-        </div>
-
-        {/* Hidden container for rendering all steps for PDF export */}
-        {renderAllStepsForPdf()}
-
-        <div className="mt-8 flex justify-between items-center">
-          <button
-            onClick={prevStep}
-            disabled={currentStep === 0}
-            className="inline-flex items-center px-6 py-3 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft size={18} className="mr-2" /> Previous
-          </button>
-          <div className="text-sm text-gray-500">
-            Step {currentStep + 1} of {formSteps.length}
+            {renderStepContent()}
           </div>
-          <button
-            onClick={nextStep}
-            disabled={currentStep === formSteps.length - 1}
-            className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Next <ChevronRight size={18} className="ml-2" />
-          </button>
+
+          {/* Hidden container for rendering all steps for PDF export */}
+          {renderAllStepsForPdf()}
+
+          <div className="relative z-10 mt-8 flex justify-between items-center">
+            <button
+              onClick={prevStep}
+              disabled={currentStep === 0}
+              className="inline-flex items-center px-6 py-3 border border-border dark:border-primary-700 text-sm font-medium rounded-md text-foreground bg-card dark:bg-primary-900/50 hover:bg-muted dark:hover:bg-primary-900/70 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm transition-colors"
+            >
+              <ChevronLeft size={18} className="mr-2" /> Previous
+            </button>
+            <div className="text-sm text-muted-foreground">
+              Step {currentStep + 1} of {formSteps.length}
+            </div>
+            <button
+              onClick={nextStep}
+              disabled={currentStep === formSteps.length - 1}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Next <ChevronRight size={18} className="ml-2" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

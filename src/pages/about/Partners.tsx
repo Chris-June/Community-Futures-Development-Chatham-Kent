@@ -17,7 +17,7 @@ interface ContactInfoProps {
 }
 
 const ContactInfo = ({ icon: Icon, text }: ContactInfoProps) => (
-  <div className="flex items-center gap-x-2 text-sm text-gray-600 dark:text-gray-400">
+  <div className="flex items-center gap-x-2 text-sm text-muted-foreground">
     <Icon className="h-5 w-5 flex-none text-primary-600 dark:text-primary-400" />
     <span>{text}</span>
   </div>
@@ -43,7 +43,7 @@ export default function Partners() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-background/95">
       <ParallaxHero
         title="Community Partners"
         description="We work closely with local organizations to create a strong support network for businesses in Chatham-Kent. Our partnerships enhance the resources and opportunities available to entrepreneurs in our community."
@@ -51,21 +51,26 @@ export default function Partners() {
         ctaText="Apply Here"
         onCtaClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
       />
-      
-      <div className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <div className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-primary-950 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/10 dark:bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="inline-block px-4 py-1.5 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+            <span className="inline-block px-4 py-1.5 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100/80 dark:bg-primary-900/30 rounded-full mb-4 backdrop-blur-sm">
               Strategic Alliances
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Our Valued Community Partners
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p className="mt-4 text-lg leading-8 text-muted-foreground">
               Collaborating with local organizations to strengthen Chatham-Kent's business ecosystem.
             </p>
           </div>
-          
+
           <ul
             role="list"
             className="mx-auto grid max-w-4xl grid-cols-1 gap-8"
@@ -77,15 +82,17 @@ export default function Partners() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700/50"
+                className="group relative overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-2"
               >
-                <div 
+                {/* Glassmorphism Card Background */}
+                <div className="absolute inset-0 rounded-3xl bg-card/70 dark:bg-card/60 backdrop-blur-md border border-border/60 dark:border-border/40 shadow-lg group-hover:shadow-xl group-hover:bg-card/90 dark:group-hover:bg-card/70 transition-all duration-300" />
+                <div
                   onClick={() => setSelectedPartner(partner)}
-                  className="p-6 lg:p-8 cursor-pointer"
+                  className="relative z-10 p-6 lg:p-8 cursor-pointer"
                 >
                   <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex-shrink-0">
-                      <div className="relative h-24 w-24 rounded-lg bg-white dark:bg-gray-700 p-2 border border-gray-200 dark:border-gray-600 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                      <div className="relative h-24 w-24 rounded-lg bg-card dark:bg-card p-2 border border-border shadow-sm group-hover:shadow-md transition-shadow duration-300">
                         <img
                           src={partner.logo}
                           alt={partner.name}
@@ -97,7 +104,7 @@ export default function Partners() {
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div>
-                          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                          <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                             {partner.name}
                           </h3>
                           <p className="text-base font-medium text-primary-600 dark:text-primary-400 mt-1">
@@ -109,18 +116,18 @@ export default function Partners() {
                           <span>{partner.partnership.type} since {partner.partnership.startYear}</span>
                         </div>
                       </div>
-                      
+
                       <div className="mt-4 space-y-4">
-                        <p className="text-gray-600 dark:text-gray-300">
+                        <p className="text-muted-foreground">
                           {partner.description}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-300">
+                        <p className="text-muted-foreground">
                           {partner.partnership.description}
                         </p>
                       </div>
-                      
+
                       {partner.contactInfo && (
-                        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div className="mt-6 pt-6 border-t border-border">
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {partner.contactInfo.address && (
                               <ContactInfo icon={MapPin} text={partner.contactInfo.address} />
@@ -137,8 +144,8 @@ export default function Partners() {
                     </div>
                   </div>
                 </div>
-                
-                <div className="px-6 py-4 bg-gray-50 dark:bg-gray-700/30 border-t border-gray-100 dark:border-gray-700/50">
+
+                <div className="relative z-10 px-6 py-4 bg-card/30 dark:bg-card/30 backdrop-blur-sm border-t border-border/50 dark:border-border/40">
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <a
                       href={partner.website}
@@ -167,27 +174,27 @@ export default function Partners() {
             <button
               onClick={handlePrevious}
               disabled={currentPage === 0}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center px-4 py-2 border border-border dark:border-primary-700 rounded-md shadow-sm text-sm font-medium text-foreground bg-card dark:bg-primary-900/50 hover:bg-muted dark:hover:bg-primary-900/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors backdrop-blur-sm"
             >
               <ChevronLeft className="h-5 w-5 mr-2" aria-hidden="true" />
               Previous
             </button>
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+            <span className="text-sm text-muted-foreground">
               Page {currentPage + 1} of {totalPages}
             </span>
             <button
               onClick={handleNext}
               disabled={currentPage === totalPages - 1}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center px-4 py-2 border border-border dark:border-primary-700 rounded-md shadow-sm text-sm font-medium text-foreground bg-card dark:bg-primary-900/50 hover:bg-muted dark:hover:bg-primary-900/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors backdrop-blur-sm"
             >
               Next
               <ChevronRight className="h-5 w-5 ml-2" aria-hidden="true" />
             </button>
           </div>
-          
+
           <div className="mt-12 text-center">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Become a Partner</h3>
-            <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-foreground">Become a Partner</h3>
+            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
               Interested in partnering with us to support local businesses in Chatham-Kent?
             </p>
             <a
@@ -200,7 +207,7 @@ export default function Partners() {
           </div>
         </div>
       </div>
-      
+
       {selectedPartner && (
         <PartnerModal
           partner={selectedPartner}
@@ -208,8 +215,8 @@ export default function Partners() {
           onClose={() => setSelectedPartner(null)}
         />
       )}
-      
-      <EngagementCTA 
+
+      <EngagementCTA
         title="Strengthening Our Community Together"
         subtitle="Join us in building a stronger, more prosperous Chatham-Kent through strategic partnerships and collaborative initiatives."
         primaryButtonText="Partner With Us"

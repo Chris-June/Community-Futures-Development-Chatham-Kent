@@ -28,7 +28,7 @@ const FundingRequestPart: React.FC<FundingRequestPartProps> = ({ data, onChange 
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">7. Funding Request</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">7. Funding Request</h2>
 
       <FormField
         label="Current Funding Status"

@@ -50,10 +50,9 @@ export function LogoMarquee({
   const hasLinks = logos.some(l => !!l.href);
 
   const containerClasses = cx(
-    "marquee w-full",
+    "marquee w-full relative",
     maskEdges && "marquee-mask",
     pauseOnHover && "pause-on-hover",
-    grayscale && "logos-grayscale",
     className
   );
 
@@ -73,30 +72,36 @@ export function LogoMarquee({
     <div className="marquee-inner" aria-hidden>
       {logos.map((logo, idx) => {
         const img = (
-          // Using explicit height if provided to help layout stability
           <img
             src={logo.src}
             alt={logo.alt}
             height={logo.height}
             width={logo.width}
-            className={cx("h-10 sm:h-12 md:h-14 object-contain", itemClassName)}
+            className={cx(
+              "h-10 sm:h-12 md:h-14 object-contain transition-all duration-300",
+              grayscale ? "grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100" : "",
+              "dark:brightness-0 dark:invert dark:opacity-70 dark:hover:opacity-100", // Make logos white in dark mode by default if not colored
+              itemClassName
+            )}
             loading="lazy"
           />
         );
         return (
-          <div key={`${logo.src}-${idx}`} className="flex items-center">
+          <div key={`${logo.src}-${idx}`} className="flex items-center justify-center">
             {logo.href ? (
               <a
                 href={logo.href}
                 target={logo.href?.startsWith("/") ? undefined : "_blank"}
                 rel={logo.href?.startsWith("/") ? undefined : "noopener noreferrer"}
                 aria-label={logo.alt}
-                className="inline-flex"
+                className="inline-flex hover:scale-110 transition-transform duration-300"
               >
                 {img}
               </a>
             ) : (
-              img
+              <div className="hover:scale-110 transition-transform duration-300">
+                {img}
+              </div>
             )}
           </div>
         );

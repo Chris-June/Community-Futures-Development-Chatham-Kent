@@ -26,7 +26,7 @@ const AppendixPart: React.FC<AppendixPartProps> = ({ data, onChange }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">9. Appendix</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">9. Appendix</h2>
 
       <FormField
         label="List of Supporting Documents"

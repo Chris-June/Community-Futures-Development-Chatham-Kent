@@ -101,7 +101,7 @@ export default function Resources() {
   const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
 
   return (
-    <div className="bg-white">
+    <div className="bg-background">
       {/* Hero Section */}
       <ParallaxHero
         title="Business Resources"
@@ -117,10 +117,10 @@ export default function Resources() {
           <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-200 mb-4">
             Tools & Resources
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-heading">
             Business Resources & Tools
           </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
             Access our comprehensive library of tools and resources designed to support your business journey at every stage.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function Resources() {
           {resources.map((resource) => (
             <div
               key={resource.title}
-              className="group relative flex flex-col rounded-2xl bg-white dark:bg-gray-800 p-8 ring-1 ring-gray-200 dark:ring-gray-700 transition-all duration-300 hover:shadow-xl hover:ring-gray-300 dark:hover:ring-gray-600 cursor-pointer hover:-translate-y-1"
+              className="group relative flex flex-col rounded-2xl bg-card p-8 ring-1 ring-border transition-all duration-300 hover:shadow-xl hover:ring-primary-200/80 dark:hover:ring-primary-700 cursor-pointer hover:-translate-y-1"
               onClick={(e) => {
                 e.preventDefault();
                 if (resource.type === 'link' || resource.type === 'interactive') {
@@ -136,8 +136,8 @@ export default function Resources() {
                   return;
                 }
                 window.open(resource.link, '_blank', 'noopener,noreferrer');
-              }}
-            >
+                }}
+              >
               <div className="relative z-10 w-full h-full">
                 <div className="flex items-center gap-x-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-300 ring-1 ring-primary-100 dark:ring-primary-800 group-hover:bg-primary-100 dark:group-hover:bg-primary-800/50 group-hover:ring-primary-200 dark:group-hover:ring-primary-700 transition-all duration-300">
@@ -148,10 +148,10 @@ export default function Resources() {
                   </span>
                 </div>
                 <div className="mt-5 flex flex-col gap-3">
-                  <h2 className="text-xl font-bold leading-7 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  <h2 className="text-xl font-bold leading-7 text-foreground group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {resource.title}
                   </h2>
-                  <p className="text-base leading-6 text-gray-600 dark:text-gray-300">{resource.description}</p>
+                  <p className="text-base leading-6 text-muted-foreground">{resource.description}</p>
                 </div>
                 <div className="mt-6">
                   <span className="text-sm font-medium text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors flex items-center">
@@ -249,16 +249,16 @@ export default function Resources() {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white dark:bg-gray-900 py-24">
+      <div className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-200 mb-4">
               Support
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-heading">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-heading">
               Frequently Asked Questions
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
               Find answers to common questions about our services and support programs.
             </p>
           </div>
@@ -270,11 +270,11 @@ export default function Resources() {
                     <div className="absolute flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white">
                       <span className="text-sm font-medium">0{index + 1}</span>
                     </div>
-                    <h3 className="ml-16 text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                    <h3 className="ml-16 text-lg font-semibold leading-7 text-foreground">
                       {faq.question}
                     </h3>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <dd className="mt-2 ml-16 text-base leading-7 text-muted-foreground">
                     {faq.answer}
                   </dd>
                 </div>
@@ -284,7 +284,7 @@ export default function Resources() {
         </div>
       </div>
 
-      <div className="bg-white">
+      <div className="bg-background">
         <EngagementCTA 
           title="Need More Help?"
           subtitle="Our team is here to support you with expert guidance and resources for your business journey."
@@ -292,6 +292,7 @@ export default function Resources() {
           secondaryButtonText="Learn More"
           onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
           onSecondaryClick={() => navigate('/learn-more')}
+          variant="hero"
         />
       </div>
     </div>

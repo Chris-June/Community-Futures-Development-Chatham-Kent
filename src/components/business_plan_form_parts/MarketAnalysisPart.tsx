@@ -44,7 +44,7 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">3. Market Analysis</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">3. Market Analysis</h2>
 
       <FormField
         label="Industry Overview"
@@ -57,8 +57,8 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
         rows={4}
       />
 
-      <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
-        <h3 className="text-lg font-medium text-gray-700 mb-3">Target Market</h3>
+      <div className="mb-6 p-4 border border-border rounded-md bg-muted">
+        <h3 className="text-lg font-medium text-foreground mb-3">Target Market</h3>
         <FormField
           label="Demographics"
           id="marketAnalysis.targetMarket.demographics"
@@ -112,8 +112,8 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
         rows={4}
       />
 
-      <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
-        <h3 className="text-lg font-medium text-gray-700 mb-3">Competition</h3>
+      <div className="mb-6 p-4 border border-border rounded-md bg-muted">
+        <h3 className="text-lg font-medium text-foreground mb-3">Competition</h3>
         <FormField
           label="Direct Competitors"
           id="marketAnalysis.competition.directCompetitors"
@@ -134,8 +134,8 @@ const MarketAnalysisPart: React.FC<MarketAnalysisPartProps> = ({ data, onChange 
           placeholder="Example: Indirect competitors include traditional CRM and workflow platforms like Monday.com and Salesforce, as well as IT consultants offering manual solutions. While functional, these options are often too complex or costly for small regional businesses."
           rows={3}
         />
-        <div className="mt-4 p-3 border border-gray-300 rounded-md bg-white">
-            <h4 className="text-md font-medium text-gray-600 mb-2">SWOT Analysis (for your business relative to competition)</h4>
+        <div className="mt-4 p-3 border border-border rounded-md bg-card">
+            <h4 className="text-md font-medium text-foreground mb-2">SWOT Analysis (for your business relative to competition)</h4>
             <FormField
                 label="Strengths"
                 id="marketAnalysis.competition.swotAnalysis.strengths"

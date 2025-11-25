@@ -29,7 +29,7 @@ const OrganizationAndManagementPart: React.FC<OrganizationAndManagementPartProps
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">4. Organization and Management</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">4. Organization and Management</h2>
 
       <FormField
         label="Organizational Structure (Description or Link to Chart)"

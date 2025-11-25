@@ -10,42 +10,60 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <motion.div
-      whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out group border border-gray-200/80"
+    <motion.article
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
     >
-      <Link to={`/blog/${post.slug}`} className="block">
-        <div className="overflow-hidden">
+      <Link to={`/blog/${post.slug}`} className="flex flex-col md:flex-row">
+        {/* Image side */}
+        <div className="relative md:w-5/12 overflow-hidden">
           <img
             src={post.imageUrl}
             alt={post.title}
-            className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="h-52 w-full md:h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
+          <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white">
+            {post.category}
+          </span>
         </div>
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-2">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider">{post.category}</p>
-            <div className="flex items-center text-xs text-gray-500">
-              <Clock className="w-4 h-4 mr-1" />
-              <span>{post.readingTime} min read</span>
-            </div>
+
+        {/* Content side */}
+        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
+          <div className="space-y-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground leading-snug group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              {post.title}
+            </h3>
+            <p className="text-sm text-muted-foreground line-clamp-3">
+              {post.excerpt}
+            </p>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-primary transition-colors duration-300">{post.title}</h3>
-          <p className="text-gray-600 mb-4 text-base leading-relaxed">{post.excerpt}</p>
-          <div className="flex items-center text-sm text-gray-500 pt-4 border-t border-gray-200/80">
-            <img src={post.authorAvatar} alt={post.author} className="w-8 h-8 rounded-full mr-3" />
-            <div>
-              <p className="font-semibold text-gray-800">{post.author}</p>
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-1.5" />
-                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+
+          <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <img src={post.authorAvatar} alt={post.author} className="h-8 w-8 rounded-full" />
+              <div>
+                <p className="font-medium text-foreground text-xs">{post.author}</p>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-3 w-3" />
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString('en-CA', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
+                  </time>
+                </div>
               </div>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              <span>{post.readingTime} min read</span>
             </div>
           </div>
         </div>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 };
 

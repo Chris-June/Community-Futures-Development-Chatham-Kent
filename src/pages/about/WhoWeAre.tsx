@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AnimatedCounter from '../../components/AnimatedCounter';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket, ShieldCheck, Lightbulb, HeartHandshake, ChevronRight as ChevronRightIcon, LucideIcon } from 'lucide-react';
+import { Building2, Users, Target, Award, ChevronLeft, ChevronRight, Rocket, ShieldCheck, Lightbulb, HeartHandshake, LucideIcon } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import ParallaxHero from '../../components/ParallaxHero';
 import { successStories } from '../../data/successStories';
@@ -20,7 +20,7 @@ const features = [
     economicImpact: 'Every dollar invested through our financing programs generates significant economic activity in the community, creating a multiplier effect that benefits the entire region.',
     businessImportance: 'Understanding our financing options can help businesses secure the capital they need to start, expand, or weather challenging times, ensuring their long-term success.',
     icon: Target,
-    color: 'from-blue-50 to-white dark:from-blue-900/20 dark:to-blue-900/10',
+    color: 'from-blue-50 to-background dark:from-blue-900/20 dark:to-blue-900/10',
     hoverColor: 'hover:from-blue-100/80 hover:to-blue-50/80 dark:hover:from-blue-800/30 dark:hover:to-blue-900/20',
     borderColor: 'border-blue-200/80 dark:border-blue-700/30',
     iconColor: 'text-white',
@@ -36,7 +36,7 @@ const features = [
     economicImpact: 'By helping businesses grow and succeed, we contribute to job creation, increased local spending, and a more diversified and resilient local economy.',
     businessImportance: 'Access to expert business advice and resources can help businesses overcome challenges, identify opportunities, and achieve sustainable growth in today\'s competitive marketplace.',
     icon: Building2,
-    color: 'from-green-50 to-white dark:from-green-900/20 dark:to-green-900/10',
+    color: 'from-green-50 to-background dark:from-green-900/20 dark:to-green-900/10',
     hoverColor: 'hover:from-green-100/80 hover:to-green-50/80 dark:hover:from-green-800/30 dark:hover:to-green-900/20',
     borderColor: 'border-green-200/80 dark:border-green-700/30',
     iconColor: 'text-white',
@@ -52,7 +52,7 @@ const features = [
     economicImpact: 'By investing in community economic development, we help create a more diverse and resilient local economy that can adapt to changing circumstances and provide opportunities for all residents.',
     businessImportance: 'A strong local economy benefits all businesses by creating a larger customer base, attracting investment, and fostering a supportive business environment.',
     icon: Users,
-    color: 'from-purple-50 to-white dark:from-purple-900/20 dark:to-purple-900/10',
+    color: 'from-purple-50 to-background dark:from-purple-900/20 dark:to-purple-900/10',
     hoverColor: 'hover:from-purple-100/80 hover:to-purple-50/80 dark:hover:from-purple-800/30 dark:hover:to-purple-900/20',
     borderColor: 'border-purple-200/80 dark:border-purple-700/30',
     iconColor: 'text-white',
@@ -68,7 +68,7 @@ const features = [
     economicImpact: 'Collaborative efforts lead to more efficient use of resources, reduced duplication of services, and greater overall impact on the local economy.',
     businessImportance: 'Our partnerships create valuable connections and opportunities for local businesses, helping them access new markets, resources, and support services.',
     icon: Award,
-    color: 'from-indigo-50 to-white dark:from-indigo-900/20 dark:to-indigo-900/10',
+    color: 'from-indigo-50 to-background dark:from-indigo-900/20 dark:to-indigo-900/10',
     hoverColor: 'hover:from-indigo-100/80 hover:to-indigo-50/80 dark:hover:from-indigo-800/30 dark:hover:to-indigo-900/20',
     borderColor: 'border-indigo-200/80 dark:border-indigo-700/30',
     iconColor: 'text-white',
@@ -146,7 +146,7 @@ const Carousel = () => {
 
   return (
     <section 
-      className="relative overflow-hidden bg-gradient-to-b from-primary-50 to-white dark:from-primary-900/20 dark:to-primary-900/10 py-16 sm:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-primary-50 to-background dark:from-primary-900/20 dark:to-primary-900/10 py-16 sm:py-24"
       aria-label="Success Stories Carousel"
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -154,7 +154,7 @@ const Carousel = () => {
           <h2 className="text-3xl font-bold tracking-tight text-primary-700 dark:text-primary-300 sm:text-4xl">
             Success Stories
           </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
             Discover how we've helped local businesses thrive in Chatham-Kent.
           </p>
         </div>
@@ -192,7 +192,7 @@ const Carousel = () => {
                 <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 sm:text-3xl md:text-4xl mb-3">
                   {successStories[currentIndex].businessName}
                 </h3>
-                <p className="text-gray-200 text-base sm:text-lg">
+                <p className="text-muted-foreground text-base sm:text-lg">
                   {successStories[currentIndex].description}
                 </p>
                 {successStories[currentIndex].cta && (
@@ -235,10 +235,10 @@ const Carousel = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
-                className={`h-2 w-8 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 ${
+                className={`h-2 w-8 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary-900 ${
                   index === currentIndex 
-                    ? 'bg-white w-10 scale-110' 
-                    : 'bg-white/50 hover:bg-white/75 w-6'
+                    ? 'bg-primary-600 w-10 scale-110' 
+                    : 'bg-primary-600/50 hover:bg-primary-600/70 w-6'
                 }`}
               />
             ))}
@@ -270,6 +270,7 @@ const WhoWeAre: React.FC = () => {
   const [selectedValue, setSelectedValue] = useState<ValueType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isValueModalOpen, setIsValueModalOpen] = useState(false);
+  const [activeFeatureName, setActiveFeatureName] = useState<string>(features[0]?.name ?? 'Access to Capital');
 
   const handleFeatureClick = (feature: typeof features[0]) => {
     setSelectedFeature(feature);
@@ -304,7 +305,7 @@ const WhoWeAre: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="bg-background transition-colors duration-200">
       {/* Hero Section */}
       <ParallaxHero
         title="Who We Are"
@@ -316,17 +317,65 @@ const WhoWeAre: React.FC = () => {
         secondaryCtaLink="/services"
       />
       
+      {/* Who We Are snapshot band */}
+      <section className="py-10 sm:py-12 bg-gradient-to-b from-background to-primary-50/60 dark:from-background dark:to-background/95">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-10 items-start">
+            <div className="space-y-3 max-w-3xl">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                A community-based partner for local business
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Community Futures Development Corporation of Chatham-Kent is a non-profit, community-based
+                organization. We exist to help entrepreneurs start, grow, and strengthen businesses across
+                Chatham-Kent through counselling, access to capital, and local economic development.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-foreground">
+              <div className="space-y-2">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
+                  <p className="text-sm text-muted-foreground">
+                    Non-profit, community-based organization focused on local impact.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
+                  <p className="text-sm text-muted-foreground">
+                    Serving entrepreneurs and businesses across Chatham-Kent.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
+                  <p className="text-sm text-muted-foreground">
+                    Support across the journey: startup, growth, and community economic development.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
+                  <p className="text-sm text-muted-foreground">
+                    Backed by local knowledge and national Community Futures network experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Stats */}
-      <section id="impact" className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
+      <section id="impact" className="bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-background py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
               Our Impact
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Making a Difference in Chatham-Kent
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
               Through our commitment to local economic development, we've helped create lasting positive change in our community.
             </p>
           </div>
@@ -342,13 +391,13 @@ const WhoWeAre: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex flex-col h-full bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700/50"
+                      className="flex flex-col h-full bg-card backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border"
                     >
                       <dt className="flex flex-col items-center text-center flex-grow">
                         <div className={`flex h-12 w-12 items-center justify-center rounded-full ${stat.bgColor} ${stat.iconColor} mb-4`}>
                           <stat.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
-                        <span className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <span className="text-3xl font-bold tracking-tight text-foreground">
                           {stat.value.includes('+') ? (
                             <>
                               <AnimatedCounter 
@@ -374,7 +423,7 @@ const WhoWeAre: React.FC = () => {
                           {stat.label}
                         </span>
                       </dt>
-                      <dd className="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
+                      <dd className="mt-2 text-sm text-center text-muted-foreground">
                         {stat.description}
                       </dd>
                     </motion.div>
@@ -387,85 +436,107 @@ const WhoWeAre: React.FC = () => {
       </section>
       
       {/* Core Pillars with Modal */}
-      <section id="core-pillars" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+      <section id="core-pillars" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16">
             <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
               Our Core Pillars
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Building a Stronger Chatham-Kent
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Through innovation, collaboration, and community focus, we're creating opportunities for businesses to thrive.
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+              Four ways we support local businesses and the wider community through access to capital, services,
+              development, and partnerships.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={cn(
-                  "group relative overflow-hidden rounded-2xl p-8 transition-all duration-300 cursor-pointer",
-                  "border bg-gradient-to-br",
-                  feature.color,
-                  feature.borderColor,
-                  feature.hoverColor,
-                  "hover:shadow-lg hover:-translate-y-1 hover:shadow-primary/10 dark:hover:shadow-primary/20"
-                )}
-                onClick={() => handleFeatureClick(feature)}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className={cn(
-                      "flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl",
-                      "bg-white/90 dark:bg-primary-950/50 backdrop-blur-sm",
-                      "shadow-sm border border-white/80 dark:border-primary-800/50",
-                      "group-hover:bg-white/100 dark:group-hover:bg-primary-900/70 transition-colors"
-                    )}>
+
+          <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[260px,minmax(0,1fr)] items-start">
+            {/* Left rail of pillars */}
+            <div className="space-y-3">
+              {features.map((feature) => {
+                const isActive = feature.name === activeFeatureName;
+                return (
+                  <button
+                    key={feature.name}
+                    type="button"
+                    onClick={() => setActiveFeatureName(feature.name)}
+                    className={cn(
+                      'w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition',
+                      isActive
+                        ? 'bg-card shadow-sm border-primary-200 dark:border-primary-700'
+                        : 'bg-card/80 hover:bg-card border-border'
+                    )}
+                  >
+                    <span className="h-8 w-8 flex items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-900/40">
+                      <feature.icon className="h-4 w-4 text-primary-600 dark:text-primary-300" />
+                    </span>
+                    <span className="text-foreground">{feature.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Detail panel for active pillar */}
+            <div className="relative rounded-2xl border border-border bg-card/95 dark:bg-card/70 p-6 sm:p-8 shadow-sm">
+              {features
+                .filter((feature) => feature.name === activeFeatureName)
+                .map((feature) => (
+                  <div key={feature.name} className="space-y-4">
+                    <div className="flex items-start gap-4">
                       <div className={cn(
-                        "h-10 w-10 rounded-lg flex items-center justify-center",
-                        feature.iconBgColor || "bg-primary-100 dark:bg-primary-900/50"
+                        'flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl',
+                        'bg-card/90 dark:bg-card/60 border border-border/60 dark:border-border/40 shadow-sm'
                       )}>
-                        <feature.icon 
-                          className={cn("h-5 w-5", feature.iconColor || "text-primary-600 dark:text-primary-400")} 
-                          aria-hidden="true" 
-                        />
+                        <div
+                          className={cn(
+                            'h-9 w-9 rounded-lg flex items-center justify-center',
+                            feature.iconBgColor || 'bg-primary-100 dark:bg-primary-900/50'
+                          )}
+                        >
+                          <feature.icon
+                            className={cn(
+                              'h-5 w-5',
+                              feature.iconColor || 'text-primary-600 dark:text-primary-400'
+                            )}
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-xl font-bold text-foreground">{feature.name}</h3>
+                        <p className="text-sm text-muted-foreground max-w-2xl">
+                          {feature.description}
+                        </p>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                        {feature.name}
-                      </h3>
+                    <ul className="space-y-2 text-sm text-foreground">
+                      <li>• {feature.importanceToCF}</li>
+                      <li>• {feature.importanceToCK}</li>
+                      <li>• {feature.economicImpact}</li>
+                    </ul>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary-700">
+                        Business impact
+                      </span>
+                      <span className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary-700">
+                        Community impact
+                      </span>
                     </div>
-                  </div>
-                  <p className="text-gray-800 dark:text-gray-200 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <div className="mt-6">
                     <button
                       className={cn(
-                        "inline-flex items-center text-sm font-medium transition-colors",
-                        "text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300",
-                        "group-hover:underline underline-offset-4"
+                        'mt-6 inline-flex items-center text-sm font-medium transition-colors',
+                        'text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300'
                       )}
                       aria-label={`Learn more about ${feature.name}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleFeatureClick(feature);
-                      }}
+                      onClick={() => handleFeatureClick(feature)}
                     >
                       <span>Learn more</span>
-                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <ChevronRight className="ml-1 h-4 w-4" />
                     </button>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+            </div>
           </div>
 
           {/* Who We Are Modal */}
@@ -488,21 +559,21 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 lg:mb-16">
+          <div className="text-center mb-8 lg:mb-10">
             <span className="inline-block px-3 py-1 text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
               Our Foundation
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Our Core Values
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Guiding principles that shape everything we do at Community Futures Chatham-Kent.
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+              The principles that guide how we support businesses and the wider community in Chatham-Kent.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             {[
               {
                 name: 'Integrity',
@@ -513,7 +584,7 @@ const WhoWeAre: React.FC = () => {
                 economicImpact: 'Businesses that operate with integrity attract loyal customers, dedicated employees, and reliable partners, contributing to a thriving local economy.',
                 businessImportance: 'Understanding the importance of integrity helps businesses build strong reputations and lasting relationships with their customers and communities.',
                 icon: ShieldCheck,
-                color: 'from-blue-50 to-white dark:from-blue-900/20 dark:to-blue-900/10',
+                color: 'from-blue-50 to-background dark:from-blue-900/20 dark:to-blue-900/10',
                 borderColor: 'border-blue-200/80 dark:border-blue-700/30',
                 iconColor: 'text-blue-600 dark:text-blue-400',
                 iconBgColor: 'bg-blue-100 dark:bg-blue-900/30'
@@ -527,7 +598,7 @@ const WhoWeAre: React.FC = () => {
                 economicImpact: 'Innovative businesses drive economic growth by creating new products, services, and markets, leading to job creation and increased prosperity.',
                 businessImportance: 'Embracing innovation helps businesses stay competitive, adapt to change, and capitalize on new opportunities in the marketplace.',
                 icon: Lightbulb,
-                color: 'from-amber-50 to-white dark:from-amber-900/20 dark:to-amber-900/10',
+                color: 'from-amber-50 to-background dark:from-amber-900/20 dark:to-amber-900/10',
                 borderColor: 'border-amber-200/80 dark:border-amber-700/30',
                 iconColor: 'text-amber-600 dark:text-amber-400',
                 iconBgColor: 'bg-amber-100 dark:bg-amber-900/30'
@@ -541,7 +612,7 @@ const WhoWeAre: React.FC = () => {
                 economicImpact: 'Collaborative efforts lead to more efficient use of resources, reduced duplication of services, and greater overall impact on the local economy.',
                 businessImportance: 'Businesses that collaborate with others can access new markets, share resources, and create more value for their customers and community.',
                 icon: Users,
-                color: 'from-green-50 to-white dark:from-green-900/20 dark:to-green-900/10',
+                color: 'from-green-50 to-background dark:from-green-900/20 dark:to-green-900/10',
                 borderColor: 'border-green-200/80 dark:border-green-700/30',
                 iconColor: 'text-green-600 dark:text-green-400',
                 iconBgColor: 'bg-green-100 dark:bg-green-900/30'
@@ -555,65 +626,36 @@ const WhoWeAre: React.FC = () => {
                 economicImpact: 'When communities thrive, businesses thrive. A strong local economy benefits everyone by creating jobs, supporting families, and generating tax revenue for important public services.',
                 businessImportance: 'Businesses that are committed to their communities build strong relationships with customers, attract and retain top talent, and contribute to the overall health of the local economy.',
                 icon: HeartHandshake,
-                color: 'from-purple-50 to-white dark:from-purple-900/20 dark:to-purple-900/10',
+                color: 'from-purple-50 to-background dark:from-purple-900/20 dark:to-purple-900/10',
                 borderColor: 'border-purple-200/80 dark:border-purple-700/30',
                 iconColor: 'text-purple-600 dark:text-purple-400',
                 iconBgColor: 'bg-purple-100 dark:bg-purple-900/30'
               }
             ].map((value, index) => (
-              <motion.div
+              <motion.button
                 key={value.name}
-                initial={{ opacity: 0, y: 30 }}
+                type="button"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 className={cn(
-                  "group relative overflow-hidden rounded-2xl p-8 transition-all duration-300",
-                  "border bg-gradient-to-br",
-                  value.color,
-                  value.borderColor,
-                  "hover:shadow-lg hover:-translate-y-1"
+                  'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium',
+                  'bg-card/90 hover:bg-card text-foreground border-border/60 shadow-sm transition-colors'
                 )}
+                onClick={() => handleValueClick(value)}
+                aria-label={`Learn more about our value of ${value.name}`}
               >
-                <div className="relative z-10">
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className={cn(
-                      "flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl",
-                      "bg-white/90 dark:bg-gray-800/50 backdrop-blur-sm",
-                      "shadow-sm border border-white/80 dark:border-gray-700/50",
-                      "group-hover:bg-white/100 dark:group-hover:bg-gray-800/70 transition-colors"
-                    )}>
-                      <div className={cn("p-3 rounded-xl", value.iconBgColor)}>
-                        <value.icon className={cn("h-6 w-6", value.iconColor)} />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                        {value.name}
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow">
-                    {value.description}
-                  </p>
-                  <div className="mt-auto">
-                    <button
-                      className={cn(
-                        "inline-flex items-center text-sm font-medium transition-colors",
-                        "text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300",
-                        "group-hover:underline underline-offset-4"
-                      )}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleValueClick(value);
-                      }}
-                    >
-                      <span>Learn more</span>
-                      <ChevronRightIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
+                <span
+                  className={cn(
+                    'flex h-7 w-7 items-center justify-center rounded-full',
+                    value.iconBgColor
+                  )}
+                >
+                  <value.icon className={cn('h-4 w-4', value.iconColor)} />
+                </span>
+                <span>{value.name}</span>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -637,9 +679,9 @@ const WhoWeAre: React.FC = () => {
       )}
 
       {/* Logo Carousel - Trusted By */}
-      <section className="py-12 bg-gray-50 dark:bg-gray-800/50">
+      <section className="py-12 bg-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-8">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
             Trusted by local businesses and organizations
           </h3>
           <LogoCarousel />
@@ -651,14 +693,14 @@ const WhoWeAre: React.FC = () => {
 
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-800">
-        <EngagementCTA 
-          title="Ready to Grow Your Business?"
-          subtitle="Join our community of successful entrepreneurs and take your business to the next level with our expert support and resources."
+        <EngagementCTA
+          title="Ready to Grow Your Business with Us?"
+          subtitle="Whether you're starting, expanding, or transforming your business, we're here to support your journey every step of the way."
           primaryButtonText="Apply for Support"
-          secondaryButtonText="Contact Our Team"
-          onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
-          onSecondaryClick={() => navigate('/contact')}
-          variant="default"
+          secondaryButtonText="Meet Our Team"
+          onPrimaryClick={() => navigate('/learn-more')}
+          onSecondaryClick={() => navigate('/about/team')}
+          variant="hero"
         />
       </div>
     </div>

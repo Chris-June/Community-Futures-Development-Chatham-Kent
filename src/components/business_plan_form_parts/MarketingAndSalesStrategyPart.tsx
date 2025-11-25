@@ -37,10 +37,10 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">6. Marketing and Sales Strategy</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">6. Marketing and Sales Strategy</h2>
 
-      <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
-        <h3 className="text-lg font-medium text-gray-700 mb-3">Marketing Plan</h3>
+      <div className="mb-6 p-4 border border-border rounded-md bg-muted">
+        <h3 className="text-lg font-medium text-foreground mb-3">Marketing Plan</h3>
         <FormField
           label="Target Audience Recap"
           id="marketingAndSalesStrategy.marketingPlan.targetAudienceRecap"
@@ -93,8 +93,8 @@ const MarketingAndSalesStrategyPart: React.FC<MarketingAndSalesStrategyPartProps
         />
       </div>
 
-      <div className="mb-6 p-4 border border-gray-200 rounded-md bg-slate-50">
-        <h3 className="text-lg font-medium text-gray-700 mb-3">Sales Strategy</h3>
+      <div className="mb-6 p-4 border border-border rounded-md bg-muted">
+        <h3 className="text-lg font-medium text-foreground mb-3">Sales Strategy</h3>
         <FormField
           label="Sales Process"
           id="marketingAndSalesStrategy.salesStrategy.salesProcess"

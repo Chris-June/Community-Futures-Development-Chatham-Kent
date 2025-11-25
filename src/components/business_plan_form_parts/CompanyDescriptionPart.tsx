@@ -33,7 +33,7 @@ const CompanyDescriptionPart: React.FC<CompanyDescriptionPartProps> = ({ data, o
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">2. Company Description</h2>
+      <h2 className="text-xl font-semibold text-foreground mb-6">2. Company Description</h2>
 
       <FormField
         label="Company Description"

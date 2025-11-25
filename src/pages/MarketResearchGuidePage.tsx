@@ -295,10 +295,10 @@ const MarketResearchGuidePage: React.FC = () => {
 
   return (
     <FormProvider {...methods}>
-      <div className="flex flex-col md:flex-row min-h-screen bg-gray-50 p-4 md:p-6">
+      <div className="flex flex-col md:flex-row min-h-screen bg-background p-4 md:p-6">
         {/* Sidebar Navigation */}
-        <nav className="md:w-1/4 lg:w-1/5 p-4 bg-white shadow-lg rounded-lg md:mr-6 mb-6 md:mb-0">
-          <h2 className="text-xl font-bold text-gray-800 mb-6 border-b pb-3">Market Research Guide</h2>
+        <nav className="md:w-1/4 lg:w-1/5 p-4 bg-card shadow-lg rounded-lg md:mr-6 mb-6 md:mb-0 border border-border/60">
+          <h2 className="text-xl font-bold text-foreground mb-6 border-b pb-3 border-border">Market Research Guide</h2>
           <ul>
             {guideSections.map((section) => (
               <li key={section.id} className="mb-2">
@@ -306,8 +306,8 @@ const MarketResearchGuidePage: React.FC = () => {
                   onClick={() => setActiveSection(section.id)}
                   className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium 
                               ${activeSection === section.id 
-                                ? 'bg-blue-100 text-blue-700' 
-                                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`}
+                                ? 'bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-200' 
+                                : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
                 >
                   {section.title}
                 </button>
@@ -319,7 +319,7 @@ const MarketResearchGuidePage: React.FC = () => {
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col" ref={contentRef}>
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold">Market Research Guide</h1>
+            <h1 className="text-3xl font-bold text-foreground">Market Research Guide</h1>
             <div className="flex gap-2">
               <PdfExportButton 
                 title="Market Research Guide"
@@ -331,13 +331,13 @@ const MarketResearchGuidePage: React.FC = () => {
               <a 
                 href="/MarketResearch.md"
                 download="Market_Research_Guide_Template.md"
-                className="shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                className="shrink-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 <Download size={18} className="mr-2" /> Download Template
               </a>
             </div>
           </div>
-          <main className="flex-1 p-6 bg-white shadow-xl rounded-lg overflow-y-auto">
+          <main className="flex-1 p-6 bg-card shadow-xl rounded-lg overflow-y-auto border border-border/60">
             {/* Normal view - only show active section */}
           <div className="print:hidden">
             {getActiveSection()}

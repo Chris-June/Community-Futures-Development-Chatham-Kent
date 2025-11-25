@@ -58,7 +58,7 @@ const loanFeatures = [
 export default function LearnMore() {
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-background/95">
       <ParallaxHero
         title="Loan Application Requirements"
         description="Everything you need to know to prepare a successful loan application with Community Futures Chatham-Kent."
@@ -80,31 +80,38 @@ export default function LearnMore() {
       </ParallaxHero>
 
       {/* Requirements Section */}
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="bg-gradient-to-b from-background to-primary-50 dark:from-background dark:to-primary-950 py-24 sm:py-32 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/10 dark:bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Loan Requirements</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <span className="inline-block px-3 py-1.5 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100/80 dark:bg-primary-900/30 rounded-full mb-2 backdrop-blur-sm">
+              Loan Requirements
+            </span>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               What You'll Need to Apply
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
               We've made the application process as straightforward as possible. Here's what we'll need from you to get started.
             </p>
           </div>
-          
+
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {requirements.map((requirement, index) => {
                 const Icon = requirement.icon;
                 return (
                   <div key={index} className="relative pl-16">
-                    <dt className="text-base font-semibold leading-7 text-gray-900">
-                      <div className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
-                        <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                    <dt className="text-base font-semibold leading-7 text-foreground">
+                      <div className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-primary-foreground">
+                        <Icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       {requirement.title}
                     </dt>
-                    <dd className="mt-2 text-base leading-7 text-gray-600">{requirement.description}</dd>
+                    <dd className="mt-2 text-base leading-7 text-muted-foreground">{requirement.description}</dd>
                   </div>
                 );
               })}
@@ -114,37 +121,46 @@ export default function LearnMore() {
       </div>
 
       {/* Loan Features */}
-      <div className="bg-gray-50 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="bg-gradient-to-b from-primary-50 to-background dark:from-primary-950 dark:to-background py-24 sm:py-32 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary-300/20 dark:bg-primary-600/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/10 dark:bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Why Choose Us</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <span className="inline-block px-3 py-1.5 text-sm font-semibold text-primary-700 dark:text-primary-300 bg-primary-100/80 dark:bg-primary-900/30 rounded-full mb-2 backdrop-blur-sm">
+              Why Choose Us
+            </span>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Our Loan Features
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
               We offer flexible financing solutions designed to help your business grow and succeed.
             </p>
           </div>
-          
+
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <div className="bg-white shadow rounded-2xl p-8">
-              <ul role="list" className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="group relative rounded-3xl p-8 transition-all duration-300">
+              {/* Glassmorphism Card Background */}
+              <div className="absolute inset-0 rounded-3xl bg-card/70 dark:bg-card/60 backdrop-blur-md border border-border/60 dark:border-border/40 shadow-xl group-hover:shadow-2xl transition-all duration-300" />
+              <ul role="list" className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {loanFeatures.map((feature, index) => (
                   <li key={index} className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
-              
-              <div className="mt-10 border-t border-gray-200 pt-6">
-                <p className="text-sm text-gray-500">
+
+              <div className="relative z-10 mt-10 border-t border-border pt-6">
+                <p className="text-sm text-muted-foreground">
                   Have questions about our loan programs? Our team is here to help you understand your options and guide you through the application process.
                 </p>
                 <div className="mt-6">
                   <a
                     href="/about/contact"
-                    className="text-sm font-semibold text-primary-600 hover:text-primary-500"
+                    className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
                   >
                     Contact our loan team <span aria-hidden="true">→</span>
                   </a>
@@ -156,14 +172,14 @@ export default function LearnMore() {
       </div>
 
       {/* CTA Section */}
-      <EngagementCTA 
+      <EngagementCTA
         title="Join 100's of successful businesses located here in Chatham-Kent"
         subtitle="Be part of Chatham-Kent's economic success story. Whether you're starting a business or looking to grow, we're here to help."
         primaryButtonText="Apply Here"
         secondaryButtonText="Contact Us"
         onPrimaryClick={() => window.open('https://chathamkent.commongoalsapp.com/ApplyNow?appid=2', '_blank', 'noopener,noreferrer')}
         onSecondaryClick={() => navigate('/about/contact')}
-        className="mt-0"
+        variant="hero"
       />
     </div>
   );
